@@ -33,6 +33,7 @@ packages=(
     "zsh"
     "git"
     "tree"
+    "pixi"
 )
 
 # Loop over the array to install each application.
@@ -88,6 +89,9 @@ fi
 apps=(
     "google-chrome"
     "visual-studio-code"
+    "1password"
+    "displaylink"
+    "docker"
 )
 
 # Loop over the array to install each application.
