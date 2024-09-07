@@ -29,16 +29,10 @@ brew cleanup
 
 # Define an array of packages to install using Homebrew.
 packages=(
-    "python"
-    "tcl-tk"
-    "python-tk"
     "bash"
     "zsh"
     "git"
     "tree"
-    "pylint"
-    "black"
-    "node"
 )
 
 # Loop over the array to install each application.
@@ -90,27 +84,10 @@ else
     echo "Git user.email is already set to '$current_email'. Skipping configuration."
 fi
 
-# Create the tutorial virtual environment I use frequently
-$(brew --prefix)/bin/python3 -m venv "${HOME}/tutorial"
-
-# Install Prettier, which I use in both VS Code and Sublime Text
-$(brew --prefix)/bin/npm install --global prettier
-
 # Define an array of applications to install using Homebrew Cask.
 apps=(
     "google-chrome"
-    "firefox"
-    "brave-browser"
-    "sublime-text"
     "visual-studio-code"
-    "spotify"
-    "discord"
-    "google-drive"
-    "gimp"
-    "vlc"
-    "rectangle"
-    "postman"
-    "keyboardcleantool"
 )
 
 # Loop over the array to install each application.
@@ -128,15 +105,7 @@ done
 brew tap | grep -q "^homebrew/cask-fonts$" || brew tap homebrew/cask-fonts
 
 fonts=(
-    "font-source-code-pro"
-    "font-lato"
-    "font-montserrat"
-    "font-nunito"
-    "font-open-sans"
-    "font-oswald"
-    "font-poppins"
-    "font-raleway"
-    "font-roboto"
+    "font-source-code-pro-for-powerline"
 )
 
 for font in "${fonts[@]}"; do
