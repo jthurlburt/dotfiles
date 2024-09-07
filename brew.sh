@@ -124,7 +124,8 @@ done
 
 # Import Terminal Profile and set it as default
 open ${HOME}/dotfiles/settings/Monokai.terminal
-echo "Set Monokai as the default Terminal profile. Press enter to continue..."
+echo "Set Monokai as the default Terminal profile."
+echo "Press enter to continue..."
 read
 
 # Update and clean up again for safe measure
