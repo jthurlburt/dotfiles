@@ -118,11 +118,9 @@ for font in "${fonts[@]}"; do
     fi
 done
 
-# Once fonts are installed, import your Terminal Profile
-echo "Import your terminal settings..."
-echo "Terminal -> Settings -> Profiles -> Import..."
-echo "Import from ${HOME}/dotfiles/settings/Monokai.terminal"
-echo "Press enter to continue..."
+# Import Terminal Profile and set it as default
+open ${HOME}/dotfiles/settings/Monokai.terminal
+echo "Set Monokai as the default Terminal profile. Press enter to continue..."
 read
 
 # Update and clean up again for safe measure
