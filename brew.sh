@@ -121,7 +121,7 @@ done
 # Once fonts are installed, import your Terminal Profile
 echo "Import your terminal settings..."
 echo "Terminal -> Settings -> Profiles -> Import..."
-echo "Import from ${HOME}/dotfiles/settings/Pro.terminal"
+echo "Import from ${HOME}/dotfiles/settings/Monokai.terminal"
 echo "Press enter to continue..."
 read
 
