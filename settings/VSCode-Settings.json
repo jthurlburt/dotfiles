@@ -1,99 +1,84 @@
 {
-  // Recording specific settings
-  "editor.fontSize": 16, // Use 18 for Screen Recordings
-  "debug.console.fontSize": 16, // Use 18 for Screen Recordings
-  "terminal.integrated.fontSize": 16, // Use 18 for Screen Recordings
-  "window.zoomLevel": 0, // Use 3 for Screen Recordings
-
-  // Uncomment Below for Recording...
-
-  // "editor.fontSize": 18, // Use 18 for Screen Recordings
-  // "debug.console.fontSize": 18, // Use 18 for Screen Recordings
-  // "terminal.integrated.fontSize": 18, // Use 18 for Screen Recordings
-  // "window.zoomLevel": 3, // Use 3 for Screen Recordings
-  // "github.copilot.editor.enableAutoCompletions": false,
-  // "editor.quickSuggestions": {
-  //   "comments": "off",
-  //   "strings": "off"
-  //   "other": "on",
-  // },
-  // "editor.lightbulb.enabled": "off",
-  // "editor.parameterHints.enabled": false,
-  // "editor.hover.enabled": false,
-  // "editor.inlineSuggest.enabled": false,
-  // "editor.suggest.showSnippets": false,
-
-  // END - Recording specific settings
-
-  // General settings
-  "workbench.colorTheme": "Predawn",
-  "workbench.iconTheme": "ayu",
-  "editor.fontFamily": "Source Code Pro",
-  "debug.console.fontFamily": "Source Code Pro",
-  "editor.fontWeight": "500",
-  "terminal.integrated.fontWeight": "600",
-  "workbench.settings.openDefaultSettings": true,
-  "workbench.settings.useSplitJSON": true,
-  "workbench.settings.editor": "json",
-  "workbench.startupEditor": "newUntitledFile",
-  "editor.tabSize": 4,
-  "editor.formatOnSave": true,
+  "workbench.colorTheme": "Monokai",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.quickSuggestionsDelay": 100,
-  "editor.minimap.enabled": false,
-  "diffEditor.useInlineViewWhenSpaceIsLimited": false,
-
-  // Zen Mode settings
-  "zenMode.centerLayout": false,
-  "zenMode.fullScreen": false,
-  "zenMode.hideLineNumbers": false,
-
-  // Python settings
   "[python]": {
-    "editor.defaultFormatter": "ms-python.black-formatter",
-    "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
+      "source.fixAll": "explicit",
       "source.organizeImports": "explicit"
-    }
+    },
+    "editor.defaultFormatter": "charliermarsh.ruff"
   },
-  "python.venvPath": "~/venvs",
-  "isort.args": ["--profile", "black"],
-  "pylint.args": ["--disable=C0114,C0115,C0116,C0103,C0301,W0621,W0718,W1203"],
-  "pylint.importStrategy": "fromEnvironment",
-
-  // Code Runner settings
-  "code-runner.clearPreviousOutput": true,
-  "code-runner.showExecutionMessage": false,
-  "code-runner.ignoreSelection": true,
-  "code-runner.saveFileBeforeRun": true,
-  "code-runner.executorMap": {
-    "python": "\"$pythonPath\" -u $fullFileName"
-  },
-  "code-runner.enableAppInsights": false,
-
-  // Plaintext settings
-  "[plaintext]": {
-    "editor.quickSuggestions": {
-      "comments": "off",
-      "strings": "off",
-      "other": "off"
-    }
-  },
-
-  // Shell script settings
-  "[shellscript]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
-  },
-
-  // Notebook settings
-  "notebook.output.scrolling": true,
-  "notebook.formatOnSave.enabled": true,
-  "notebook.lineNumbers": "on",
-  "notebook.scrolling.revealNextCellOnExecute": "none",
   "notebook.codeActionsOnSave": {
-    "source.organizeImports": true
+    "notebook.source.fixAll": "explicit",
+    "notebook.source.organizeImports": "explicit"
   },
-
-  // SQL Tools settings
-  "sqltools.useNodeRuntime": true
+  "[jinja-sql]": {
+    "editor.defaultFormatter": "innoverio.vscode-dbt-power-user"
+  },
+  "[terraform]": {
+    "editor.defaultFormatter": "hashicorp.terraform"
+  },
+  "[terraform-vars]": {
+    "editor.defaultFormatter": "hashicorp.terraform"
+  },
+  "notebook.formatOnSave.enabled": true,
+  "editor.formatOnSaveMode": "file",
+  "editor.formatOnPaste": false,
+  "editor.formatOnType": false,
+  "editor.formatOnSave": true,
+  "formattingToggle.affects": [
+    "editor.formatOnSave",
+    "notebook.formatOnSave.enabled"
+  ],
+  "editor.minimap.enabled": false,
+  "security.workspace.trust.untrustedFiles": "open",
+  "git.autofetch": true,
+  "gitlens.hovers.currentLine.over": "line",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "prettier.ignorePath": "/Users/jacobhurlburt/.prettierignore",
+  "application.shellEnvironmentResolutionTimeout": 20,
+  "editor.fontLigatures": true,
+  "isort.args": ["--profile", "black"],
+  "github.copilot.advanced": {},
+  "dbt.dbtIntegration": "cloud",
+  "files.associations": {
+    "**/*dbt*/**/*.sql": "jinja-sql"
+    // "**/*dbt*/**/*.yaml": "jinja-yaml",
+    // "**/*dbt*/**/*.yml": "jinja-yaml",
+    // "**/*dbt*/**/*.md": "jinja-md"
+  },
+  "python.interpreter.infoVisibility": "always",
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  },
+  "terminal.integrated.fontFamily": "Source Code Pro for Powerline",
+  "terminal.integrated.inheritEnv": false,
+  "editor.largeFileOptimizations": false,
+  "github.copilot.editor.enableAutoCompletions": true,
+  "findrelated.workspaceRulesets": [
+    {
+      "name": "sql",
+      "rules": [
+        {
+          "pattern": "^(.*/)?models/(.*/)?(.+\\.sql)$",
+          "locators": ["**/compiled/**/$3"]
+        },
+        {
+          "pattern": "^(.*/)?compiled/(.*/)?(.+\\.sql)$",
+          "locators": ["**/run/**/$3"]
+        },
+        {
+          "pattern": "^(.*/)?run/(.*/)?(.+\\.sql)$",
+          "locators": ["**/models/**/$3"]
+        }
+      ]
+    }
+  ],
+  "findrelated.applyRulesets": ["sql"],
+  "findrelated.autoOpen": true,
+  "git.confirmSync": false,
+  "ruff.nativeServer": true
 }
