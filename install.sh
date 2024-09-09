@@ -31,9 +31,6 @@ done
 # Run the ohmyzsh Script
 ./ohmyzsh.sh
 
-# Run the pixi Script
-./pixi.sh
-
 # Run VS Code Script
 ./vscode.sh
 
