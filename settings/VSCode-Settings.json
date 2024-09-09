@@ -2,15 +2,7 @@
   "workbench.colorTheme": "Monokai",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[python]": {
-    "editor.codeActionsOnSave": {
-      "source.fixAll": "explicit",
-      "source.organizeImports": "explicit"
-    },
     "editor.defaultFormatter": "charliermarsh.ruff"
-  },
-  "notebook.codeActionsOnSave": {
-    "notebook.source.fixAll": "explicit",
-    "notebook.source.organizeImports": "explicit"
   },
   "[jinja-sql]": {
     "editor.defaultFormatter": "innoverio.vscode-dbt-power-user"
@@ -20,6 +12,9 @@
   },
   "[terraform-vars]": {
     "editor.defaultFormatter": "hashicorp.terraform"
+  },
+  "[toml]": {
+    "editor.defaultFormatter": "tamasfe.even-better-toml"
   },
   "notebook.formatOnSave.enabled": true,
   "editor.formatOnSaveMode": "file",
@@ -42,7 +37,8 @@
   "github.copilot.advanced": {},
   "dbt.dbtIntegration": "cloud",
   "files.associations": {
-    "**/*dbt*/**/*.sql": "jinja-sql"
+    "**/*dbt*/**/*.sql": "jinja-sql",
+    "*.avsc": "json"
     // "**/*dbt*/**/*.yaml": "jinja-yaml",
     // "**/*dbt*/**/*.yml": "jinja-yaml",
     // "**/*dbt*/**/*.md": "jinja-md"
@@ -80,5 +76,7 @@
   "findrelated.applyRulesets": ["sql"],
   "findrelated.autoOpen": true,
   "git.confirmSync": false,
-  "ruff.nativeServer": true
+  "ruff.nativeServer": true,
+  "redhat.telemetry.enabled": false,
+  "workbench.startupEditor": "none"
 }
