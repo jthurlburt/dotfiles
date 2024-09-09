@@ -6,6 +6,18 @@
 # And also sets up VS Code
 ############################
 
+# Run the MacOS Script
+./macOS.sh
+
+# Run the Homebrew Script
+./brew.sh
+
+# Run the ohmyzsh Script
+./ohmyzsh.sh
+
+# Run VS Code Script
+./vscode.sh
+
 # dotfiles directory
 dotfiledir="${HOME}/dotfiles"
 
@@ -21,17 +33,5 @@ for file in "${files[@]}"; do
     echo "Creating symlink to $file in home directory."
     ln -sf "${dotfiledir}/.${file}" "${HOME}/.${file}"
 done
-
-# Run the MacOS Script
-./macOS.sh
-
-# Run the Homebrew Script
-./brew.sh
-
-# Run the ohmyzsh Script
-./ohmyzsh.sh
-
-# Run VS Code Script
-./vscode.sh
 
 echo "Installation Complete!"
