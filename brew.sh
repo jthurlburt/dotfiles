@@ -34,6 +34,7 @@ packages=(
     "git"
     "tree"
     "pixi"
+    "pre-commit"
 )
 
 # Loop over the array to install each application.
