@@ -39,6 +39,7 @@ packages=(
     "python@3.12"
     "uv"
     "micromamba"
+    "zsh-autosuggestions"
 )
 
 # Loop over the array to install each application.
