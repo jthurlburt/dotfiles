@@ -7,20 +7,33 @@ fi
 
 # Install VS Code Extensions
 extensions=(
+    1password.op-vscode
+    amodio.find-related
+    charliermarsh.ruff
+    davidanson.vscode-markdownlint
+    dvirtz.parquet-viewer
+    eamodio.gitlens
     esbenp.prettier-vscode
-    formulahendry.code-runner
     foxundermoon.shell-format
+    github.copilot
+    github.copilot-chat
+    github.vscode-github-actions
+    hashicorp.terraform
+    innoverio.vscode-dbt-power-user
     mechatroner.rainbow-csv
-    ms-python.black-formatter
-    ms-python.isort
-    ms-python.pylint
+    mhutchie.git-graph
+    ms-azuretools.vscode-docker
     ms-python.python
     ms-toolsai.jupyter
-    ms-vscode.theme-predawnkit
-    mtxr.sqltools
-    mtxr.sqltools-driver-sqlite
-    teabyii.ayu
-    tomoki1207.pdf
+    ms-toolsai.jupyter-keymap
+    ms-toolsai.jupyter-renderers
+    ms-toolsai.vscode-jupyter-cell-tags
+    ms-toolsai.vscode-jupyter-slideshow
+    ms-vscode-remote.remote-containers
+    redhat.vscode-yaml
+    samuelcolvin.jinjahtml
+    tamasfe.even-better-toml
+    tombonnike.vscode-status-bar-format-toggle
 )
 
 # Get a list of all currently installed extensions.
