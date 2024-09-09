@@ -1,11 +1,21 @@
 # Always enable colored `grep` output
+
 # Note: `GREP_OPTIONS="--color=auto"` is deprecated, hence the alias usage.
+
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
 # Get OS X Software Updates
+
 alias update_system='sudo softwareupdate -i -a'
 
 # Update/upgrade Homebrew and their installed packages
+
 alias update_brew='brew update; brew upgrade; brew upgrade --cask; brew cleanup'
+
+# pre-commit
+
+alias pci="pre-commit install"
+alias pcu="pre-commit uninstall"
+alias pca="pre-commit autoupdate"
