@@ -89,6 +89,10 @@ else
     echo "Git user.email is already set to '$current_email'. Skipping configuration."
 fi
 
+# Automatically enable pre-commit on cloned repos
+$(brew --prefix)/bin/git config --global init.templateDir ~/.git-template
+$(brew --prefix)/bin/pre-commit init-templatedir ~/.git-template
+
 # Define an array of applications to install using Homebrew Cask.
 apps=(
     "google-chrome"
