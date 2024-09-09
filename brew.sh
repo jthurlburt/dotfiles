@@ -36,6 +36,8 @@ packages=(
     "pixi"
     "pre-commit"
     "python@3.12"
+    "uv"
+    "micromamba"
 )
 
 # Loop over the array to install each application.
