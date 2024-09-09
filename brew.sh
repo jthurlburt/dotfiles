@@ -35,6 +35,7 @@ packages=(
     "tree"
     "pixi"
     "pre-commit"
+    "python@3.12"
 )
 
 # Loop over the array to install each application.
