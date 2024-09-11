@@ -1,9 +1,57 @@
 {
+  // General Settings
   "workbench.colorTheme": "Monokai",
+  "editor.minimap.enabled": false,
+  "security.workspace.trust.untrustedFiles": "open",
+  "application.shellEnvironmentResolutionTimeout": 20,
+  "editor.fontLigatures": true,
+  "terminal.integrated.fontFamily": "Source Code Pro for Powerline",
+  "terminal.integrated.inheritEnv": false,
+  "editor.largeFileOptimizations": false,
+  "workbench.startupEditor": "none",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "files.associations": {
+    "**/*dbt*/**/*.sql": "jinja-sql",
+    "*.avsc": "json"
+    // "**/*dbt*/**/*.yaml": "jinja-yaml",
+    // "**/*dbt*/**/*.yml": "jinja-yaml",
+    // "**/*dbt*/**/*.md": "jinja-md"
+  },
+
+  // Git Settings
+  "git.autofetch": true,
+  "gitlens.hovers.currentLine.over": "line",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "git.confirmSync": false,
+  "github.copilot.advanced": {},
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  },
+  "github.copilot.editor.enableAutoCompletions": true,
+
+  // Formatting Settings
+  "editor.formatOnSaveMode": "file",
+  "editor.formatOnPaste": false,
+  "editor.formatOnType": false,
+  "editor.formatOnSave": true,
+  "formattingToggle.affects": [
+    "editor.formatOnSave",
+    "notebook.formatOnSave.enabled"
+  ],
+  "notebook.formatOnSave.enabled": true,
+  "prettier.ignorePath": "/Users/jacobhurlburt/.prettierignore",
+
+  // Python Settings
   "[python]": {
     "editor.defaultFormatter": "charliermarsh.ruff"
   },
+  "python.interpreter.infoVisibility": "always",
+  "ruff.nativeServer": true,
+
+  // Language Settings
   "[jinja-sql]": {
     "editor.defaultFormatter": "innoverio.vscode-dbt-power-user"
   },
@@ -25,44 +73,9 @@
   "[ignore]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },
-  "notebook.formatOnSave.enabled": true,
-  "editor.formatOnSaveMode": "file",
-  "editor.formatOnPaste": false,
-  "editor.formatOnType": false,
-  "editor.formatOnSave": true,
-  "formattingToggle.affects": [
-    "editor.formatOnSave",
-    "notebook.formatOnSave.enabled"
-  ],
-  "editor.minimap.enabled": false,
-  "security.workspace.trust.untrustedFiles": "open",
-  "git.autofetch": true,
-  "gitlens.hovers.currentLine.over": "line",
-  "diffEditor.ignoreTrimWhitespace": false,
-  "prettier.ignorePath": "/Users/jacobhurlburt/.prettierignore",
-  "application.shellEnvironmentResolutionTimeout": 20,
-  "editor.fontLigatures": true,
-  "isort.args": ["--profile", "black"],
-  "github.copilot.advanced": {},
+
+  // DBT Settings
   "dbt.dbtIntegration": "cloud",
-  "files.associations": {
-    "**/*dbt*/**/*.sql": "jinja-sql",
-    "*.avsc": "json"
-    // "**/*dbt*/**/*.yaml": "jinja-yaml",
-    // "**/*dbt*/**/*.yml": "jinja-yaml",
-    // "**/*dbt*/**/*.md": "jinja-md"
-  },
-  "python.interpreter.infoVisibility": "always",
-  "github.copilot.enable": {
-    "*": true,
-    "plaintext": false,
-    "markdown": false,
-    "scminput": false
-  },
-  "terminal.integrated.fontFamily": "Source Code Pro for Powerline",
-  "terminal.integrated.inheritEnv": false,
-  "editor.largeFileOptimizations": false,
-  "github.copilot.editor.enableAutoCompletions": true,
   "findrelated.workspaceRulesets": [
     {
       "name": "sql",
@@ -84,8 +97,7 @@
   ],
   "findrelated.applyRulesets": ["sql"],
   "findrelated.autoOpen": true,
-  "git.confirmSync": false,
-  "ruff.nativeServer": true,
-  "redhat.telemetry.enabled": false,
-  "workbench.startupEditor": "none"
+
+  // Other Settings
+  "redhat.telemetry.enabled": false
 }
