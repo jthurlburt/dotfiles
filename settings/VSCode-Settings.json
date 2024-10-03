@@ -12,7 +12,8 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "files.associations": {
     "**/*dbt*/**/*.sql": "jinja-sql",
-    "*.avsc": "json"
+    "*.avsc": "json",
+    "CODEOWNERS": "plaintext"
     // "**/*dbt*/**/*.yaml": "jinja-yaml",
     // "**/*dbt*/**/*.yml": "jinja-yaml",
     // "**/*dbt*/**/*.md": "jinja-md"
