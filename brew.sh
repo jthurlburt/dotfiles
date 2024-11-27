@@ -36,12 +36,8 @@ packages=(
     "awscli"
     "aws-cdk"
     "tree"
-    "pixi"
     "thefuck"
-    "pre-commit"
-    "python@3.12"
     "uv"
-    "micromamba"
     "zsh-autosuggestions"
 )
 
