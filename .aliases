@@ -7,19 +7,17 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
 # Get OS X Software Updates
-
 alias update_system='sudo softwareupdate -i -a'
 
 # Update/upgrade Homebrew and their installed packages
-
 alias update_brew='brew update; brew upgrade; brew upgrade --cask; brew cleanup'
 
 # pre-commit
-
 alias pci="pre-commit install"
 alias pcu="pre-commit uninstall"
 alias pca="pre-commit autoupdate"
 
+# AWS CLI Profile Selector
 ap() {
     profile=${1:-}
     if [[ -z "$profile" ]]; then
@@ -28,6 +26,7 @@ ap() {
     export AWS_PROFILE="$profile"
 }
 
+# Delete Merged Branches
 gbda() {
     git fetch -p && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs git branch -D
 }
