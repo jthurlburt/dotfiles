@@ -29,6 +29,13 @@ plugins=(aliases command-not-found copyfile copypath docker docker-compose doten
 source $ZSH/oh-my-zsh.sh
 
 ###############################################################################
+# PATH Updates
+###############################################################################
+
+# Add pixi to the path
+export PATH="/Users/jacob.hurlburt/.pixi/bin:$PATH"
+
+###############################################################################
 # Autocompletion Settings
 ###############################################################################
 
@@ -38,10 +45,11 @@ source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # uv
 eval "$(uv generate-shell-completion zsh)"
 
+# pixi
+eval "$(pixi completion --shell zsh)"
+
 # Terraform
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
 
-###############################################################################
-
-# Add pixi to the path
-export PATH="/Users/jacob.hurlburt/.pixi/bin:$PATH"
+# Terramate
+complete -o nospace -C /opt/homebrew/bin/terramate terramate
