@@ -12,6 +12,9 @@
 # Run the Homebrew Script
 ./brew.sh
 
+# Run the pixi Script
+./pixi.sh
+
 # Run the ohmyzsh Script
 ./ohmyzsh.sh
 
