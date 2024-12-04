@@ -1,9 +1,3 @@
-# Load dotfiles:
-for file in ~/.{aliases,private}; do
-    [ -r "$file" ] && [ -f "$file" ] && source "$file"
-done
-unset file
-
 ###############################################################################
 # Oh My Zsh Settings
 ###############################################################################
@@ -53,3 +47,11 @@ complete -o nospace -C /opt/homebrew/bin/terraform terraform
 
 # Terramate
 complete -o nospace -C /opt/homebrew/bin/terramate terramate
+
+###############################################################################
+# Dotfiles
+###############################################################################
+for file in ~/.{aliases,private}; do
+    [ -r "$file" ] && [ -f "$file" ] && source "$file"
+done
+unset file
