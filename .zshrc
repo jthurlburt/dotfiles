@@ -49,6 +49,11 @@ complete -o nospace -C /opt/homebrew/bin/terraform terraform
 complete -o nospace -C /opt/homebrew/bin/terramate terramate
 
 ###############################################################################
+# Terramate Settings
+###############################################################################
+export TM_DISABLE_SAFEGUARDS=git-untracked,git-uncommitted,git-out-of-sync
+
+###############################################################################
 # Dotfiles
 ###############################################################################
 for file in ~/.{aliases,private}; do
