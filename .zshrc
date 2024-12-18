@@ -54,6 +54,11 @@ complete -o nospace -C /opt/homebrew/bin/terramate terramate
 export TM_DISABLE_SAFEGUARDS=git-untracked,git-uncommitted,git-out-of-sync
 
 ###############################################################################
+# dbt Settings
+###############################################################################
+export DBT_PROFILES_DIR="$HOME/.dbt"
+
+###############################################################################
 # Dotfiles
 ###############################################################################
 for file in ~/.{aliases,private}; do
