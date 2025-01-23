@@ -34,6 +34,8 @@
     "scminput": false
   },
   "github.copilot.editor.enableAutoCompletions": true,
+  "git.replaceTagsWhenPull": true,
+  "git.ignoreRebaseWarning": true,
 
   // Formatting Settings
   "editor.formatOnSaveMode": "file",
