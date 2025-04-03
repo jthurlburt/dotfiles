@@ -27,5 +27,5 @@ exposed = { sqlfmt = "sqlfmt" }
 
 [envs.databricks-cli]
 channels = ["conda-forge"]
-dependencies = { databricks-cli = "0.*" }
+dependencies = { databricks-cli = "0.18.*" }
 exposed = { databricks = "databricks", dbfs = "dbfs" }
