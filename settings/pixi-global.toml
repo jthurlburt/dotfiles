@@ -22,10 +22,5 @@ exposed = { pip = "pip", pip3 = "pip3" }
 
 [envs.shandy-sqlfmt]
 channels = ["conda-forge"]
-dependencies = { shandy-sqlfmt = "0.26.*", black = "*" }
+dependencies = { shandy-sqlfmt = "0.24.*", black = "*" }
 exposed = { sqlfmt = "sqlfmt" }
-
-[envs.databricks-cli]
-channels = ["conda-forge"]
-dependencies = { databricks-cli = "0.18.*" }
-exposed = { databricks = "databricks", dbfs = "dbfs" }
