@@ -26,6 +26,15 @@ ap() {
     export AWS_PROFILE="$profile"
 }
 
+# Databricks CLI Profile Selector
+dp() {
+    profile=${1:-}
+    if [[ -z "$profile" ]]; then
+        profile=$(databricks auth profiles | awk 'NR>1 {print $1}' | fzf)
+    fi
+    export DATABRICKS_CONFIG_PROFILE="$profile"
+}
+
 # Delete Merged Branches
 gbda() {
     git switch main
