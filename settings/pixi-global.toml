@@ -22,5 +22,5 @@ exposed = { pip = "pip", pip3 = "pip3" }
 
 [envs.shandy-sqlfmt]
 channels = ["conda-forge"]
-dependencies = { shandy-sqlfmt = "0.24.*", black = "*" }
+dependencies = { shandy-sqlfmt = "0.26.*", black = "*" }
 exposed = { sqlfmt = "sqlfmt" }
