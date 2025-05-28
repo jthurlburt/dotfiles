@@ -24,3 +24,7 @@ exposed = { pip = "pip", pip3 = "pip3" }
 channels = ["conda-forge"]
 dependencies = { shandy-sqlfmt = "0.26.*", black = "*" }
 exposed = { sqlfmt = "sqlfmt" }
+
+[envs.librdkafka]
+channels = ["conda-forge"]
+dependencies = { librdkafka = "2.10.*" }
