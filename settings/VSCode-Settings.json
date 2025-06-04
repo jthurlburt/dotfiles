@@ -26,14 +26,6 @@
   "gitlens.hovers.currentLine.over": "line",
   "diffEditor.ignoreTrimWhitespace": false,
   "git.confirmSync": false,
-  "github.copilot.advanced": {},
-  "github.copilot.enable": {
-    "*": true,
-    "plaintext": false,
-    "markdown": false,
-    "scminput": false
-  },
-  "github.copilot.editor.enableAutoCompletions": true,
   "git.replaceTagsWhenPull": true,
   "git.ignoreRebaseWarning": true,
 
@@ -77,6 +69,25 @@
   },
   "[ignore]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+
+  // Copilot Settings
+  "github.copilot.chat.agent.thinkingTool": true,
+  "github.copilot.advanced": {},
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  },
+  "github.copilot.editor.enableAutoCompletions": true,
+  "mcp": {
+    "servers": {
+      "git": {
+        "command": "uvx",
+        "args": ["mcp-server-git"]
+      }
+    }
   },
 
   // DBT Settings
