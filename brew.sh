@@ -37,7 +37,6 @@ packages=(
     "aws-cdk"
     "tree"
     "thefuck"
-    "uv"
     "zsh-autosuggestions"
 )
 

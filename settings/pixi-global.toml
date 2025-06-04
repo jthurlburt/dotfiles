@@ -33,3 +33,8 @@ dependencies = { librdkafka = "2.10.*" }
 channels = ["conda-forge"]
 dependencies = { ruff = "0.11.*" }
 exposed = { ruff = "ruff" }
+
+[envs.uv]
+channels = ["conda-forge"]
+dependencies = { uv = "0.7.*" }
+exposed = { uv = "uv", uvx = "uvx" }
