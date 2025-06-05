@@ -38,15 +38,25 @@
     "editor.formatOnSave",
     "notebook.formatOnSave.enabled"
   ],
-  "notebook.formatOnSave.enabled": true,
   "prettier.ignorePath": "/Users/jacobhurlburt/.prettierignore",
 
   // Python Settings
   "[python]": {
-    "editor.defaultFormatter": "charliermarsh.ruff"
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "explicit",
+      "source.organizeImports": "explicit"
+    }
   },
   "python.interpreter.infoVisibility": "always",
   "ruff.nativeServer": true,
+
+  // Notebook Settings
+  "notebook.formatOnSave.enabled": true,
+  "notebook.codeActionsOnSave": {
+    "notebook.source.fixAll": "explicit",
+    "notebook.source.organizeImports": "explicit"
+  },
 
   // Language Settings
   "[jinja-sql]": {
