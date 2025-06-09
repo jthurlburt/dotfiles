@@ -38,3 +38,8 @@ exposed = { ruff = "ruff" }
 channels = ["conda-forge"]
 dependencies = { uv = "0.7.*" }
 exposed = { uv = "uv", uvx = "uvx" }
+
+[envs.pytest]
+channels = ["conda-forge"]
+dependencies = { pytest = "8.3.*" }
+exposed = { pytest = "pytest", "py.test" = "py.test" }
