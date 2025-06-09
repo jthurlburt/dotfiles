@@ -10,6 +10,7 @@ extensions=(
     1password.op-vscode
     amodio.find-related
     charliermarsh.ruff
+    databricks.databricks
     davidanson.vscode-markdownlint
     dvirtz.parquet-viewer
     eamodio.gitlens
@@ -19,11 +20,14 @@ extensions=(
     github.copilot-chat
     github.vscode-github-actions
     hashicorp.terraform
-    innoverio.vscode-dbt-power-user
+    jannisx11.batch-rename-extension
     mechatroner.rainbow-csv
     mhutchie.git-graph
-    ms-azuretools.vscode-docker
+    mineiros.terramate
+    ms-azuretools.vscode-containers
+    ms-python.debugpy
     ms-python.python
+    ms-python.vscode-pylance
     ms-toolsai.jupyter
     ms-toolsai.jupyter-keymap
     ms-toolsai.jupyter-renderers
@@ -34,6 +38,7 @@ extensions=(
     samuelcolvin.jinjahtml
     tamasfe.even-better-toml
     tombonnike.vscode-status-bar-format-toggle
+    wayou.vscode-todo-highlight
 )
 
 # Get a list of all currently installed extensions.
