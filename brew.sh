@@ -100,6 +100,7 @@ apps=(
     "1password"
     "displaylink"
     "docker"
+    "claude"
 )
 
 # Loop over the array to install each application.
