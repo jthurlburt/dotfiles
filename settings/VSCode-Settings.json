@@ -92,14 +92,6 @@
   },
   "chat.mcp.discovery.enabled": true,
   "github.copilot.editor.enableAutoCompletions": true,
-  "mcp": {
-    "servers": {
-      "git": {
-        "command": "uvx",
-        "args": ["mcp-server-git"]
-      }
-    }
-  },
 
   // DBT Settings
   "dbt.dbtIntegration": "cloud",
