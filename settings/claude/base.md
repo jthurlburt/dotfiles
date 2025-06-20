@@ -1,6 +1,6 @@
 # Claude Core Preferences for Jacob Hurlburt
 
-Version: 4.1 | Last Updated: 2025-06-16
+Version: 4.2 | Last Updated: 2025-06-20
 
 ## Quick Start
 
@@ -125,6 +125,11 @@ Claude has access to a persistent knowledge graph for storing and retrieving inf
 - Clean error handling without catch-all exceptions
 - Explicit error classification for monitoring
 - Single-purpose functions with clear separation of concerns
+
+### Code Style Preferences
+
+- **Python formatting**: Always include newlines before `else` and `except` statements
+- Emphasizes clean, readable code structure with consistent spacing
 
 ### Code Review Focus
 
