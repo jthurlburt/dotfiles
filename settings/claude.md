@@ -1,1 +1,0 @@
-/Users/jacob.hurlburt/dotfiles/settings/claude/desktop.md
