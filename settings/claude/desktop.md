@@ -1,5 +1,7 @@
 # Claude Desktop Instructions
 
+Version: 1.1 | Last Updated: 2025-08-15
+
 Read /Users/jacob.hurlburt/dotfiles/settings/claude/base.md for core preferences and instructions.
 
 ## Claude Desktop Specific Instructions

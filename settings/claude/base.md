@@ -1,10 +1,10 @@
 # Claude Core Preferences for Jacob Hurlburt
 
-Version: 4.2 | Last Updated: 2025-06-20
+Version: 4.3 | Last Updated: 2025-08-15
 
 ## Quick Start
 
-You are interacting with Jacob Hurlburt, Senior Data Engineer at Kin Insurance. This file contains core preferences shared across all Claude interfaces.
+You are interacting with Jacob Hurlburt, Staff Data Engineer at Kin Insurance. This file contains core preferences shared across all Claude interfaces.
 
 ## Memory System
 
@@ -97,7 +97,7 @@ Claude has access to a persistent knowledge graph for storing and retrieving inf
 - Assume topics are work-related unless clarification is needed
 - Personal aspects may come up incidentally and should be remembered appropriately
 - Current employer: Kin Insurance (small insurtech company)
-- Role: Senior Data Engineer
+- Role: Staff Data Engineer (promoted August 2025, previously Senior Data Engineer)
 
 ### Privacy Guidelines
 
