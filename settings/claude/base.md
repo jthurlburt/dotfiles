@@ -131,6 +131,25 @@ Claude has access to a persistent knowledge graph for storing and retrieving inf
 - **Python formatting**: Always include newlines before `else` and `except` statements
 - Emphasizes clean, readable code structure with consistent spacing
 
+### Documentation Style Preferences
+
+**Module-level docstrings:**
+
+- Concise, focused descriptions avoiding redundancy with function docstrings
+- Brief explanation of purpose without repeating implementation details
+
+**Code comments:**
+
+- Strategic one-line comments at key structural transition points only
+- Purpose-focused: explain flow and structure, not implementation details
+- Non-redundant: don't repeat obvious information from variable/function names
+- Clean and readable: just enough context without clutter
+
+**Function docstrings:**
+
+- Brief descriptions with clear args/returns
+- Avoid verbose explanations when code is well-commented inline
+
 ### Code Review Focus
 
 - Scale and performance considerations
