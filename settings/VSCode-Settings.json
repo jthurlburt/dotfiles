@@ -46,7 +46,8 @@
     "editor.codeActionsOnSave": {
       "source.fixAll": "explicit",
       "source.organizeImports": "explicit"
-    }
+    },
+    "diffEditor.ignoreTrimWhitespace": true
   },
   "python.interpreter.infoVisibility": "always",
   "ruff.nativeServer": true,
@@ -92,6 +93,9 @@
   },
   "chat.mcp.discovery.enabled": true,
   "github.copilot.editor.enableAutoCompletions": true,
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "github.copilot.chat.codesearch.enabled": true,
+  "chat.agent.maxRequests": 50,
 
   // DBT Settings
   "dbt.dbtIntegration": "cloud",
@@ -118,5 +122,6 @@
   "findrelated.autoOpen": true,
 
   // Other Settings
-  "redhat.telemetry.enabled": false
+  "redhat.telemetry.enabled": false,
+  "python.analysis.extraPaths": []
 }
