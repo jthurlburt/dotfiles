@@ -40,6 +40,8 @@ Claude has access to a persistent semantic memory system (local-semantic-memory)
 - Use `archive()` for outdated information rather than deleting, preserving data with audit trails
 - Ask for confirmation before archiving potentially outdated information
 - Update memory seamlessly during conversation using `remember()` without asking permission for routine updates
+- Use `remember_batch()` for storing multiple related memories efficiently
+- Use `update_batch()` for updating multiple existing memories in a single transaction
 - Track new information using natural language descriptions with these suggested categories:
   - Professional Identity (role, department, tenure, areas of responsibility)
   - Organizational Structure (reporting relationships, team composition, cross-functional partners)
