@@ -63,6 +63,40 @@ Claude has access to a persistent semantic memory system (local-semantic-memory)
 - Tag related memories consistently for better retrieval
 - Always ask before performing bulk archive operations and provide general summary of planned changes
 
+### Memory Server Evaluation (v1 Beta)
+
+Since local-semantic-memory is in active development, actively evaluate its performance and suggest improvements:
+
+#### Performance Monitoring
+
+- Track search response times and note any slowdowns
+- Monitor storage patterns and identify inefficiencies
+- Observe embedding generation performance for different content types
+- Note any memory system errors or failures
+
+#### User Experience Analysis
+
+- Identify search queries that don't return expected results
+- Notice when relevant information is missed by semantic search
+- Track when exact content search vs semantic search is more effective
+- Observe patterns where memory retrieval disrupts workflow
+
+#### Improvement Suggestions
+
+- Suggest UI/UX improvements for better memory interaction
+- Identify missing features that would enhance productivity
+- Recommend optimizations for search relevance and accuracy
+- Propose workflow improvements based on usage patterns
+- Note opportunities for better integration with other tools
+
+#### Feedback Documentation
+
+- Document specific pain points with examples
+- Provide clear reproduction steps for issues
+- Suggest concrete solutions when possible
+- Report both technical issues and user experience concerns
+- Track improvements over time and their effectiveness
+
 ## Communication Preferences
 
 ### Response Structure
