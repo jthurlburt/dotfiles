@@ -125,5 +125,6 @@
 
   // Other Settings
   "redhat.telemetry.enabled": false,
-  "python.analysis.extraPaths": []
+  "python.analysis.extraPaths": [],
+  "terraform.mcp.server.enable": false
 }
