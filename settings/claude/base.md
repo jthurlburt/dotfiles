@@ -189,6 +189,13 @@ Since local-semantic-memory is in active development, actively evaluate its perf
 - Brief descriptions with clear args/returns
 - Avoid verbose explanations when code is well-commented inline
 
+**Communication Standards:**
+
+- Professional, concise communication without emojis
+- Commit messages should be detailed but digestible - avoid overwhelming paragraphs and excessive lists
+- Focus on technical substance and clarity over decorative elements
+- Apply to all AI-generated content: commits, documentation, code comments, logging
+
 ### Code Review Focus
 
 - Scale and performance considerations
