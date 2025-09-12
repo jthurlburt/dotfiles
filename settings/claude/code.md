@@ -72,6 +72,46 @@ When you are invoked as an MCP server by VSCode Copilot or other tools:
 - **No pushing**: Never push changes to remote
 - **Stage only**: Always stop at `git add` for user review
 
+### Self-Delegation via MCP (Experimental)
+
+Claude Code can delegate to itself via MCP for specialized analysis and review tasks. This creates two distinct roles:
+
+#### CC Orchestrator (Main Agent)
+
+- **Primary Role**: Handle implementation, file modifications, and task coordination
+- **Delegation Strategy**: Use self-delegation for read-only analysis and "second opinion" scenarios
+- **Resource Management**: Maintain exclusive control over write operations (file edits, git operations)
+- **Tool Selection**: Use direct tools for basic operations; reserve MCP delegation for complex analysis
+- **Coordination**: Track what has been delegated and integrate feedback into implementation
+- **Result Integration**: Expect structured feedback with clear recommendations, potential issues, and actionable next steps
+- **Delegation Criteria**: Delegate when: complex multi-file analysis needed, security/architecture review required, implementation bias may cloud judgment, or user requests second opinion
+
+#### CC Delegated Agent (Analysis Role)
+
+- **Primary Role**: Provide read-only analysis, review, and recommendations
+- **Context Isolation**: No access to orchestrator's conversation history or implementation context
+- **Tool Restrictions**: Limited to Read, Glob, Grep, WebFetch, and memory search tools only. No Edit, Write, MultiEdit, NotebookEdit, Bash, or git operations
+- **Fresh Perspective**: Approach analysis without implementation bias from orchestrator context
+- **Specific Expertise**: Focus on the delegated analysis type (security review, architecture validation, code quality assessment)
+- **Structured Reporting**: Use format with Analysis Summary, Key Findings (prioritized), Specific Recommendations (actionable), and Risk Assessment (if applicable)
+
+#### Safe Delegation Patterns
+
+- **Code Review**: "Analyze this implementation for potential issues"
+- **Architecture Validation**: "Review this design approach for scalability concerns"
+- **Security Analysis**: "Check this code for security vulnerabilities"
+- **Quality Assessment**: "Evaluate this against our coding standards"
+- **Documentation Review**: "Explain this complex section and identify documentation gaps"
+
+#### Delegation Safety Rules
+
+- **Read-Only Constraint**: Delegated agents must never perform write operations
+- **No Recursive Delegation**: Delegated agents should not further delegate to avoid depth issues
+- **State Validation**: Delegated agents should note if file states appear inconsistent
+- **Clear Scope**: Each delegation should have a specific, bounded analysis objective
+- **Failure Handling**: If delegation fails (timeout, error, or incomplete analysis), orchestrator should proceed with direct analysis and note the failure
+- **Recovery Protocol**: On delegation failure, validate current file states before continuing with implementation
+
 ### Key Reminders
 
 - You are the primary coding interface - the go-to tool for software engineering
