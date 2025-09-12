@@ -1,0 +1,50 @@
+{
+  "model": "opusplan",
+  "statusLine": {
+    "type": "command",
+    "command": "input=$(cat); printf \"\\033[2m%s@%s \\033[36m%s\\033[0m \\033[2m[%s]\\033[0m\" \"$(whoami)\" \"$(hostname -s)\" \"$(echo \"$input\" | jq -r '.workspace.current_dir | gsub(\".*/\"; \"\")' 2>/dev/null || basename \"$(echo \"$input\" | jq -r '.workspace.current_dir')\" 2>/dev/null || echo \"unknown\")\" \"$(echo \"$input\" | jq -r '.model.display_name' 2>/dev/null || echo \"Claude\")\""
+  },
+  "permissions": {
+    "allow": [
+      "Bash(pre-commit:*)",
+      "Bash(uv run pre-commit:*)",
+      "Bash(pixi run pre-commit:*)",
+      "Bash(git add:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(uv add:*)",
+      "Bash(uv run pytest:*)",
+      "Bash(pixi run pytest:*)",
+      "Bash(pytest:*)",
+      "Bash(uv run python:*)",
+      "Bash(pixi run python:*)",
+      "Bash(ruff:*)",
+      "Bash(mypy:*)",
+      "Bash(tree:*)",
+      "Bash(find:*)",
+      "Bash(uv remove:*)",
+      "Read(//Users/jacob.hurlburt/Library/Logs/Claude/**)",
+      "Read(//Users/jacob.hurlburt/.claude/**)",
+      "Read(//Users/jacob.hurlburt/dotfiles/settings/claude/**)",
+      "mcp__local-semantic-memory__search_semantic",
+      "mcp__local-semantic-memory__search_content",
+      "mcp__local-semantic-memory__list_recent",
+      "mcp__local-semantic-memory__remember",
+      "mcp__local-semantic-memory__remember_batch",
+      "mcp__claude-code__Task",
+      "Bash(env)"
+    ],
+    "deny": [
+      "mcp__claude-code__Read",
+      "mcp__claude-code__TodoWrite",
+      "mcp__claude-code__Edit",
+      "mcp__claude-code__Write",
+      "mcp__claude-code__MultiEdit",
+      "mcp__claude-code__NotebookEdit",
+      "mcp__claude-code__Bash"
+    ],
+    "ask": []
+  },
+  "outputStyle": "Explanatory"
+}
