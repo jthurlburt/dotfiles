@@ -6,25 +6,35 @@
   },
   "permissions": {
     "allow": [
+      "Bash(ast-grep:*)",
+      "Bash(difft:*)",
       "Bash(env)",
+      "Bash(fd:*)",
       "Bash(find:*)",
+      "Bash(fzf:*)",
       "Bash(git add:*)",
       "Bash(git diff:*)",
       "Bash(git log:*)",
       "Bash(git status:*)",
+      "Bash(jq:*)",
       "Bash(mypy:*)",
+      "Bash(pixi:*)",
       "Bash(pixi run pre-commit:*)",
       "Bash(pixi run pytest:*)",
       "Bash(pixi run python:*)",
+      "Bash(pixi search:*)",
       "Bash(pre-commit:*)",
       "Bash(pytest:*)",
       "Bash(ruff:*)",
+      "Bash(shellcheck:*)",
+      "Bash(shfmt:*)",
       "Bash(tree:*)",
       "Bash(uv add:*)",
       "Bash(uv remove:*)",
       "Bash(uv run pre-commit:*)",
       "Bash(uv run pytest:*)",
       "Bash(uv run python:*)",
+      "Bash(yq:*)",
       "mcp__claude-code__Task",
       "mcp__ide__getDiagnostics",
       "mcp__local-semantic-memory__archive",
@@ -47,8 +57,6 @@
       "mcp__local-semantic-memory__stats",
       "mcp__local-semantic-memory__update",
       "mcp__local-semantic-memory__update_batch",
-      "Read(//Users/jacob.hurlburt/.claude/**)",
-      "Read(//Users/jacob.hurlburt/Library/Logs/Claude/**)",
       "Read(//Users/jacob.hurlburt/dotfiles/settings/claude/**)"
     ],
     "deny": [
@@ -58,10 +66,11 @@
       "mcp__claude-code__NotebookEdit",
       "mcp__claude-code__Read",
       "mcp__claude-code__TodoWrite",
+      "mcp__claude-code__WebFetch",
       "mcp__claude-code__WebSearch",
       "mcp__claude-code__Write"
     ],
-    "ask": []
+    "ask": ["Bash(pixi global:*)"]
   },
   "outputStyle": "Explanatory"
 }
