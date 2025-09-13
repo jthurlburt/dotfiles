@@ -34,6 +34,11 @@ channels = ["conda-forge"]
 dependencies = { pytest = "8.3.*" }
 exposed = { pytest = "pytest", "py.test" = "py.test" }
 
+[envs.rust]
+channels = ["conda-forge"]
+dependencies = { rust = "1.89.*" }
+exposed = { rustc = "rustc", cargo = "cargo", rustup = "rustup", rustdoc = "rustdoc", rust-gdb = "rust-gdb", rust-lldb = "rust-lldb" }
+
 ###############################################################################
 # Infrastructure & DevOps Tools
 ###############################################################################
@@ -52,6 +57,11 @@ exposed = { pre-commit = "pre-commit" }
 channels = ["conda-forge"]
 dependencies = { gh = "2.79.*" }
 exposed = { gh = "gh" }
+
+[envs.databricks-cli]
+channels = ["conda-forge"]
+dependencies = { databricks-cli = "0.268.*" }
+exposed = { databricks = "databricks" }
 
 ###############################################################################
 # Search & Navigation Tools
@@ -91,10 +101,10 @@ channels = ["conda-forge"]
 dependencies = { yq = "3.4.*" }
 exposed = { yq = "yq" }
 
-[envs.shandy-sqlfmt]
+[envs.dbt-core]
 channels = ["conda-forge"]
-dependencies = { shandy-sqlfmt = "0.26.*", black = "25.1.*" }
-exposed = { sqlfmt = "sqlfmt" }
+dependencies = { dbt-core = "1.10.*" }
+exposed = { dbt = "dbt" }
 
 [envs.librdkafka]
 channels = ["conda-forge"]
@@ -118,3 +128,13 @@ exposed = { shfmt = "shfmt" }
 channels = ["conda-forge"]
 dependencies = { difftastic = "0.63.*" }
 exposed = { difft = "difft" }
+
+[envs.shandy-sqlfmt]
+channels = ["conda-forge"]
+dependencies = { shandy-sqlfmt = "0.26.*", black = "25.1.*" }
+exposed = { sqlfmt = "sqlfmt" }
+
+[envs.sqlfluff]
+channels = ["conda-forge"]
+dependencies = { sqlfluff = "3.4.*" }
+exposed = { sqlfluff = "sqlfluff" }
