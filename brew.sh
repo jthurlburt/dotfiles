@@ -32,10 +32,8 @@ packages=(
     "bash"
     "zsh"
     "git"
-    "fzf"
     "awscli"
     "aws-cdk"
-    "tree"
     "thefuck"
     "zsh-autosuggestions"
 )

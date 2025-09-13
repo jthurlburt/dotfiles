@@ -53,3 +53,13 @@ exposed = { gh = "gh" }
 channels = ["conda-forge"]
 dependencies = { ast-grep = "0.39.*" }
 exposed = { ast-grep = "ast-grep", sg = "sg" }
+
+[envs.fzf]
+channels = ["conda-forge"]
+dependencies = { fzf = "0.65.*" }
+exposed = { fzf = "fzf" }
+
+[envs.tree]
+channels = ["conda-forge"]
+dependencies = { tree = "2.2.*" }
+exposed = { tree = "tree" }
