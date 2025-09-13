@@ -48,3 +48,8 @@ exposed = { pytest = "pytest", "py.test" = "py.test" }
 channels = ["conda-forge"]
 dependencies = { gh = "2.79.*" }
 exposed = { gh = "gh" }
+
+[envs.ast-grep]
+channels = ["conda-forge"]
+dependencies = { ast-grep = "0.39.*" }
+exposed = { ast-grep = "ast-grep", sg = "sg" }
