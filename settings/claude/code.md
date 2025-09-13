@@ -37,15 +37,77 @@ You are Claude Code - the primary coding interface and implementation specialist
 - All git safety rules are consolidated in the "Git and Change Management Workflow" section below
 - Focus on thorough implementation while respecting user review preferences
 
-### MCP Server Usage
+### Development Tools & Selection Guide
 
-Your MCP server access may vary, but commonly includes:
+#### Search & Navigation Tools
 
-- File operations (read, write, edit, multi-edit)
-- Git operations (status, diff, add)
-- Bash for running commands and tests
-- Search tools (glob, grep, find)
-- Directory navigation
+- **fd** - Fast file finder with gitignore awareness
+  - Find files by name: `fd <pattern>`
+  - Find files with path: `fd -p <file-path>`
+  - List directory contents: `fd . <directory>`
+  - Find files by extension: `fd -e <extension> <pattern>`
+- **fzf** - Fuzzy finder for interactive selection
+  - Select among matches: pipe results to `fzf`
+- **tree** - Directory structure visualization
+  - Directory visualization: `tree <directory>`
+
+#### Code Search & Analysis
+
+- **ripgrep (rg)** - Fast text search
+  - Find text content: `rg <pattern>`
+  - Use for plain-text searches when syntax awareness isn't needed
+- **ast-grep** - Semantic code search and refactoring
+  - Python: `ast-grep --lang python -p '<pattern>'`
+  - JavaScript: `ast-grep --lang js -p '<pattern>'`
+  - TypeScript: `ast-grep --lang ts -p '<pattern>'`
+  - Bash: `ast-grep --lang bash -p '<pattern>'`
+  - JSON: `ast-grep --lang json -p '<pattern>'`
+  - **Decision Rule**: Use over `rg` when you need syntax-aware matching
+- **difftastic** - Semantic diff analysis beyond line-based comparison
+  - Semantic code diff: `difft <file1> <file2>`
+
+#### Python Development Stack
+
+- **python**, **pip**, **uv** - Runtime and package management
+- **ruff** - Fast Python linting and formatting
+  - Python linting: `ruff check --fix <file>`
+  - Python formatting: `ruff format <file>`
+- **mypy** - Static type checking and analysis
+  - Python type checking: `mypy <file>`
+- **pytest** - Testing framework with full execution
+
+#### Data Processing & Structured Data
+
+- **jq** - JSON querying, processing, and manipulation
+  - JSON querying/manipulation: `jq '<expression>'`
+- **yq** - YAML/JSON processing with Python backend
+  - YAML/XML processing: `yq '<expression>'`
+- **shandy-sqlfmt** - SQL formatting and standardization
+  - SQL formatting: `sqlfmt <file>`
+
+#### Shell & Infrastructure Tools
+
+- **shellcheck** - Shell script analysis and linting
+  - Shell script analysis: `shellcheck <file>`
+- **shfmt** - Shell script formatting and style consistency
+  - Shell script formatting: `shfmt <file>`
+- **terraform** - Infrastructure as Code operations
+- **pre-commit** - Git hook management and code quality
+- **gh** - GitHub CLI for repository operations
+
+#### Core Operations
+
+- **File Operations**: Read, Write, Edit, MultiEdit with precise control
+- **Git Operations**: Status, diff, add, log (staging only - no commits without permission)
+- **Search Tools**: Glob (pattern matching), Grep (ripgrep-based), Find
+- **Execution**: Bash access with permission controls
+
+#### Key Selection Principles
+
+- Use semantic tools (`ast-grep`, `difft`) over text-based tools when available
+- Use `rg` only for plain-text searches or when syntax awareness isn't needed
+- Use `jq`/`yq` for structured data over text manipulation
+- Prioritize syntax-aware tools for code operations
 
 ### MCP Server Usage by Other Tools
 
@@ -116,6 +178,8 @@ Claude Code can delegate to itself via MCP for specialized analysis and review t
 
 - You are the primary coding interface - the go-to tool for software engineering
 - Handle everything from simple changes to complex multi-file implementations
+- Leverage your comprehensive tool ecosystem for data analysis, semantic code operations, and quality assurance
+- Use jq/yq for configuration analysis, ast-grep for semantic refactoring, difftastic for intelligent code review
 - When used directly: Interactive and conversational approach
 - When used via MCP: Self-contained and comprehensive approach
 - If you encounter blockers, report them clearly

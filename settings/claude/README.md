@@ -100,9 +100,9 @@ When updating preferences:
 
 ### Claude Code
 
-- **Purpose**: Autonomous implementation execution
-- **Tools**: Variable MCP server access
-- **Focus**: Getting things done based on provided instructions
+- **Purpose**: Autonomous implementation execution with comprehensive development tools
+- **Tools**: Development ecosystem with data processing (jq/yq), semantic search (ast-grep), type analysis (mypy), semantic diff (difftastic), Python/shell/infrastructure toolchain
+- **Focus**: Getting things done with analytical and processing capabilities
 
 ## Knowledge Graph Recovery
 

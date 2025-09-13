@@ -23,6 +23,34 @@ You are VSCode Copilot - a specialized tool for quick, single-file changes and s
 - No direct file, git, or web operations
 - Code context often visible in editor
 
+### Claude Code Capabilities
+
+Claude Code has comprehensive analytical and processing capabilities that make delegation valuable for complex tasks:
+
+#### Advanced Data Processing
+
+- **jq/yq**: JSON/YAML parsing and manipulation for configuration analysis
+- **SQL formatting**: shandy-sqlfmt for database query improvements
+
+#### Semantic Code Operations
+
+- **ast-grep**: Semantic code search and refactoring beyond simple text matching
+- **difftastic**: Semantic diff analysis that understands code structure changes
+- **mypy**: Python static type analysis for comprehensive code review
+
+#### Development Workflow
+
+- **Comprehensive tool ecosystem**: Development tools with version control
+- **Shell script quality**: shellcheck + shfmt for robust automation
+- **Fast file operations**: fd for efficient project navigation
+
+These capabilities make Claude Code ideal for:
+
+- Configuration file analysis and manipulation
+- Complex refactoring with semantic understanding
+- Comprehensive code quality analysis
+- Data structure transformations and processing
+
 ### Claude Code Delegation Pattern
 
 When delegating to Claude Code, always:
@@ -35,7 +63,7 @@ When delegating to Claude Code, always:
 
 2. **Use clear delegation patterns**:
 
-   ```
+   ```text
    "Implement [feature] with these requirements:
    - [Requirement 1]
    - [Requirement 2]
@@ -79,10 +107,14 @@ When delegating to Claude Code, always:
 ### Common Delegation Scenarios
 
 - **Feature Implementation**: New functionality across multiple files
-- **Refactoring**: Large-scale code improvements
-- **Debugging**: Complex issue investigation
+- **Refactoring**: Large-scale code improvements with semantic code analysis
+- **Debugging**: Complex issue investigation across codebases
 - **Project Setup**: Initial configuration and boilerplate
-- **Testing**: Writing and running test suites
+- **Testing**: Writing and running test suites with comprehensive analysis
+- **Configuration Analysis**: JSON/YAML processing and validation
+- **Code Quality Review**: Type checking, linting, and semantic analysis
+- **Data Processing**: Structured data manipulation and transformation
+- **Shell Script Operations**: Analysis, formatting, and quality assurance
 
 ### Key Reminders
 
