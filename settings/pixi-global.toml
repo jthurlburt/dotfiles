@@ -1,14 +1,8 @@
 version = 1
 
-[envs.pre-commit]
-channels = ["conda-forge"]
-dependencies = { pre-commit = "3.8.*" }
-exposed = { pre-commit = "pre-commit" }
-
-[envs.terraform]
-channels = ["conda-forge"]
-dependencies = { terraform = "1.9.*" }
-exposed = { terraform = "terraform" }
+###############################################################################
+# Python Development Environment
+###############################################################################
 
 [envs.python]
 channels = ["conda-forge"]
@@ -17,49 +11,110 @@ exposed = { 2to3 = "2to3", "2to3-3.12" = "2to3-3.12", idle3 = "idle3", "idle3.12
 
 [envs.pip]
 channels = ["conda-forge"]
-dependencies = { pip = "*" }
+dependencies = { pip = "25.0.*" }
 exposed = { pip = "pip", pip3 = "pip3" }
-
-[envs.shandy-sqlfmt]
-channels = ["conda-forge"]
-dependencies = { shandy-sqlfmt = "0.26.*", black = "*" }
-exposed = { sqlfmt = "sqlfmt" }
-
-[envs.librdkafka]
-channels = ["conda-forge"]
-dependencies = { librdkafka = "2.10.*" }
-
-[envs.ruff]
-channels = ["conda-forge"]
-dependencies = { ruff = "0.11.*" }
-exposed = { ruff = "ruff" }
 
 [envs.uv]
 channels = ["conda-forge"]
 dependencies = { uv = "0.7.*" }
 exposed = { uv = "uv", uvx = "uvx" }
 
+[envs.ruff]
+channels = ["conda-forge"]
+dependencies = { ruff = "0.11.*" }
+exposed = { ruff = "ruff" }
+
+[envs.mypy]
+channels = ["conda-forge"]
+dependencies = { mypy = "1.18.*" }
+exposed = { mypy = "mypy" }
+
 [envs.pytest]
 channels = ["conda-forge"]
 dependencies = { pytest = "8.3.*" }
 exposed = { pytest = "pytest", "py.test" = "py.test" }
+
+###############################################################################
+# Infrastructure & DevOps Tools
+###############################################################################
+
+[envs.terraform]
+channels = ["conda-forge"]
+dependencies = { terraform = "1.9.*" }
+exposed = { terraform = "terraform" }
+
+[envs.pre-commit]
+channels = ["conda-forge"]
+dependencies = { pre-commit = "3.8.*" }
+exposed = { pre-commit = "pre-commit" }
 
 [envs.gh]
 channels = ["conda-forge"]
 dependencies = { gh = "2.79.*" }
 exposed = { gh = "gh" }
 
-[envs.ast-grep]
-channels = ["conda-forge"]
-dependencies = { ast-grep = "0.39.*" }
-exposed = { ast-grep = "ast-grep", sg = "sg" }
+###############################################################################
+# Search & Navigation Tools
+###############################################################################
 
 [envs.fzf]
 channels = ["conda-forge"]
 dependencies = { fzf = "0.65.*" }
 exposed = { fzf = "fzf" }
 
+[envs.fd-find]
+channels = ["conda-forge"]
+dependencies = { fd-find = "10.3.*" }
+exposed = { fd = "fd" }
+
 [envs.tree]
 channels = ["conda-forge"]
 dependencies = { tree = "2.2.*" }
 exposed = { tree = "tree" }
+
+[envs.ast-grep]
+channels = ["conda-forge"]
+dependencies = { ast-grep = "0.39.*" }
+exposed = { ast-grep = "ast-grep", sg = "sg" }
+
+###############################################################################
+# Data Processing & Formatting
+###############################################################################
+
+[envs.jq]
+channels = ["conda-forge"]
+dependencies = { jq = "1.8.*" }
+exposed = { jq = "jq" }
+
+[envs.yq]
+channels = ["conda-forge"]
+dependencies = { yq = "3.4.*" }
+exposed = { yq = "yq" }
+
+[envs.shandy-sqlfmt]
+channels = ["conda-forge"]
+dependencies = { shandy-sqlfmt = "0.26.*", black = "25.1.*" }
+exposed = { sqlfmt = "sqlfmt" }
+
+[envs.librdkafka]
+channels = ["conda-forge"]
+dependencies = { librdkafka = "2.10.*" }
+
+###############################################################################
+# Code Quality & Analysis Tools
+###############################################################################
+
+[envs.shellcheck]
+channels = ["conda-forge"]
+dependencies = { shellcheck = "0.10.*" }
+exposed = { shellcheck = "shellcheck" }
+
+[envs.shfmt]
+channels = ["conda-forge"]
+dependencies = { go-shfmt = "3.12.*" }
+exposed = { shfmt = "shfmt" }
+
+[envs.difftastic]
+channels = ["conda-forge"]
+dependencies = { difftastic = "0.63.*" }
+exposed = { difft = "difft" }
