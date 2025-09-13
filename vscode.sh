@@ -9,6 +9,7 @@ fi
 extensions=(
     1password.op-vscode
     amodio.find-related
+    anthropic.claude-code
     charliermarsh.ruff
     databricks.databricks
     davidanson.vscode-markdownlint
@@ -28,6 +29,7 @@ extensions=(
     ms-python.debugpy
     ms-python.python
     ms-python.vscode-pylance
+    ms-python.vscode-python-envs
     ms-toolsai.jupyter
     ms-toolsai.jupyter-keymap
     ms-toolsai.jupyter-renderers
