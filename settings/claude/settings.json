@@ -58,6 +58,7 @@
       "mcp__claude-code__NotebookEdit",
       "mcp__claude-code__Read",
       "mcp__claude-code__TodoWrite",
+      "mcp__claude-code__WebSearch",
       "mcp__claude-code__Write"
     ],
     "ask": []
