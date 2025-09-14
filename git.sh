@@ -49,8 +49,6 @@ if command -v difft &>/dev/null; then
     $GIT_CMD config --global difftool.difftastic.cmd 'difft "$LOCAL" "$REMOTE"'
     $GIT_CMD config --global difftool.prompt false
     $GIT_CMD config --global diff.tool difftastic
-    $GIT_CMD config --global alias.dft 'difftool'
-    $GIT_CMD config --global alias.dfts 'difftool --staged'
     echo "Git difftastic configuration complete."
 else
     echo "Difftastic not found in PATH. Skipping enhanced diff configuration."
