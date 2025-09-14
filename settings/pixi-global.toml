@@ -87,6 +87,12 @@ channels = ["conda-forge"]
 dependencies = { ast-grep = "0.39.*" }
 exposed = { ast-grep = "ast-grep", sg = "sg" }
 
+[envs.ripgrep]
+channels = ["conda-forge"]
+dependencies = { ripgrep = "14.1.*" }
+exposed = { rg = "rg" }
+
+
 ###############################################################################
 # Data Processing & Formatting
 ###############################################################################
