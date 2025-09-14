@@ -15,6 +15,9 @@
 # Run the pixi Script
 ./pixi.sh
 
+# Run the Git configuration Script
+./git.sh
+
 # Run the ohmyzsh Script
 ./ohmyzsh.sh
 

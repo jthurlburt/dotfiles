@@ -65,32 +65,6 @@ else
     echo "Homebrew zsh is already the default shell. Skipping configuration."
 fi
 
-# Git config name
-current_name=$($(brew --prefix)/bin/git config --global --get user.name)
-if [ -z "$current_name" ]; then
-    echo "Please enter your FULL NAME for Git configuration:"
-    read git_user_name
-    $(brew --prefix)/bin/git config --global user.name "$git_user_name"
-    echo "Git user.name has been set to $git_user_name"
-else
-    echo "Git user.name is already set to '$current_name'. Skipping configuration."
-fi
-
-# Git config email
-current_email=$($(brew --prefix)/bin/git config --global --get user.email)
-if [ -z "$current_email" ]; then
-    echo "Please enter your EMAIL for Git configuration:"
-    read git_user_email
-    $(brew --prefix)/bin/git config --global user.email "$git_user_email"
-    echo "Git user.email has been set to $git_user_email"
-else
-    echo "Git user.email is already set to '$current_email'. Skipping configuration."
-fi
-
-# Automatically enable pre-commit on cloned repos
-$(brew --prefix)/bin/git config --global init.templateDir ~/.git-template
-$(brew --prefix)/bin/pre-commit init-templatedir ~/.git-template
-
 # Define an array of applications to install using Homebrew Cask.
 apps=(
     "google-chrome"
