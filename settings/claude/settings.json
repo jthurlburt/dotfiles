@@ -62,6 +62,8 @@
     "deny": [
       "mcp__claude-code__Bash",
       "mcp__claude-code__Edit",
+      "mcp__claude-code__Glob",
+      "mcp__claude-code__Grep",
       "mcp__claude-code__MultiEdit",
       "mcp__claude-code__NotebookEdit",
       "mcp__claude-code__Read",
