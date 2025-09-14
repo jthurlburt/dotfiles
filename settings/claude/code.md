@@ -16,7 +16,8 @@ Every analysis task MUST start with these tools in this order:
 Tool substitutions are never acceptable:
 
 - fd replaces find (always)
-- ast-grep replaces grep for code (always)
+- ast-grep for code structure (functions, classes, imports, syntax patterns)
+- rg for plain-text searches (comments, logs, documentation, error messages)
 - jq replaces text manipulation for JSON (always)
 - yq replaces text manipulation for YAML (always)
 
