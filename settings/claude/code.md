@@ -210,7 +210,7 @@ ls -la .pre-commit-config.yaml
 pre-commit run --all-files
 git add . # stage pre-commit changes
 # If not exists:
-ruff check src/ && mypy src/ && shellcheck scripts/*.sh
+# Use appropriate tools to test code quality
 ```
 
 ## Key Reminders
