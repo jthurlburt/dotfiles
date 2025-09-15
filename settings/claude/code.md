@@ -4,14 +4,20 @@
 
 - @~/dotfiles/settings/claude/base.md
 
-## Critical Tool Selection - Non-Negotiable Rules
+## Initial Analysis Protocol - Non-Negotiable Rules
 
 Every analysis task MUST start with these tools in this order:
 
-1. **File Discovery**: `fd -e py . && fd -e json . && fd -e yaml .` (never find)
-2. **Project Structure**: `tree -I '__pycache__|*.pyc|.git' -L 3`
-3. **Code Analysis**: `ast-grep --lang python -p 'def $_($_)' src/` and `ast-grep --lang python -p 'class $_' src/`
-4. **Configuration Processing**: `jq '.' config.json && yq '.' config.yaml` for every JSON/YAML file found
+1. **File Discovery**: `fd -e py -e json -e yaml -e js -e ts -e go -e java -e rb .` (never find)
+2. **Project Structure**: `tree -I '__pycache__|*.pyc|.git'`
+3. **Delegation Assessment**:
+   - Consider if this analysis would benefit from multiple specialized perspectives
+   - Look for complex, multi-domain projects (security + infrastructure + data flows + etc.)
+   - Check if user explicitly requests delegation ("delegate", "comprehensive review", "full analysis", "second opinion")
+   - **If delegation appropriate**: Split into 2-5 specialized domains and run multiple parallel headless agents per "Recursive Delegation System" below
+   - **If single-agent sufficient**: Continue to step 4
+4. **Code Analysis** (only if not delegating): `ast-grep --lang python -p 'def $_($_)' src/` and `ast-grep --lang python -p 'class $_' src/`
+5. **Configuration Processing** (only if not delegating): `jq '.' config.json && yq '.' config.yaml` for every JSON/YAML file found
 
 Tool substitutions are never acceptable:
 
@@ -139,47 +145,60 @@ When you are invoked as an MCP server by VSCode Copilot or other tools:
 - **Comprehensive Response**: Provide complete implementation since the delegating tool can't easily follow up
 - **Status Reporting**: Be explicit about what was accomplished and any issues encountered
 
-## Sub-Agent Orchestration - Non-Negotiable Rules
+## Recursive Delegation System
 
-MUST delegate READ-ONLY analysis tasks when these conditions are met:
-
-1. **Large-Scale Analysis**: 10+ files OR multi-language codebase OR cross-service architecture
-2. **Second Opinion Required**: Security review OR performance analysis OR alternative approaches
-3. **User Explicitly Requests**: "Get a second opinion" OR "review from different angle"
-
-### Mandatory Sub-Agent Configuration
+### Tool Configuration
 
 ```bash
-RO_TOOLS="Read,Glob,Grep,mcp__local-semantic-memory__search_content,mcp__local-semantic-memory__remember,Bash(fd:*),Bash(ast-grep:*),Bash(rg:*)"
+RO_TOOLS="Read,Glob,Grep,mcp__local-semantic-memory__search_content,mcp__local-semantic-memory__search_semantic,mcp__local-semantic-memory__remember,Bash(fd:*),Bash(ast-grep:*),Bash(rg:*),Bash(tree:*),Bash(find:*),Bash(ls:*),Bash(cat:*),Bash(head:*),Bash(tail:*),Bash(wc:*),Bash(sort:*),Bash(uniq:*),Bash(cut:*)"
+
+DENIED_TOOLS="Write,Edit,MultiEdit,NotebookEdit,Bash(git add:*),Bash(git commit:*),Bash(git push:*),Bash(rm:*),Bash(mv:*),Bash(cp:*),Bash(chmod:*),Bash(mkdir:*)"
+
+export BASH_DEFAULT_TIMEOUT_MS=1800000  # 30 minutes
 ```
 
-NEVER grant write permissions to sub-agents. Always use this exact allowedTools list.
+### Multi-Agent Parallel Delegation
 
-### Required Delegation Commands
+When delegation is appropriate, split analysis into 2-5 specialized domains and run multiple agents in parallel:
 
-**One-Shot Analysis**:
+**Example domains:** Security analysis, Infrastructure/CDK, Data flow architecture, Performance patterns, Configuration management
+
+**Command template for each domain:**
 
 ```bash
-claude -p "READ-ONLY agent: [task]. Return JSON analysis." --output-format json --allowedTools "$RO_TOOLS"
+claude -p "READ-ONLY ANALYSIS: [specific domain only]
+
+Focus exclusively on [domain] aspects:
+- [Domain-specific analysis goals]
+- If domain still too complex, delegate up to 5 sub-tasks using this template
+- You are read-only: cannot modify files or system state
+- Return structured JSON findings for your domain only" \
+--output-format stream-json \
+--verbose \
+--allowedTools "$RO_TOOLS" \
+--disallowedTools "$DENIED_TOOLS"
 ```
 
-**Complex Analysis**:
+**Execution instructions:**
+
+- Launch all sub-agents in a single bash command using `&` for parallel execution
+- Use `wait` command to ensure all agents complete before proceeding
+- Example:
 
 ```bash
-claude -p "READ-ONLY agent: [task]. Return JSON analysis." --output-format stream-json --allowedTools "$RO_TOOLS"
+claude -p "Security analysis..." --output-format stream-json --verbose --allowedTools "$RO_TOOLS" --disallowedTools "$DENIED_TOOLS" &
+claude -p "Infrastructure analysis..." --output-format stream-json --verbose --allowedTools "$RO_TOOLS" --disallowedTools "$DENIED_TOOLS" &
+claude -p "Data flow analysis..." --output-format stream-json --verbose --allowedTools "$RO_TOOLS" --disallowedTools "$DENIED_TOOLS" &
+wait
 ```
 
-**Mandatory Safety Prompt**:
+### Key Rules
 
-```text
-You are a READ-ONLY analysis agent. You CANNOT modify files, commit to git, or change system state. Return structured JSON analysis only.
-```
-
-### Limits and Fallbacks
-
-- Maximum 10 concurrent sub-agents
-- Sub-agents CANNOT spawn sub-agents
-- If sub-agent fails, fallback to direct analysis immediately
+- Each agent can spawn up to 5 sub-agents
+- Infinite recursion depth allowed
+- All agents are read-only
+- 30-minute timeout applies to entire delegation tree
+- Return structured JSON results
 
 ## Git and Change Management Workflow
 
