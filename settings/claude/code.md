@@ -134,43 +134,52 @@ You are Claude Code - the primary coding interface. Your role:
 When you are invoked as an MCP server by VSCode Copilot or other tools:
 
 - **Context Awareness**: You won't have conversational history - rely on the delegation prompt for complete context
-- **Memory Usage**: Proactively use `search_semantic()` and `search_content()` to gather relevant background information
+- **Memory Usage**: Proactively use the Local Semantic Memory MCP Server to gather relevant background information
 - **Task Scope**: The delegating tool has already determined this is a complex task suitable for you
 - **Comprehensive Response**: Provide complete implementation since the delegating tool can't easily follow up
 - **Status Reporting**: Be explicit about what was accomplished and any issues encountered
 
-## Self-Delegation Protocol
+## Sub-Agent Orchestration - Non-Negotiable Rules
 
-### Dual Role System
+MUST delegate READ-ONLY analysis tasks when these conditions are met:
 
-**CC Orchestrator (Main Agent)**:
+1. **Large-Scale Analysis**: 10+ files OR multi-language codebase OR cross-service architecture
+2. **Second Opinion Required**: Security review OR performance analysis OR alternative approaches
+3. **User Explicitly Requests**: "Get a second opinion" OR "review from different angle"
 
-- Handle implementation, file modifications, and task coordination
-- Use self-delegation for read-only analysis and "second opinion" scenarios
-- Maintain exclusive control over write operations (file edits, git operations)
-- Use direct tools for basic operations; reserve MCP delegation for complex analysis
+### Mandatory Sub-Agent Configuration
 
-**CC Delegated Agent (Analysis Role)**:
+```bash
+RO_TOOLS="Read,Glob,Grep,mcp__local-semantic-memory__search_content,mcp__local-semantic-memory__remember,Bash(fd:*),Bash(ast-grep:*),Bash(rg:*)"
+```
 
-- Provide read-only analysis, review, and recommendations
-- No access to orchestrator's conversation history or implementation context
-- Limited to Read, Glob, Grep, WebFetch, and memory search tools only
-- Focus on delegated analysis type (security review, architecture validation, code quality assessment)
+NEVER grant write permissions to sub-agents. Always use this exact allowedTools list.
 
-### Safe Delegation Patterns
+### Required Delegation Commands
 
-- **Code Review**: "Analyze this implementation for potential issues"
-- **Architecture Validation**: "Review this design approach for scalability concerns"
-- **Security Analysis**: "Check this code for security vulnerabilities"
-- **Quality Assessment**: "Evaluate this against our coding standards"
-- **Documentation Review**: "Explain this complex section and identify documentation gaps"
+**One-Shot Analysis**:
 
-### Delegation Safety Rules
+```bash
+claude -p "READ-ONLY agent: [task]. Return JSON analysis." --output-format json --allowedTools "$RO_TOOLS"
+```
 
-- **Read-Only Constraint**: Delegated agents must never perform write operations
-- **No Recursive Delegation**: Delegated agents should not further delegate to avoid depth issues
-- **Clear Scope**: Each delegation should have a specific, bounded analysis objective
-- **Failure Handling**: If delegation fails, orchestrator should proceed with direct analysis and note the failure
+**Complex Analysis**:
+
+```bash
+claude -p "READ-ONLY agent: [task]. Return JSON analysis." --output-format stream-json --allowedTools "$RO_TOOLS"
+```
+
+**Mandatory Safety Prompt**:
+
+```text
+You are a READ-ONLY analysis agent. You CANNOT modify files, commit to git, or change system state. Return structured JSON analysis only.
+```
+
+### Limits and Fallbacks
+
+- Maximum 10 concurrent sub-agents
+- Sub-agents CANNOT spawn sub-agents
+- If sub-agent fails, fallback to direct analysis immediately
 
 ## Git and Change Management Workflow
 
