@@ -1,0 +1,40 @@
+{
+  "mcpServers": {
+    "claude-code": {
+      "command": "claude",
+      "args": ["mcp", "serve"],
+      "env": {}
+    },
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/Users/jacob.hurlburt/"
+      ]
+    },
+    "local-semantic-memory": {
+      "command": "/Users/jacob.hurlburt/.pixi/bin/uv",
+      "args": [
+        "run",
+        "--directory",
+        "/Users/jacob.hurlburt/repos/local-semantic-memory",
+        "mcp",
+        "run",
+        "src/local_semantic_memory/server.py"
+      ]
+    },
+    "sequential-thinking": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"]
+    },
+    "time": {
+      "command": "/Users/jacob.hurlburt/.pixi/bin/uvx",
+      "args": ["mcp-server-time", "--local-timezone=America/Chicago"]
+    },
+    "git": {
+      "command": "/Users/jacob.hurlburt/.pixi/bin/uvx",
+      "args": ["mcp-server-git"]
+    }
+  }
+}
