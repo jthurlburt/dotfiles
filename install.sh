@@ -24,6 +24,9 @@
 # Run VS Code Script
 ./vscode.sh
 
+# Run Claude configuration Script
+./claude.sh
+
 # dotfiles directory
 dotfiledir="${HOME}/dotfiles"
 
