@@ -147,16 +147,6 @@ When you are invoked as an MCP server by VSCode Copilot or other tools:
 
 ## Recursive Delegation System
 
-### Tool Configuration
-
-```bash
-RO_TOOLS="Read,Glob,Grep,mcp__local-semantic-memory__search_content,mcp__local-semantic-memory__search_semantic,mcp__local-semantic-memory__remember,Bash(fd:*),Bash(ast-grep:*),Bash(rg:*),Bash(tree:*),Bash(find:*),Bash(ls:*),Bash(cat:*),Bash(head:*),Bash(tail:*),Bash(wc:*),Bash(sort:*),Bash(uniq:*),Bash(cut:*)"
-
-DENIED_TOOLS="Write,Edit,MultiEdit,NotebookEdit,Bash(git add:*),Bash(git commit:*),Bash(git push:*),Bash(rm:*),Bash(mv:*),Bash(cp:*),Bash(chmod:*),Bash(mkdir:*)"
-
-export BASH_DEFAULT_TIMEOUT_MS=1800000  # 30 minutes
-```
-
 ### Multi-Agent Parallel Delegation
 
 When delegation is appropriate, split analysis into 2-5 specialized domains and run multiple agents in parallel:
@@ -181,11 +171,18 @@ Focus exclusively on [domain] aspects:
 
 **Execution instructions:**
 
+- Export timeout environment variable before launching sub-agents
+- Set tool variables before launching sub-agents
 - Launch all sub-agents in a single bash command using `&` for parallel execution
 - Use `wait` command to ensure all agents complete before proceeding
 - Example:
 
 ```bash
+# Set all configuration variables for reliable inheritance
+export BASH_DEFAULT_TIMEOUT_MS=1800000
+RO_TOOLS="Read,Glob,Grep,mcp__local-semantic-memory__search_content,mcp__local-semantic-memory__search_semantic,mcp__local-semantic-memory__remember,Bash(fd:*),Bash(ast-grep:*),Bash(rg:*),Bash(tree:*),Bash(find:*),Bash(ls:*),Bash(cat:*),Bash(head:*),Bash(tail:*),Bash(wc:*),Bash(sort:*),Bash(uniq:*),Bash(cut:*)"
+DENIED_TOOLS="Write,Edit,MultiEdit,NotebookEdit,Bash(git add:*),Bash(git commit:*),Bash(git push:*),Bash(rm:*),Bash(mv:*),Bash(cp:*),Bash(chmod:*),Bash(mkdir:*)"
+
 claude -p "Security analysis..." --output-format stream-json --verbose --allowedTools "$RO_TOOLS" --disallowedTools "$DENIED_TOOLS" &
 claude -p "Infrastructure analysis..." --output-format stream-json --verbose --allowedTools "$RO_TOOLS" --disallowedTools "$DENIED_TOOLS" &
 claude -p "Data flow analysis..." --output-format stream-json --verbose --allowedTools "$RO_TOOLS" --disallowedTools "$DENIED_TOOLS" &
