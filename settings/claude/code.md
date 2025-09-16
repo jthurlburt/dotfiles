@@ -171,22 +171,27 @@ Focus exclusively on [domain] aspects:
 
 **Execution instructions:**
 
-- Export timeout environment variable before launching sub-agents
 - Set tool variables before launching sub-agents
 - Launch all sub-agents in a single bash command using `&` for parallel execution
 - Use `wait` command to ensure all agents complete before proceeding
-- Example:
+- **CRITICAL**: Use the Bash tool's timeout parameter (not environment variables) for 10-minute timeout
+- Example using the Bash tool with timeout parameter:
 
-```bash
-# Set all configuration variables for reliable inheritance
-export BASH_DEFAULT_TIMEOUT_MS=1800000
+```xml
+<invoke name="Bash">
+<parameter name="timeout">600000</parameter>  <!-- 10 minutes -->
+<parameter name="command">
+# Set tool variables
 RO_TOOLS="Read,Glob,Grep,mcp__local-semantic-memory__search_content,mcp__local-semantic-memory__search_semantic,mcp__local-semantic-memory__remember,Bash(fd:*),Bash(ast-grep:*),Bash(rg:*),Bash(tree:*),Bash(find:*),Bash(ls:*),Bash(cat:*),Bash(head:*),Bash(tail:*),Bash(wc:*),Bash(sort:*),Bash(uniq:*),Bash(cut:*)"
 DENIED_TOOLS="Write,Edit,MultiEdit,NotebookEdit,Bash(git add:*),Bash(git commit:*),Bash(git push:*),Bash(rm:*),Bash(mv:*),Bash(cp:*),Bash(chmod:*),Bash(mkdir:*)"
 
+# Launch parallel agents
 claude -p "Security analysis..." --output-format stream-json --verbose --allowedTools "$RO_TOOLS" --disallowedTools "$DENIED_TOOLS" &
 claude -p "Infrastructure analysis..." --output-format stream-json --verbose --allowedTools "$RO_TOOLS" --disallowedTools "$DENIED_TOOLS" &
 claude -p "Data flow analysis..." --output-format stream-json --verbose --allowedTools "$RO_TOOLS" --disallowedTools "$DENIED_TOOLS" &
 wait
+</parameter>
+</invoke>
 ```
 
 ### Key Rules
@@ -194,7 +199,7 @@ wait
 - Each agent can spawn up to 10 sub-agents
 - Infinite recursion depth allowed
 - All agents are read-only
-- 30-minute timeout applies to entire delegation tree
+- 10-minute timeout applies to entire delegation tree
 - Return structured JSON results
 
 ## Git and Change Management Workflow
