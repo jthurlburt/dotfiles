@@ -44,8 +44,10 @@ Only use non-Claude-Code MCP servers for unique capabilities.
 
 Before finishing any task:
 
-1. Check for pre-commit: `ls -la .pre-commit-config.yaml`
-2. If exists: `pre-commit run --all-files`
+1. Check for pre-commit config: `ls -la .pre-commit-config.yaml`
+2. If exists: Try prek first, fallback to pre-commit if needed:
+   - `prek run --all-files` (preferred for speed and performance)
+   - If prek fails or unavailable: `pre-commit run --all-files`
 3. If not exists or tools missing: Use appropriate tools to test code quality
 
 ## Git Safety Rules
@@ -123,7 +125,9 @@ You are Claude Code - the primary coding interface. Your role:
 - **shfmt** - Shell script formatting and style consistency
   - Shell script formatting: `shfmt <file>`
 - **terraform** - Infrastructure as Code operations
-- **pre-commit** - Git hook management and code quality
+- **prek** - Fast, Rust-based pre-commit alternative with drop-in compatibility
+  - Code quality checks: `prek run --all-files`
+- **pre-commit** - Git hook management and code quality (fallback)
 - **gh** - GitHub CLI for repository operations
 
 ### Core Operations
@@ -232,13 +236,17 @@ jq 'keys' config.json
 yq 'keys' environments.yaml
 ```
 
-### Pre-commit Workflow
+### Code Quality Workflow
 
 ```bash
 ls -la .pre-commit-config.yaml
-# If exists:
-pre-commit run --all-files
-git add . # stage pre-commit changes
+# If exists, try prek first with pre-commit fallback:
+if command -v prek >/dev/null 2>&1; then
+  prek run --all-files || pre-commit run --all-files
+else
+  pre-commit run --all-files
+fi
+git add . # stage any changes made by hooks
 # If not exists:
 # Use appropriate tools to test code quality
 ```
