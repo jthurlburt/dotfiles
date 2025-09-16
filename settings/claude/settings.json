@@ -77,6 +77,10 @@
       "WebFetch(domain:github.com)"
     ],
     "deny": [
+      "Bash(find:*)",
+      "Bash(grep:*)",
+      "Bash(sed:*)",
+      "Bash(awk:*)",
       "mcp__claude-code__Bash",
       "mcp__claude-code__Edit",
       "mcp__claude-code__Glob",
@@ -89,7 +93,7 @@
       "mcp__claude-code__WebSearch",
       "mcp__claude-code__Write"
     ],
-    "ask": ["Bash(pixi global:*)"]
+    "ask": ["Bash(pixi global:*)", "Bash(git commit:*)", "Bash(git reset:*)"]
   },
   "outputStyle": "Explanatory"
 }
