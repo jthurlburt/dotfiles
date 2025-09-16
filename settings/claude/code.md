@@ -14,7 +14,7 @@ Every analysis task MUST start with these tools in this order:
    - Consider if this analysis would benefit from multiple specialized perspectives
    - Look for complex, multi-domain projects (security + infrastructure + data flows + etc.)
    - Check if user explicitly requests delegation ("delegate", "comprehensive review", "full analysis", "second opinion")
-   - **If delegation appropriate**: Split into 2-5 specialized domains and run multiple parallel headless agents per "Recursive Delegation System" below
+   - **If delegation appropriate**: Split into 2-10 specialized domains and run multiple parallel headless agents per "Recursive Delegation System" below
    - **If single-agent sufficient**: Continue to step 4
 4. **Code Analysis** (only if not delegating): `ast-grep --lang python -p 'def $_($_)' src/` and `ast-grep --lang python -p 'class $_' src/`
 5. **Configuration Processing** (only if not delegating): `jq '.' config.json && yq '.' config.yaml` for every JSON/YAML file found
@@ -149,7 +149,7 @@ When you are invoked as an MCP server by VSCode Copilot or other tools:
 
 ### Multi-Agent Parallel Delegation
 
-When delegation is appropriate, split analysis into 2-5 specialized domains and run multiple agents in parallel:
+When delegation is appropriate, split analysis into 2-10 specialized domains and run multiple agents in parallel:
 
 **Example domains:** Security analysis, Infrastructure/CDK, Data flow architecture, Performance patterns, Configuration management
 
@@ -160,7 +160,7 @@ claude -p "READ-ONLY ANALYSIS: [specific domain only]
 
 Focus exclusively on [domain] aspects:
 - [Domain-specific analysis goals]
-- If domain still too complex, delegate up to 5 sub-tasks using this template
+- If domain still too complex, delegate up to 10 sub-tasks using this template
 - You are read-only: cannot modify files or system state
 - Return structured JSON findings for your domain only" \
 --output-format stream-json \
@@ -191,7 +191,7 @@ wait
 
 ### Key Rules
 
-- Each agent can spawn up to 5 sub-agents
+- Each agent can spawn up to 10 sub-agents
 - Infinite recursion depth allowed
 - All agents are read-only
 - 30-minute timeout applies to entire delegation tree
