@@ -53,6 +53,11 @@ channels = ["conda-forge"]
 dependencies = { pre-commit = "3.8.*" }
 exposed = { pre-commit = "pre-commit" }
 
+[envs.prek]
+channels = ["conda-forge"]
+dependencies = { prek = "0.2.*" }
+exposed = { prek = "prek" }
+
 [envs.gh]
 channels = ["conda-forge"]
 dependencies = { gh = "2.79.*" }
