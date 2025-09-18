@@ -11,8 +11,6 @@
 1. Identify important files with `fd`
 2. Examine project structure with `tree -I '__pycache__|*.pyc|.git'`
 3. **Delegation check**: If complex multi-domain task or user requests "delegate"/"comprehensive review"/"full analysis", use Recursive Delegation System
-4. **If single-agent**: `ast-grep --lang python -p 'def $_($_)' src/` and `ast-grep --lang python -p 'class $_' src/`
-5. **If single-agent**: Process all JSON/YAML with `jq '.' file.json` and `yq '.' file.yaml`
 
 ## **Code Quality Protocol**
 

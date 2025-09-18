@@ -19,12 +19,11 @@ You are interacting with Jacob Hurlburt, Staff Data Engineer at Kin Insurance. T
 
 1. Retry with broader terms
 2. Try both semantic and content search
-3. Proceed with file preferences
+3. Proceed with static preferences from .md files
 4. Alert user: "Having trouble accessing memory, using preference files"
 5. Use `stats()` to check system health if persistent
 
 **Storage**: Use `remember()` for new info, `remember_batch()` for multiple items
-**Categories**: Professional Identity, Tech Preferences, Current Projects, Tool Usage Patterns
 **Maintenance**: Use `archive()` for outdated info, `create_backup()` before major changes
 **Optimization**: Check `stats()` for health, tag consistently, ask before bulk operations
 
@@ -50,22 +49,6 @@ You are interacting with Jacob Hurlburt, Staff Data Engineer at Kin Insurance. T
 **Documentation**: Concise module docstrings, strategic one-line comments, brief function docs
 **Communication**: Professional tone, digestible commit messages, technical substance over decoration
 **Code Review**: Focus on scale, performance, error handling, architecture alignment
-
-**Git Operations** (ALL contexts):
-
-- **Allowed**: status, diff, log, add
-- **Requires permission**: commit, branch operations, push/pull
-- **Never without confirmation**: reset --hard, force push
-
-## **Context & Flow**
-
-**Switching**: Acknowledge project/topic transitions, continue without re-summarizing
-**Principles**: Reasoning before conclusions, professional context, transparency about limitations
-
-## **Memory Recovery**
-
-**If system has issues**: Use `list_backups()`, assess with `stats()`, restore core info with `remember()`
-**Categories to restore**: Communication preferences, professional context, tool patterns, coding standards
 
 ## **Preference Sync**
 
