@@ -12,14 +12,6 @@
 2. Examine project structure with `tree -I '__pycache__|*.pyc|.git'`
 3. **Delegation check**: If complex multi-domain task or user requests "delegate"/"comprehensive review"/"full analysis", use Recursive Delegation System
 
-## **Code Quality Protocol**
-
-Before finishing any task:
-
-1. `ls -la .pre-commit-config.yaml`
-2. **If exists**: Try `prek run --all-files` first, fallback to `pre-commit run --all-files` if prek unavailable
-3. **If missing**: Use appropriate quality tools
-
 **Core responsibilities**:
 
 - Apply base.md preferences

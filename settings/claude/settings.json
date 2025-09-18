@@ -95,5 +95,18 @@
     ],
     "ask": ["Bash(pixi global:*)", "Bash(git commit:*)", "Bash(git reset:*)"]
   },
-  "outputStyle": "Explanatory"
+  "outputStyle": "Explanatory",
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '.tool_input.file_path // empty' | rg -q . && { ls -la .pre-commit-config.yaml >/dev/null 2>&1 && { prek run --all-files 2>&1; } || { ruff check --fix 2>&1 && ruff format 2>&1; }; } || exit 2"
+          }
+        ]
+      }
+    ]
+  }
 }
