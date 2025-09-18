@@ -149,3 +149,12 @@ exposed = { sqlfmt = "sqlfmt" }
 channels = ["conda-forge"]
 dependencies = { sqlfluff = "3.4.*" }
 exposed = { sqlfluff = "sqlfluff" }
+
+###############################################################################
+# Frontend & JavaScript Development
+###############################################################################
+
+[envs.nodejs]
+channels = ["conda-forge"]
+dependencies = { nodejs = "24.4.*" }
+exposed = { corepack = "corepack", node = "node", npm = "npm", npx = "npx" }
