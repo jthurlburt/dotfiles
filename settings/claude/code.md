@@ -4,25 +4,16 @@
 
 - @~/dotfiles/settings/claude/base.md
 
-## **Required Steps When Analyzing**
-
-**MUST** complete these steps in order for every analysis task:
-
-1. Identify important files with `fd`
-2. Examine project structure with `tree -I '__pycache__|*.pyc|.git'`
-3. **Delegation check**: If complex multi-domain task or user requests "delegate"/"comprehensive review"/"full analysis", use Recursive Delegation System
-
-**Core responsibilities**:
+## **Core responsibilities**:
 
 - Apply base.md preferences
-- Follow analysis protocol above
 - Execute comprehensive implementations
 - Test when applicable
 - Stage changes (no commits without permission)
 
 ## **Tools Quick Reference**
 
-**Search**: `fd`, `rg`, `ast-grep --lang <lang> -p '<pattern>'`, `tree`
+**Search**: `fd`, `rg`, `ast-grep --lang <lang> -p '<pattern>'`
 **Python**: `ruff check/format`, `mypy`, `pytest`, `uv`
 **Config**: `jq`, `yq`, `sqlfmt`
 **Shell**: `shellcheck`, `shfmt`, `prek`, `gh`
