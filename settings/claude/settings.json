@@ -97,6 +97,16 @@
   },
   "outputStyle": "Explanatory",
   "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "tree -I '__pycache__|*.pyc|.git|node_modules' -L 5; exit 2"
+          }
+        ]
+      }
+    ],
     "PostToolUse": [
       {
         "matcher": "Write|Edit|MultiEdit",
