@@ -11,13 +11,12 @@
 - Test when applicable
 - Stage changes (no commits without permission)
 
-## **Tools Quick Reference**
+## **Available Tools**
 
-**Search**: `fd`, `rg`, `ast-grep --lang <lang> -p '<pattern>'`
-**Python**: `ruff check/format`, `mypy`, `pytest`, `uv`
-**Config**: `jq`, `yq`, `sqlfmt`
-**Shell**: `shellcheck`, `shfmt`, `prek`, `gh`
-**Core**: Read, Write, Edit, MultiEdit, Glob, Grep, Bash
+**Python**: `ruff`, `mypy`, `pytest`, `uv`
+**Quality**: `shellcheck`, `shfmt`, `prek`, `sqlfmt`, `sqlfluff`
+**Git**: `gh`, `difft`
+**Selection**: `fzf`
 
 ## **Delegation System**
 

@@ -49,6 +49,10 @@
       "Bash(uv run python:*)",
       "Bash(wait)",
       "Bash(yq:*)",
+      "Bash(find:*)",
+      "Bash(grep:*)",
+      "Bash(sed:*)",
+      "Bash(awk:*)",
       "mcp__claude-code__Task",
       "mcp__ide__getDiagnostics",
       "mcp__local-semantic-memory__archive",
@@ -77,10 +81,6 @@
       "WebFetch(domain:github.com)"
     ],
     "deny": [
-      "Bash(find:*)",
-      "Bash(grep:*)",
-      "Bash(sed:*)",
-      "Bash(awk:*)",
       "mcp__claude-code__Bash",
       "mcp__claude-code__Edit",
       "mcp__claude-code__Glob",
@@ -103,6 +103,38 @@
           {
             "type": "command",
             "command": "tree -I '__pycache__|*.pyc|.git|node_modules' -L 5; exit 2"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cmd=$(echo '$CLAUDE_TOOL_INPUT' | jq -r '.command' 2>/dev/null || echo ''); echo \"$cmd\" | rg -q '^(grep|egrep|fgrep)' && { echo 'BLOCKED: Use rg (Grep tool) for text search, ast-grep for code structures' >&2; exit 2; }"
+          },
+          {
+            "type": "command",
+            "command": "cmd=$(echo '$CLAUDE_TOOL_INPUT' | jq -r '.command' 2>/dev/null || echo ''); echo \"$cmd\" | rg -q '^find' && { echo 'BLOCKED: Use fd - fd (by name), fd -p (by path), fd . <dir> (list), fd -e <ext> <pattern>' >&2; exit 2; }"
+          },
+          {
+            "type": "command",
+            "command": "cmd=$(echo '$CLAUDE_TOOL_INPUT' | jq -r '.command' 2>/dev/null || echo ''); echo \"$cmd\" | rg -q 'ls.*-(la|R)' && { echo 'BLOCKED: Use fd . <directory> to list files in directory' >&2; exit 2; }"
+          },
+          {
+            "type": "command",
+            "command": "cmd=$(echo '$CLAUDE_TOOL_INPUT' | jq -r '.command' 2>/dev/null || echo ''); echo \"$cmd\" | rg -q '^(sed|awk)' && { echo 'BLOCKED: Use jq for JSON, yq for YAML/XML, rg for text search' >&2; exit 2; }"
+          }
+        ]
+      },
+      {
+        "matcher": "Grep",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "pattern=$(echo '$CLAUDE_TOOL_INPUT' | jq -r '.pattern' 2>/dev/null || echo ''); echo \"$pattern\" | rg -q '\\b(class|function|def|import|interface|struct|const|let|var|type|enum)\\b' && echo 'SUGGESTION: Use ast-grep for code structures - ast-grep --lang <ts|tsx|py|js|rust|json> -p \"<pattern>\"' >&2"
           }
         ]
       }
