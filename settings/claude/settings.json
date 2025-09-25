@@ -6,55 +6,65 @@
   },
   "permissions": {
     "allow": [
-      "Bash(ast-grep:*)",
-      "Bash(cat:*)",
-      "Bash(claude -p:*)",
-      "Bash(difft:*)",
-      "Bash(env)",
-      "Bash(export:*)",
-      "Bash(fd:*)",
-      "Bash(find:*)",
-      "Bash(fzf:*)",
-      "Bash(gh pr diff:*)",
-      "Bash(gh pr list:*)",
-      "Bash(gh pr view:*)",
-      "Bash(gh run list:*)",
-      "Bash(gh run view:*)",
-      "Bash(git add:*)",
-      "Bash(git diff:*)",
-      "Bash(git log:*)",
-      "Bash(git status:*)",
-      "Bash(head:*)",
-      "Bash(jq:*)",
-      "Bash(ls:*)",
+      // Git tools
+      "Bash(git:*)",
+
+      // GitHub tools
+      "Bash(gh:*)",
+
+      // Python tools
       "Bash(mypy:*)",
       "Bash(pixi:*)",
-      "Bash(pixi run pre-commit:*)",
-      "Bash(pixi run pytest:*)",
-      "Bash(pixi run python:*)",
-      "Bash(pixi search:*)",
-      "Bash(pre-commit:*)",
       "Bash(pytest:*)",
-      "Bash(readlink:*)",
-      "Bash(rg:*)",
       "Bash(ruff:*)",
+      "Bash(uv:*)",
+
+      // Code quality tools
+      "Bash(pre-commit:*)",
+      "Bash(prek:*)",
       "Bash(shellcheck:*)",
       "Bash(shfmt:*)",
-      "Bash(test:*)",
+
+      // Search and navigation tools
+      "Bash(ast-grep:*)",
+      "Bash(fd:*)",
+      "Bash(fzf:*)",
+      "Bash(rg:*)",
       "Bash(tree:*)",
-      "Bash(uv add:*)",
-      "Bash(uv remove:*)",
-      "Bash(uv run pre-commit:*)",
-      "Bash(uv run pytest:*)",
-      "Bash(uv run python:*)",
-      "Bash(wait)",
+
+      // File operations
+      "Bash(cat:*)",
+      "Bash(head:*)",
+      "Bash(ls:*)",
+      "Bash(readlink:*)",
+      "Bash(test:*)",
+
+      // Data processing tools
+      "Bash(jq:*)",
       "Bash(yq:*)",
+
+      // System tools
+      "Bash(env:*)",
+      "Bash(export:*)",
+      "Bash(wait:*)",
+
+      // Comparison tools
+      "Bash(difft:*)",
+
+      // Claude tools
+      "Bash(claude -p:*)",
+
+      // Deprecated tools (blocked by hooks)
+      "Bash(awk:*)",
       "Bash(find:*)",
       "Bash(grep:*)",
       "Bash(sed:*)",
-      "Bash(awk:*)",
+
+      // MCP tools
       "mcp__claude-code__Task",
       "mcp__ide__getDiagnostics",
+
+      // Memory tools
       "mcp__local-semantic-memory__archive",
       "mcp__local-semantic-memory__create_embedding",
       "mcp__local-semantic-memory__get_embedding_info",
@@ -75,10 +85,12 @@
       "mcp__local-semantic-memory__stats",
       "mcp__local-semantic-memory__update",
       "mcp__local-semantic-memory__update_batch",
-      "Read(//Users/jacob.hurlburt/Library/Logs/Claude/**)",
-      "Read(//Users/jacob.hurlburt/dotfiles/settings/claude/**)",
-      "Read(//Users/jacob.hurlburt/repos/**)",
-      "WebFetch(domain:github.com)"
+
+      // Read permissions
+      "Read(//Users/jacob.hurlburt/**)",
+
+      // Web access
+      "WebFetch(domain:*)"
     ],
     "deny": [
       "mcp__claude-code__Bash",
@@ -97,8 +109,14 @@
       "Bash(brew install:*)",
       "Bash(brew uninstall:*)",
       "Bash(pixi global:*)",
+      "Bash(pixi run:*)",
+      "Bash(uv run:*)",
+      "Bash(git add:*)",
       "Bash(git commit:*)",
-      "Bash(git reset:*)"
+      "Bash(git cherry-pick:*)",
+      "Bash(git push:*)",
+      "Bash(git reset:*)",
+      "Bash(git revert:*)"
     ]
   },
   "outputStyle": "Explanatory",
