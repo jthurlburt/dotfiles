@@ -93,7 +93,13 @@
       "mcp__claude-code__WebSearch",
       "mcp__claude-code__Write"
     ],
-    "ask": ["Bash(pixi global:*)", "Bash(git commit:*)", "Bash(git reset:*)"]
+    "ask": [
+      "Bash(brew install:*)",
+      "Bash(brew uninstall:*)",
+      "Bash(pixi global:*)",
+      "Bash(git commit:*)",
+      "Bash(git reset:*)"
+    ]
   },
   "outputStyle": "Explanatory",
   "hooks": {
