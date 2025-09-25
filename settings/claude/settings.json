@@ -6,65 +6,40 @@
   },
   "permissions": {
     "allow": [
-      // Git tools
-      "Bash(git:*)",
-
-      // GitHub tools
-      "Bash(gh:*)",
-
-      // Python tools
-      "Bash(mypy:*)",
-      "Bash(pixi:*)",
-      "Bash(pytest:*)",
-      "Bash(ruff:*)",
-      "Bash(uv:*)",
-
-      // Code quality tools
-      "Bash(pre-commit:*)",
-      "Bash(prek:*)",
-      "Bash(shellcheck:*)",
-      "Bash(shfmt:*)",
-
-      // Search and navigation tools
       "Bash(ast-grep:*)",
-      "Bash(fd:*)",
-      "Bash(fzf:*)",
-      "Bash(rg:*)",
-      "Bash(tree:*)",
-
-      // File operations
+      "Bash(awk:*)",
       "Bash(cat:*)",
-      "Bash(head:*)",
-      "Bash(ls:*)",
-      "Bash(readlink:*)",
-      "Bash(test:*)",
-
-      // Data processing tools
-      "Bash(jq:*)",
-      "Bash(yq:*)",
-
-      // System tools
+      "Bash(claude -p:*)",
+      "Bash(difft:*)",
       "Bash(env:*)",
       "Bash(export:*)",
-      "Bash(wait:*)",
-
-      // Comparison tools
-      "Bash(difft:*)",
-
-      // Claude tools
-      "Bash(claude -p:*)",
-
-      // Deprecated tools (blocked by hooks)
-      "Bash(awk:*)",
+      "Bash(fd:*)",
       "Bash(find:*)",
+      "Bash(fzf:*)",
+      "Bash(gh:*)",
+      "Bash(git:*)",
       "Bash(grep:*)",
+      "Bash(head:*)",
+      "Bash(jq:*)",
+      "Bash(ls:*)",
+      "Bash(mypy:*)",
+      "Bash(pixi:*)",
+      "Bash(pre-commit:*)",
+      "Bash(prek:*)",
+      "Bash(pytest:*)",
+      "Bash(readlink:*)",
+      "Bash(rg:*)",
+      "Bash(ruff:*)",
       "Bash(sed:*)",
-
-      // MCP tools
+      "Bash(shellcheck:*)",
+      "Bash(shfmt:*)",
+      "Bash(test:*)",
+      "Bash(tree:*)",
+      "Bash(uv:*)",
+      "Bash(wait:*)",
+      "Bash(yq:*)",
       "mcp__claude-code__Task",
       "mcp__ide__getDiagnostics",
-
-      // Memory tools
       "mcp__local-semantic-memory__archive",
       "mcp__local-semantic-memory__create_embedding",
       "mcp__local-semantic-memory__get_embedding_info",
@@ -85,11 +60,7 @@
       "mcp__local-semantic-memory__stats",
       "mcp__local-semantic-memory__update",
       "mcp__local-semantic-memory__update_batch",
-
-      // Read permissions
       "Read(//Users/jacob.hurlburt/**)",
-
-      // Web access
       "WebFetch(domain:*)"
     ],
     "deny": [
@@ -108,15 +79,15 @@
     "ask": [
       "Bash(brew install:*)",
       "Bash(brew uninstall:*)",
-      "Bash(pixi global:*)",
-      "Bash(pixi run:*)",
-      "Bash(uv run:*)",
       "Bash(git add:*)",
-      "Bash(git commit:*)",
       "Bash(git cherry-pick:*)",
+      "Bash(git commit:*)",
       "Bash(git push:*)",
       "Bash(git reset:*)",
-      "Bash(git revert:*)"
+      "Bash(git revert:*)",
+      "Bash(pixi global:*)",
+      "Bash(pixi run:*)",
+      "Bash(uv run:*)"
     ]
   },
   "outputStyle": "Explanatory",
