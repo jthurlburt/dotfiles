@@ -47,6 +47,8 @@
       "mcp__atlassian__searchConfluenceUsingCql",
       "mcp__atlassian__getConfluencePageDescendants",
       "mcp__atlassian__getJiraIssue",
+      "mcp__atlassian__getVisibleJiraProjects",
+      "mcp__atlassian__getTransitionsForJiraIssue",
       "mcp__atlassian__searchJiraIssuesUsingJql",
       "mcp__local-semantic-memory__archive",
       "mcp__local-semantic-memory__create_embedding",
