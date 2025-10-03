@@ -41,6 +41,11 @@
       "Bash(yq:*)",
       "mcp__claude-code__Task",
       "mcp__ide__getDiagnostics",
+      "mcp__atlassian__getConfluencePage",
+      "mcp__atlassian__getConfluenceSpaces",
+      "mcp__atlassian__getPagesInConfluenceSpace",
+      "mcp__atlassian__searchConfluenceUsingCql",
+      "mcp__atlassian__getConfluencePageDescendants",
       "mcp__atlassian__getJiraIssue",
       "mcp__atlassian__searchJiraIssuesUsingJql",
       "mcp__local-semantic-memory__archive",
@@ -80,6 +85,8 @@
       "mcp__claude-code__Write"
     ],
     "ask": [
+      "mcp__atlassian__createConfluencePage",
+      "mcp__atlassian__updateConfluencePage",
       "mcp__atlassian__editJiraIssue",
       "mcp__atlassian__addCommentToJiraIssue",
       "mcp__atlassian__transitionJiraIssue",
