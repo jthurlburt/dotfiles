@@ -126,19 +126,19 @@
         "hooks": [
           {
             "type": "command",
-            "command": "cmd=$(jq -r '.tool_input.command // \"\"' 2>/dev/null); echo \"$cmd\" | rg -q '^(grep|egrep|fgrep)' && { echo '{\"hookSpecificOutput\": {\"hookEventName\": \"PreToolUse\", \"permissionDecision\": \"deny\", \"permissionDecisionReason\": \"Use rg (Grep tool) for text search, ast-grep for code structures\"}}'; exit 0; } || exit 0"
+            "command": "cmd=$(jq -r '.tool_input.command // \"\"' 2>/dev/null); echo \"$cmd\" | rg -q '(^|\\||;|&&)\\s*(grep|egrep|fgrep)\\b' && { echo '{\"hookSpecificOutput\": {\"hookEventName\": \"PreToolUse\", \"permissionDecision\": \"deny\", \"permissionDecisionReason\": \"Use rg (Grep tool) for text search, ast-grep for code structures\"}}'; exit 0; } || exit 0"
           },
           {
             "type": "command",
-            "command": "cmd=$(jq -r '.tool_input.command // \"\"' 2>/dev/null); echo \"$cmd\" | rg -q '^find' && { echo '{\"hookSpecificOutput\": {\"hookEventName\": \"PreToolUse\", \"permissionDecision\": \"deny\", \"permissionDecisionReason\": \"Use fd - fd (by name), fd -p (by path), fd . <dir> (list), fd -e <ext> <pattern>\"}}'; exit 0; } || exit 0"
+            "command": "cmd=$(jq -r '.tool_input.command // \"\"' 2>/dev/null); echo \"$cmd\" | rg -q '(^|\\||;|&&)\\s*find\\b' && { echo '{\"hookSpecificOutput\": {\"hookEventName\": \"PreToolUse\", \"permissionDecision\": \"deny\", \"permissionDecisionReason\": \"Use fd - fd (by name), fd -p (by path), fd . <dir> (list), fd -e <ext> <pattern>\"}}'; exit 0; } || exit 0"
           },
           {
             "type": "command",
-            "command": "cmd=$(jq -r '.tool_input.command // \"\"' 2>/dev/null); echo \"$cmd\" | rg -q 'ls.*-(la|R)' && { echo '{\"hookSpecificOutput\": {\"hookEventName\": \"PreToolUse\", \"permissionDecision\": \"deny\", \"permissionDecisionReason\": \"Use fd . <directory> to list files in directory\"}}'; exit 0; } || exit 0"
+            "command": "cmd=$(jq -r '.tool_input.command // \"\"' 2>/dev/null); echo \"$cmd\" | rg -q 'ls\\s+[^|]*-(la|R)' && { echo '{\"hookSpecificOutput\": {\"hookEventName\": \"PreToolUse\", \"permissionDecision\": \"deny\", \"permissionDecisionReason\": \"Use fd . <directory> to list files in directory\"}}'; exit 0; } || exit 0"
           },
           {
             "type": "command",
-            "command": "cmd=$(jq -r '.tool_input.command // \"\"' 2>/dev/null); echo \"$cmd\" | rg -q '^(sed|awk)' && { echo '{\"hookSpecificOutput\": {\"hookEventName\": \"PreToolUse\", \"permissionDecision\": \"deny\", \"permissionDecisionReason\": \"Use jq for JSON, yq for YAML/XML, rg for text search\"}}'; exit 0; } || exit 0"
+            "command": "cmd=$(jq -r '.tool_input.command // \"\"' 2>/dev/null); echo \"$cmd\" | rg -q '(^|\\||;|&&)\\s*(sed|awk)\\b' && { echo '{\"hookSpecificOutput\": {\"hookEventName\": \"PreToolUse\", \"permissionDecision\": \"deny\", \"permissionDecisionReason\": \"Use jq for JSON, yq for YAML/XML, rg for text search\"}}'; exit 0; } || exit 0"
           }
         ]
       },
