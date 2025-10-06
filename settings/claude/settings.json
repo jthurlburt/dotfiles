@@ -147,7 +147,16 @@
         "hooks": [
           {
             "type": "command",
-            "command": "pattern=$(jq -r '.tool_input.pattern // \"\"' 2>/dev/null); echo \"$pattern\" | rg -q '\\b(class|function|def|import|interface|struct|const|let|var|type|enum)\\b' && echo 'SUGGESTION: Use ast-grep for code structures - ast-grep --lang <ts|tsx|py|js|rust|json> -p \"<pattern>\"' >&2; exit 0"
+            "command": "echo '{\"hookSpecificOutput\": {\"hookEventName\": \"PreToolUse\", \"permissionDecision\": \"deny\", \"permissionDecisionReason\": \"Use CLI tools directly: rg for text search, ast-grep for code structures. Example: rg -n -C 2 \\\"pattern\\\" or ast-grep --lang py -p \\\"def $FUNC\\\"\"}}'; exit 0"
+          }
+        ]
+      },
+      {
+        "matcher": "Glob",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '{\"hookSpecificOutput\": {\"hookEventName\": \"PreToolUse\", \"permissionDecision\": \"deny\", \"permissionDecisionReason\": \"Use fd directly: fd \\\"pattern\\\" (by name), fd -p \\\"path/pattern\\\" (by path), fd . <dir> (list), fd -e <ext> \\\"pattern\\\" (by extension)\"}}'; exit 0"
           }
         ]
       }
