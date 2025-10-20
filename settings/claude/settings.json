@@ -110,7 +110,8 @@
       "Bash(pixi run:*)",
       "Bash(terraform:*)",
       "Bash(terramate:*)",
-      "Bash(uv run:*)"
+      "Bash(uv run:*)",
+      "Bash(gh pr create:*)"
     ],
     "defaultMode": "acceptEdits"
   },
