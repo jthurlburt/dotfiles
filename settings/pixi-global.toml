@@ -158,3 +158,8 @@ exposed = { sqlfluff = "sqlfluff" }
 channels = ["conda-forge"]
 dependencies = { nodejs = "24.4.*" }
 exposed = { corepack = "corepack", node = "node", npm = "npm", npx = "npx" }
+
+[envs.prettier]
+channels = ["conda-forge"]
+dependencies = { prettier = "3.6.*" }
+exposed = { prettier = "prettier" }
