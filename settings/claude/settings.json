@@ -104,6 +104,8 @@
       "Bash(git add:*)",
       "Bash(git cherry-pick:*)",
       "Bash(git commit:*)",
+      "Bash(git merge:*)",
+      "Bash(git rebase:*)",
       "Bash(git reset:*)",
       "Bash(git revert:*)",
       "Bash(pixi global:*)",
