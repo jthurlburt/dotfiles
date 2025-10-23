@@ -122,7 +122,7 @@
     "command": "input=$(cat); printf \"\\033[2m%s@%s \\033[36m%s\\033[0m \\033[2m[%s]\\033[0m\" \"$(whoami)\" \"$(hostname -s)\" \"$(echo \"$input\" | jq -r '.workspace.current_dir | gsub(\".*/\"; \"\")' 2>/dev/null || basename \"$(echo \"$input\" | jq -r '.workspace.current_dir')\" 2>/dev/null || echo \"unknown\")\" \"$(echo \"$input\" | jq -r '.model.display_name' 2>/dev/null || echo \"Claude\")\""
   },
   "extraKnownMarketplaces": {
-    "claude-settings": {
+    "jthurlburt-claude-plugins": {
       "source": {
         "source": "directory",
         "path": "/Users/jacob.hurlburt/repos/claude-settings"
@@ -130,8 +130,7 @@
     }
   },
   "enabledPlugins": {
-    "superpowers@claude-settings": true,
-    "elements-of-style@claude-settings": true
+    "superpowers@jthurlburt-claude-plugins": true
   },
   "outputStyle": "Default",
   "alwaysThinkingEnabled": false
