@@ -4,7 +4,7 @@
 
 - @~/dotfiles/settings/claude/base.md
 
-## **Core responsibilities**:
+## **Core responsibilities**
 
 - Apply base.md preferences
 - Execute comprehensive implementations
@@ -18,41 +18,9 @@
 **Git**: `gh`, `difft`
 **Selection**: `fzf`
 
-## **Delegation System**
+## **Parallel Work**
 
-**When to delegate**: Complex multi-domain tasks (security + infrastructure + data flows)
-
-**Detailed Process**:
-
-1. Split into 2-10 specialized domains
-2. Set tool variables:
-   - `RO_TOOLS="Read,Glob,Grep,mcp__local-semantic-memory__search_content,mcp__local-semantic-memory__search_semantic,mcp__local-semantic-memory__remember,Bash(fd:*),Bash(ast-grep:*),Bash(rg:*),Bash(tree:*),Bash(find:*),Bash(ls:*),Bash(cat:*),Bash(head:*),Bash(tail:*),Bash(wc:*),Bash(sort:*),Bash(uniq:*),Bash(cut:*)"`
-   - `DENIED_TOOLS="Write,Edit,MultiEdit,NotebookEdit,Bash(git add:*),Bash(git commit:*),Bash(git push:*),Bash(rm:*),Bash(mv:*),Bash(cp:*),Bash(chmod:*),Bash(mkdir:*)"`
-3. Launch with XML example using Bash tool timeout parameter:
-
-```xml
-<invoke name="Bash">
-<parameter name="timeout">600000</parameter>
-<parameter name="command">
-# Set tool variables
-RO_TOOLS="Read,Glob,Grep,mcp__local-semantic-memory__search_content,mcp__local-semantic-memory__search_semantic,mcp__local-semantic-memory__remember,Bash(fd:*),Bash(ast-grep:*),Bash(rg:*),Bash(tree:*),Bash(find:*),Bash(ls:*),Bash(cat:*),Bash(head:*),Bash(tail:*),Bash(wc:*),Bash(sort:*),Bash(uniq:*),Bash(cut:*)"
-DENIED_TOOLS="Write,Edit,MultiEdit,NotebookEdit,Bash(git add:*),Bash(git commit:*),Bash(git push:*),Bash(rm:*),Bash(mv:*),Bash(cp:*),Bash(chmod:*),Bash(mkdir:*)"
-
-# Launch parallel agents
-claude -p "READ-ONLY: [domain] analysis only" --output-format stream-json --allowedTools "$RO_TOOLS" --disallowedTools "$DENIED_TOOLS" &
-claude -p "READ-ONLY: [domain2] analysis only" --output-format stream-json --allowedTools "$RO_TOOLS" --disallowedTools "$DENIED_TOOLS" &
-wait
-</parameter>
-</invoke>
-```
-
-**Rules**:
-
-- Each agent can spawn up to 10 sub-agents
-- Infinite recursion depth allowed
-- All agents are read-only
-- 10-minute timeout for entire tree
-- Return structured JSON results
+For complex multi-domain tasks (3+ independent domains), use `dispatching-parallel-agents` skill.
 
 ## **Staging Workflow**
 
