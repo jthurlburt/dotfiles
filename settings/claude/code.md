@@ -21,9 +21,3 @@
 ## **Parallel Work**
 
 For complex multi-domain tasks (3+ independent domains), use `dispatching-parallel-agents` skill.
-
-## **Staging Workflow**
-
-- **Incremental**: Leave new changes unstaged when staged changes already exist
-- **Pre-commit**: Run only when no unstaged conflicts exist
-- **Safety**: Stage pre-commit changes automatically
