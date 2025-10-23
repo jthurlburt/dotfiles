@@ -7,6 +7,31 @@
   "editor.fontLigatures": true,
   "terminal.integrated.fontFamily": "Source Code Pro for Powerline",
   "terminal.integrated.inheritEnv": false,
+  "terminal.integrated.enableImages": true,
+  "terminal.integrated.defaultProfile.linux": "bash",
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "terminal.integrated.defaultProfile.windows": "Command Prompt",
+  "terminal.integrated.profiles.linux": {
+    "bash": {
+      "path": "/bin/bash"
+    },
+    "sh": {
+      "path": "/bin/sh"
+    }
+  },
+  "terminal.integrated.profiles.osx": {
+    "zsh": {
+      "path": "/bin/zsh"
+    },
+    "bash": {
+      "path": "/bin/bash"
+    }
+  },
+  "terminal.integrated.profiles.windows": {
+    "Command Prompt": {
+      "path": "${env:windir}\\System32\\cmd.exe"
+    }
+  },
   "editor.largeFileOptimizations": false,
   "workbench.startupEditor": "none",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -50,6 +75,7 @@
     "diffEditor.ignoreTrimWhitespace": true
   },
   "python.interpreter.infoVisibility": "always",
+  "python.analysis.typeCheckingMode": "basic",
   "ruff.nativeServer": true,
   "python.terminal.activateEnvironment": false,
 
@@ -88,8 +114,51 @@
   "[github-actions-workflow]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
 
   // Copilot Settings
+  "github.copilot.chat.commitMessageGeneration.instructions": [
+    {
+      "text": "Use conventional commit message format."
+    },
+    {
+      "text": "First line: {task-type}: brief description of the big picture change"
+    },
+    {
+      "text": "Task types: feat, fix, refactor, docs, style, test, build"
+    },
+    {
+      "text": "Focus on the 'why' and 'what' rather than implementation details"
+    },
+    {
+      "text": "For complex commits, add bullet points after a blank line explaining key changes"
+    },
+    {
+      "text": "Examples of good messages:"
+    },
+    {
+      "text": "feat: add transformers support to image classification pipeline"
+    },
+    {
+      "text": "fix: incorrect handling of empty input in model naming"
+    },
+    {
+      "text": "refactor: restructure API handlers to align with project architecture"
+    }
+  ],
+  "github.copilot.chat.pullRequestDescriptionGeneration.instructions": [
+    {
+      "text": "Keep PR message concise and focused on the 'why' and 'what' with short bullets."
+    },
+    {
+      "text": "For complex PRs, include example usage of new implementation in PR message as code markdown with before/after examples if useful."
+    },
+    {
+      "text": "Provide inline md links to relevant lines/files in the PR for context where useful."
+    }
+  ],
   "github.copilot.chat.agent.thinkingTool": true,
   "github.copilot.advanced": {},
   "github.copilot.enable": {
@@ -98,6 +167,13 @@
     "markdown": false,
     "scminput": false
   },
+  "github.copilot.editor.enableCodeActions": false,
+  "github.copilot.chat.copilotDebugCommand.enabled": false,
+  "github.copilot.chat.reviewAgent.enabled": false,
+  "github.copilot.chat.reviewSelection.enabled": false,
+  "github.copilot.chat.startDebugging.enabled": false,
+  "github.copilot.chat.newWorkspaceCreation.enabled": false,
+  "github.copilot.chat.setupTests.enabled": false,
   "chat.mcp.discovery.enabled": {
     "claude-desktop": true,
     "windsurf": true,
@@ -136,6 +212,7 @@
   "findrelated.autoOpen": true,
 
   // Other Settings
+  "telemetry.telemetryLevel": "off",
   "redhat.telemetry.enabled": false,
   "python.analysis.extraPaths": [],
   "terraform.mcp.server.enable": false,
