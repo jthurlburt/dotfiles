@@ -1,10 +1,19 @@
 {
-  // General Settings
+  // ═══════════════════════════════════════════════════════════════════════════
+  // EDITOR & WORKBENCH
+  // ═══════════════════════════════════════════════════════════════════════════
   "workbench.colorTheme": "Monokai",
+  "workbench.startupEditor": "none",
   "editor.minimap.enabled": false,
+  "editor.fontLigatures": true,
+  "editor.largeFileOptimizations": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "security.workspace.trust.untrustedFiles": "open",
   "application.shellEnvironmentResolutionTimeout": 20,
-  "editor.fontLigatures": true,
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // TERMINAL
+  // ═══════════════════════════════════════════════════════════════════════════
   "terminal.integrated.fontFamily": "Source Code Pro for Powerline",
   "terminal.integrated.inheritEnv": false,
   "terminal.integrated.enableImages": true,
@@ -32,9 +41,10 @@
       "path": "${env:windir}\\System32\\cmd.exe"
     }
   },
-  "editor.largeFileOptimizations": false,
-  "workbench.startupEditor": "none",
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // FILE ASSOCIATIONS
+  // ═══════════════════════════════════════════════════════════════════════════
   "files.associations": {
     "**/*dbt*/**/*.sql": "jinja-sql",
     "*.avsc": "json",
@@ -46,15 +56,19 @@
     // "**/*dbt*/**/*.md": "jinja-md"
   },
 
-  // Git Settings
+  // ═══════════════════════════════════════════════════════════════════════════
+  // GIT & VERSION CONTROL
+  // ═══════════════════════════════════════════════════════════════════════════
   "git.autofetch": true,
-  "gitlens.hovers.currentLine.over": "line",
-  "diffEditor.ignoreTrimWhitespace": false,
   "git.confirmSync": false,
   "git.replaceTagsWhenPull": true,
   "git.ignoreRebaseWarning": true,
+  "gitlens.hovers.currentLine.over": "line",
+  "diffEditor.ignoreTrimWhitespace": false,
 
-  // Formatting Settings
+  // ═══════════════════════════════════════════════════════════════════════════
+  // FORMATTING (GENERAL)
+  // ═══════════════════════════════════════════════════════════════════════════
   "editor.formatOnSaveMode": "file",
   "editor.formatOnPaste": false,
   "editor.formatOnType": false,
@@ -65,7 +79,9 @@
   ],
   "prettier.ignorePath": "/Users/jacobhurlburt/.prettierignore",
 
-  // Python Settings
+  // ═══════════════════════════════════════════════════════════════════════════
+  // PYTHON & NOTEBOOKS
+  // ═══════════════════════════════════════════════════════════════════════════
   "[python]": {
     "editor.defaultFormatter": "charliermarsh.ruff",
     "editor.codeActionsOnSave": {
@@ -76,49 +92,84 @@
   },
   "python.interpreter.infoVisibility": "always",
   "python.analysis.typeCheckingMode": "basic",
-  "ruff.nativeServer": true,
+  "python.analysis.extraPaths": [],
   "python.terminal.activateEnvironment": false,
-
-  // Notebook Settings
+  "python-envs.terminal.autoActivationType": "off",
+  "ruff.nativeServer": true,
   "notebook.formatOnSave.enabled": true,
   "notebook.codeActionsOnSave": {
     "notebook.source.fixAll": "explicit",
     "notebook.source.organizeImports": "explicit"
   },
 
-  // Language Settings
-  "[jinja-sql]": {
-    "editor.defaultFormatter": "innoverio.vscode-dbt-power-user"
-  },
+  // ═══════════════════════════════════════════════════════════════════════════
+  // TERRAFORM
+  // ═══════════════════════════════════════════════════════════════════════════
   "[terraform]": {
     "editor.defaultFormatter": "hashicorp.terraform"
   },
   "[terraform-vars]": {
     "editor.defaultFormatter": "hashicorp.terraform"
   },
-  "[toml]": {
-    "editor.defaultFormatter": "tamasfe.even-better-toml"
+  "terraform.mcp.server.enable": false,
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // DBT & SQL
+  // ═══════════════════════════════════════════════════════════════════════════
+  "[jinja-sql]": {
+    "editor.defaultFormatter": "innoverio.vscode-dbt-power-user"
   },
-  "[shellscript]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
+  "dbt.dbtIntegration": "cloud",
+  "findrelated.workspaceRulesets": [
+    {
+      "name": "sql",
+      "rules": [
+        {
+          "pattern": "^(.*/)?models/(.*/)?(.+\\.sql)$",
+          "locators": ["**/compiled/**/$3"]
+        },
+        {
+          "pattern": "^(.*/)?compiled/(.*/)?(.+\\.sql)$",
+          "locators": ["**/run/**/$3"]
+        },
+        {
+          "pattern": "^(.*/)?run/(.*/)?(.+\\.sql)$",
+          "locators": ["**/models/**/$3"]
+        }
+      ]
+    }
+  ],
+  "findrelated.applyRulesets": ["sql"],
+  "findrelated.autoOpen": true,
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // OTHER LANGUAGE FORMATTERS
+  // ═══════════════════════════════════════════════════════════════════════════
+  "[dockercompose]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[dockerfile]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },
-  "[ignore]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
-  },
-  "[dockercompose]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "[github-actions-workflow]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[ignore]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
   },
   "[jsonc]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
+  "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "[toml]": {
+    "editor.defaultFormatter": "tamasfe.even-better-toml"
+  },
 
-  // Copilot Settings
+  // ═══════════════════════════════════════════════════════════════════════════
+  // GITHUB COPILOT
+  // ═══════════════════════════════════════════════════════════════════════════
   "github.copilot.chat.commitMessageGeneration.instructions": [
     {
       "text": "Use conventional commit message format."
@@ -168,55 +219,38 @@
     "scminput": false
   },
   "github.copilot.editor.enableCodeActions": false,
+  "github.copilot.editor.enableAutoCompletions": true,
+  "github.copilot.nextEditSuggestions.enabled": true,
   "github.copilot.chat.copilotDebugCommand.enabled": false,
   "github.copilot.chat.reviewAgent.enabled": false,
   "github.copilot.chat.reviewSelection.enabled": false,
   "github.copilot.chat.startDebugging.enabled": false,
   "github.copilot.chat.newWorkspaceCreation.enabled": false,
   "github.copilot.chat.setupTests.enabled": false,
+  "github.copilot.chat.codesearch.enabled": true,
+  "github.copilot.chat.codeGeneration.useInstructionFiles": true,
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // AI TOOLS & MCP
+  // ═══════════════════════════════════════════════════════════════════════════
   "chat.mcp.discovery.enabled": {
     "claude-desktop": true,
     "windsurf": true,
     "cursor-global": true,
     "cursor-workspace": true
   },
-  "github.copilot.editor.enableAutoCompletions": true,
-  "github.copilot.nextEditSuggestions.enabled": true,
-  "github.copilot.chat.codesearch.enabled": true,
   "chat.agent.maxRequests": 50,
-  "github.copilot.chat.codeGeneration.useInstructionFiles": true,
   "chat.useAgentsMdFile": true,
 
-  // DBT Settings
-  "dbt.dbtIntegration": "cloud",
-  "findrelated.workspaceRulesets": [
-    {
-      "name": "sql",
-      "rules": [
-        {
-          "pattern": "^(.*/)?models/(.*/)?(.+\\.sql)$",
-          "locators": ["**/compiled/**/$3"]
-        },
-        {
-          "pattern": "^(.*/)?compiled/(.*/)?(.+\\.sql)$",
-          "locators": ["**/run/**/$3"]
-        },
-        {
-          "pattern": "^(.*/)?run/(.*/)?(.+\\.sql)$",
-          "locators": ["**/models/**/$3"]
-        }
-      ]
-    }
-  ],
-  "findrelated.applyRulesets": ["sql"],
-  "findrelated.autoOpen": true,
-
-  // Other Settings
+  // ═══════════════════════════════════════════════════════════════════════════
+  // PRIVACY & TELEMETRY
+  // ═══════════════════════════════════════════════════════════════════════════
   "telemetry.telemetryLevel": "off",
   "redhat.telemetry.enabled": false,
-  "python.analysis.extraPaths": [],
-  "terraform.mcp.server.enable": false,
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // EXTENSIONS & MISC
+  // ═══════════════════════════════════════════════════════════════════════════
   "yaml.format.enable": false,
-  "python-envs.terminal.autoActivationType": "off",
   "extensions.ignoreRecommendations": true
 }
