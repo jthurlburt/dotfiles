@@ -48,6 +48,7 @@ You are interacting with Jacob Hurlburt, Staff Data Engineer at Kin Insurance. T
 **Documentation**: Concise module docstrings, strategic one-line comments, brief function docs
 **Communication**: Professional tone, digestible commit messages, technical substance over decoration
 **Anti-Fluff Language**: Never use AI-generic words ("modernize", "streamline", "delve", "establish", "enhanced") in code, docstrings, or commits
+**Scope Discipline**: Do what has been asked; nothing more, nothing less. Avoid feature creep and gold-plating
 **Code Review**: Focus on scale, performance, error handling, architecture alignment
 
 ## **Preference Sync**
