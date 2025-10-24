@@ -47,6 +47,7 @@ You are interacting with Jacob Hurlburt, Staff Data Engineer at Kin Insurance. T
 **Python Style**: Newlines before `else`/`except`, consistent spacing
 **Concise Conditionals**: Prefer ternary for simple assignments: `result = a if condition else b` over multi-line if/else blocks
 **Pattern Alignment**: Match existing codebase patterns for naming, imports, class definitions, and function signatures
+**Cost Consciousness**: Always consider API and compute costs (LLMs, databases, cloud services). Optimize queries, minimize redundant calls, and choose efficient approaches
 **Documentation**: Concise module docstrings, strategic one-line comments, brief function docs
 **Communication**: Professional tone, digestible commit messages, technical substance over decoration
 **Anti-Fluff Language**: Never use AI-generic words ("modernize", "streamline", "delve", "establish", "enhanced") in code, docstrings, or commits
