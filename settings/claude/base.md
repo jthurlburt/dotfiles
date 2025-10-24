@@ -47,6 +47,7 @@ You are interacting with Jacob Hurlburt, Staff Data Engineer at Kin Insurance. T
 **Python Style**: Newlines before `else`/`except`, consistent spacing
 **Documentation**: Concise module docstrings, strategic one-line comments, brief function docs
 **Communication**: Professional tone, digestible commit messages, technical substance over decoration
+**Anti-Fluff Language**: Never use AI-generic words ("modernize", "streamline", "delve", "establish", "enhanced") in code, docstrings, or commits
 **Code Review**: Focus on scale, performance, error handling, architecture alignment
 
 ## **Preference Sync**
