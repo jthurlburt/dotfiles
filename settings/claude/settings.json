@@ -1,6 +1,11 @@
 {
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "includeCoAuthoredBy": false,
   "env": {
-    "BASH_DEFAULT_TIMEOUT_MS": "30000"
+    "BASH_DEFAULT_TIMEOUT_MS": "30000",
+    "CLAUDE_BASH_MAINTAIN_PROJECT_WORKING_DIR": "1",
+    "DISABLE_TELEMETRY": "1",
+    "MAX_MCP_OUTPUT_TOKENS": "40000"
   },
   "permissions": {
     "allow": [
@@ -22,6 +27,9 @@
       "Bash(ls:*)",
       "Bash(mypy:*)",
       "Bash(pixi:*)",
+      "Bash(pixi run mypy:*)",
+      "Bash(pixi run pytest:*)",
+      "Bash(pixi run ruff:*)",
       "Bash(pre-commit:*)",
       "Bash(prek:*)",
       "Bash(pytest:*)",
@@ -37,25 +45,22 @@
       "Bash(test:*)",
       "Bash(tree:*)",
       "Bash(uv:*)",
+      "Bash(uv run mypy:*)",
+      "Bash(uv run pytest:*)",
+      "Bash(uv run ruff:*)",
       "Bash(wait:*)",
       "Bash(yq:*)",
-      "Bash(uv run pytest:*)",
-      "Bash(uv run mypy:*)",
-      "Bash(uv run ruff:*)",
-      "Bash(pixi run pytest:*)",
-      "Bash(pixi run mypy:*)",
-      "Bash(pixi run ruff:*)",
+      "mcp__atlassian__getConfluencePage",
+      "mcp__atlassian__getConfluencePageDescendants",
+      "mcp__atlassian__getConfluenceSpaces",
+      "mcp__atlassian__getJiraIssue",
+      "mcp__atlassian__getPagesInConfluenceSpace",
+      "mcp__atlassian__getTransitionsForJiraIssue",
+      "mcp__atlassian__getVisibleJiraProjects",
+      "mcp__atlassian__searchConfluenceUsingCql",
+      "mcp__atlassian__searchJiraIssuesUsingJql",
       "mcp__claude-code__Task",
       "mcp__ide__getDiagnostics",
-      "mcp__atlassian__getConfluencePage",
-      "mcp__atlassian__getConfluenceSpaces",
-      "mcp__atlassian__getPagesInConfluenceSpace",
-      "mcp__atlassian__searchConfluenceUsingCql",
-      "mcp__atlassian__getConfluencePageDescendants",
-      "mcp__atlassian__getJiraIssue",
-      "mcp__atlassian__getVisibleJiraProjects",
-      "mcp__atlassian__getTransitionsForJiraIssue",
-      "mcp__atlassian__searchJiraIssuesUsingJql",
       "mcp__local-semantic-memory__archive",
       "mcp__local-semantic-memory__create_embedding",
       "mcp__local-semantic-memory__get_embedding_info",
@@ -93,14 +98,9 @@
       "mcp__claude-code__Write"
     ],
     "ask": [
-      "mcp__atlassian__createConfluencePage",
-      "mcp__atlassian__updateConfluencePage",
-      "mcp__atlassian__editJiraIssue",
-      "mcp__atlassian__addCommentToJiraIssue",
-      "mcp__atlassian__transitionJiraIssue",
-      "mcp__atlassian__createJiraIssue",
       "Bash(brew install:*)",
       "Bash(brew uninstall:*)",
+      "Bash(gh pr create:*)",
       "Bash(git add:*)",
       "Bash(git cherry-pick:*)",
       "Bash(git commit:*)",
@@ -113,13 +113,23 @@
       "Bash(terraform:*)",
       "Bash(terramate:*)",
       "Bash(uv run:*)",
-      "Bash(gh pr create:*)"
+      "mcp__atlassian__addCommentToJiraIssue",
+      "mcp__atlassian__createConfluencePage",
+      "mcp__atlassian__createJiraIssue",
+      "mcp__atlassian__editJiraIssue",
+      "mcp__atlassian__transitionJiraIssue",
+      "mcp__atlassian__updateConfluencePage"
     ],
     "defaultMode": "acceptEdits"
   },
+  "alwaysThinkingEnabled": false,
+  "outputStyle": "Default",
   "statusLine": {
     "type": "command",
     "command": "input=$(cat); printf \"\\033[2m%s@%s \\033[36m%s\\033[0m \\033[2m[%s]\\033[0m\" \"$(whoami)\" \"$(hostname -s)\" \"$(echo \"$input\" | jq -r '.workspace.current_dir | gsub(\".*/\"; \"\")' 2>/dev/null || basename \"$(echo \"$input\" | jq -r '.workspace.current_dir')\" 2>/dev/null || echo \"unknown\")\" \"$(echo \"$input\" | jq -r '.model.display_name' 2>/dev/null || echo \"Claude\")\""
+  },
+  "enabledPlugins": {
+    "superpowers@jthurlburt-claude-plugins": true
   },
   "extraKnownMarketplaces": {
     "jthurlburt-claude-plugins": {
@@ -128,10 +138,5 @@
         "path": "/Users/jacob.hurlburt/repos/claude-settings"
       }
     }
-  },
-  "enabledPlugins": {
-    "superpowers@jthurlburt-claude-plugins": true
-  },
-  "outputStyle": "Default",
-  "alwaysThinkingEnabled": false
+  }
 }
