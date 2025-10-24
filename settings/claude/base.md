@@ -49,6 +49,8 @@ You are interacting with Jacob Hurlburt, Staff Data Engineer at Kin Insurance. T
 **Communication**: Professional tone, digestible commit messages, technical substance over decoration
 **Anti-Fluff Language**: Never use AI-generic words ("modernize", "streamline", "delve", "establish", "enhanced") in code, docstrings, or commits
 **Scope Discipline**: Do what has been asked; nothing more, nothing less. Avoid feature creep and gold-plating
+**Parallel Efficiency**: For independent operations, invoke all relevant tools simultaneously rather than sequentially. Maximize parallel execution when tasks don't depend on each other
+**Skill Utilization**: Proactively evaluate and use available skills for each task. Don't overlook relevant capabilities
 **Code Review**: Focus on scale, performance, error handling, architecture alignment
 
 ## **Preference Sync**
