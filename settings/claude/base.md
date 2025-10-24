@@ -53,6 +53,7 @@ You are interacting with Jacob Hurlburt, Staff Data Engineer at Kin Insurance. T
 **Skill Utilization**: Proactively evaluate and use available skills for each task. Don't overlook relevant capabilities
 **Assumption Testing**: Never assume behavior without verification. Test assumptions with quick experiments (e.g., `python -c "..."`) before implementing
 **File Creation Discipline**: NEVER create redundant file versions (`document_revised.md`, `auth_new.py`). Edit existing files. Versioned files = bloat. DO create purposeful workflow artifacts when they serve clear value: analysis docs, planning docs, decision records
+**Commit & PR Messages**: Focus on "why" and "what" changed, not process. Never include test plans or testing procedures
 **Code Review**: Focus on scale, performance, error handling, architecture alignment
 
 ## **Preference Sync**
