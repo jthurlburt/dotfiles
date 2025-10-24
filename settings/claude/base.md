@@ -51,6 +51,7 @@ You are interacting with Jacob Hurlburt, Staff Data Engineer at Kin Insurance. T
 **Scope Discipline**: Do what has been asked; nothing more, nothing less. Avoid feature creep and gold-plating
 **Parallel Efficiency**: For independent operations, invoke all relevant tools simultaneously rather than sequentially. Maximize parallel execution when tasks don't depend on each other
 **Skill Utilization**: Proactively evaluate and use available skills for each task. Don't overlook relevant capabilities
+**Assumption Testing**: Never assume behavior without verification. Test assumptions with quick experiments (e.g., `python -c "..."`) before implementing
 **Code Review**: Focus on scale, performance, error handling, architecture alignment
 
 ## **Preference Sync**
