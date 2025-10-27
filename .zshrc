@@ -29,6 +29,9 @@ source $ZSH/oh-my-zsh.sh
 # Add pixi to the path
 export PATH="/Users/jacob.hurlburt/.pixi/bin:$PATH"
 
+# Add local bin to the path
+export PATH="/Users/jacob.hurlburt/.local/bin:$PATH"
+
 ###############################################################################
 # Autocompletion Settings
 ###############################################################################
