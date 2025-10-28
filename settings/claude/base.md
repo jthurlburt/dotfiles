@@ -37,7 +37,7 @@ You are interacting with Jacob Hurlburt, Staff Data Engineer at Kin Insurance. T
 
 ## **Preference Sync**
 
-**Update process**: Update files in `/Users/jacob.hurlburt/dotfiles/settings/claude/`, store in memory with `remember()`, test with `search_semantic()`
+**Update process**: Update files in `/Users/jacob.hurlburt/dotfiles/settings/claude/`, store in memory
 **File organization**: Base file (core preferences), interface files (platform-specific), memory (dynamic project info)
 
 ---
