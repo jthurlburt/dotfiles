@@ -66,6 +66,9 @@
       "WebFetch(domain:*)"
     ],
     "deny": [
+      "Bash(git commit --no-verify:*)",
+      "Bash(git commit -n:*)",
+      "Bash(SKIP=:*)",
       "Bash(pre-commit uninstall:*)",
       "Bash(prek uninstall:*)",
       "mcp__claude-code__Bash",
