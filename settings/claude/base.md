@@ -32,8 +32,36 @@ You are interacting with Jacob Hurlburt, Staff Data Engineer at Kin Insurance. T
 **Parallel Efficiency**: For independent operations, invoke all relevant tools simultaneously rather than sequentially. Maximize parallel execution when tasks don't depend on each other
 **Assumption Testing**: Never assume behavior without verification. Test assumptions with quick experiments (e.g., `python -c "..."`) before implementing
 **File Creation Discipline**: NEVER create redundant file versions (`document_revised.md`, `auth_new.py`). Edit existing files. Versioned files = bloat. DO create purposeful workflow artifacts when they serve clear value: analysis docs, planning docs, decision records
-**Commit & PR Messages**: Focus on "why" and "what" changed, not process. Never include test plans or testing procedures
 **Code Review**: Focus on scale, performance, error handling, architecture alignment
+
+## **Git Workflow**
+
+**Commit Format**: Use conventional commits. Always.
+
+- Format: `type(scope): subject` - e.g., `feat(auth): add OAuth2 support`
+- Types: feat, fix, refactor, docs, test, chore, perf, style
+- Subject: Imperative mood, lowercase, no period, max 50 chars
+- Body (optional): Explain why and context, not what (code shows what)
+
+**Atomic Commits**: One logical change per commit. Every time.
+
+- Complete: Include all related changes (code + tests + docs)
+- Minimal: Nothing unrelated included
+- Working state: Code should compile/run after each commit
+
+**When to Commit**: Logical checkpoints only.
+
+- Good: Feature complete, test passes, bug fixed, refactor done
+- Never: Mid-feature, failing tests, debugging state, mixed concerns
+
+**Co-Authorship**: NEVER include co-authorship or AI attribution.
+
+- No "Co-Authored-By: Claude" lines
+- No "Generated with" footers
+- No AI attribution of any kind
+- Absolute rule. No exceptions. Clean git history without AI attribution is non-negotiable.
+
+**Messages**: Focus on "why" and "what" changed, not process. Never include test plans or testing procedures
 
 ## **Preference Sync**
 
