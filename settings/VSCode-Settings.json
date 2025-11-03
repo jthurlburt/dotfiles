@@ -10,7 +10,6 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "security.workspace.trust.untrustedFiles": "open",
   "application.shellEnvironmentResolutionTimeout": 20,
-
   // ═══════════════════════════════════════════════════════════════════════════
   // TERMINAL
   // ═══════════════════════════════════════════════════════════════════════════
@@ -41,7 +40,6 @@
       "path": "${env:windir}\\System32\\cmd.exe"
     }
   },
-
   // ═══════════════════════════════════════════════════════════════════════════
   // FILE ASSOCIATIONS
   // ═══════════════════════════════════════════════════════════════════════════
@@ -55,7 +53,6 @@
     // "**/*dbt*/**/*.yml": "jinja-yaml",
     // "**/*dbt*/**/*.md": "jinja-md"
   },
-
   // ═══════════════════════════════════════════════════════════════════════════
   // GIT & VERSION CONTROL
   // ═══════════════════════════════════════════════════════════════════════════
@@ -65,7 +62,6 @@
   "git.ignoreRebaseWarning": true,
   "gitlens.hovers.currentLine.over": "line",
   "diffEditor.ignoreTrimWhitespace": false,
-
   // ═══════════════════════════════════════════════════════════════════════════
   // FORMATTING (GENERAL)
   // ═══════════════════════════════════════════════════════════════════════════
@@ -78,7 +74,6 @@
     "notebook.formatOnSave.enabled"
   ],
   "prettier.ignorePath": "/Users/jacobhurlburt/.prettierignore",
-
   // ═══════════════════════════════════════════════════════════════════════════
   // PYTHON & NOTEBOOKS
   // ═══════════════════════════════════════════════════════════════════════════
@@ -101,7 +96,6 @@
     "notebook.source.fixAll": "explicit",
     "notebook.source.organizeImports": "explicit"
   },
-
   // ═══════════════════════════════════════════════════════════════════════════
   // TERRAFORM
   // ═══════════════════════════════════════════════════════════════════════════
@@ -112,7 +106,6 @@
     "editor.defaultFormatter": "hashicorp.terraform"
   },
   "terraform.mcp.server.enable": false,
-
   // ═══════════════════════════════════════════════════════════════════════════
   // DBT & SQL
   // ═══════════════════════════════════════════════════════════════════════════
@@ -141,7 +134,6 @@
   ],
   "findrelated.applyRulesets": ["sql"],
   "findrelated.autoOpen": true,
-
   // ═══════════════════════════════════════════════════════════════════════════
   // OTHER LANGUAGE FORMATTERS
   // ═══════════════════════════════════════════════════════════════════════════
@@ -166,7 +158,6 @@
   "[toml]": {
     "editor.defaultFormatter": "tamasfe.even-better-toml"
   },
-
   // ═══════════════════════════════════════════════════════════════════════════
   // GITHUB COPILOT
   // ═══════════════════════════════════════════════════════════════════════════
@@ -229,7 +220,6 @@
   "github.copilot.chat.setupTests.enabled": false,
   "github.copilot.chat.codesearch.enabled": true,
   "github.copilot.chat.codeGeneration.useInstructionFiles": true,
-
   // ═══════════════════════════════════════════════════════════════════════════
   // AI TOOLS & MCP
   // ═══════════════════════════════════════════════════════════════════════════
@@ -241,16 +231,15 @@
   },
   "chat.agent.maxRequests": 50,
   "chat.useAgentsMdFile": true,
-
   // ═══════════════════════════════════════════════════════════════════════════
   // PRIVACY & TELEMETRY
   // ═══════════════════════════════════════════════════════════════════════════
   "telemetry.telemetryLevel": "off",
   "redhat.telemetry.enabled": false,
-
   // ═══════════════════════════════════════════════════════════════════════════
   // EXTENSIONS & MISC
   // ═══════════════════════════════════════════════════════════════════════════
   "yaml.format.enable": false,
-  "extensions.ignoreRecommendations": true
+  "extensions.ignoreRecommendations": true,
+  "claudeCode.useTerminal": true
 }
