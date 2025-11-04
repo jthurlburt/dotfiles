@@ -16,12 +16,10 @@
     "local-semantic-memory": {
       "command": "/Users/jacob.hurlburt/.pixi/bin/uv",
       "args": [
-        "run",
         "--directory",
         "/Users/jacob.hurlburt/repos/local-semantic-memory",
-        "mcp",
         "run",
-        "src/local_semantic_memory/server.py"
+        "lsm-mcp"
       ]
     },
     "sequential-thinking": {
