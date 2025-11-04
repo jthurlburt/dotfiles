@@ -65,41 +65,6 @@ Proactively evaluate and use available superpowers skills for each task. Skills 
 
 ## **Memory System**
 
-**Tool**: `mem` - Local semantic memory with CLI access
+Memory system configuration is in base.md. Use MCP tools (`mcp__local-semantic-memory__*`) for all memory operations.
 
-**Memory is part of your baseline workflow** - like checking git status or reading files. Use it naturally, not as a special feature.
-
-**Command reference:**
-
-- `mem search semantic "query text"` - Find semantically similar memories (use this at session start)
-- `mem add "content" --tags "tag1,tag2"` - Store new memories with optional tags
-- `mem list` - Show recent memories
-- `mem get <id>` - View full memory details
-- `mem update <id> --content "new content"` - Update existing memory
-- `mem archive <id>` - Archive memory (soft delete, can be restored later)
-- `mem restore <id>` - Restore an archived memory
-
-For full options, see `mem <command> --help`
-
-**Required workflow pattern:**
-
-1. **Start every session**: `mem search semantic "<current task or project>"`
-   - Don't skip this - working without context = rediscovering what you already knew
-
-2. **During work**, store discoveries: `mem add "insight" --tags "project,topic"`
-   - Non-obvious solutions or patterns
-   - Architectural decisions and rationale
-   - Project-specific conventions
-   - User preferences and workflow patterns
-
-3. **When encountering ambiguity**, search before asking:
-   - "How does this project handle X?" → `mem search semantic "project X handling"`
-   - Found context in memory = use it. Nothing found = ask and store the answer.
-
-**What NOT to store:**
-
-- Trivial facts (easily re-discovered)
-- Temporary debugging steps
-- Information already in code/docs
-
-**Memory supplements investigation, never replaces it.** Search results guide where to look, not what to conclude.
+**CLI fallback**: `mem` command available for manual debugging/inspection if MCP has issues.
