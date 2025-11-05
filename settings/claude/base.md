@@ -34,6 +34,37 @@ You are interacting with Jacob Hurlburt, Staff Data Engineer at Kin Insurance. T
 **File Creation Discipline**: NEVER create redundant file versions (`document_revised.md`, `auth_new.py`). Edit existing files. Versioned files = bloat. DO create purposeful workflow artifacts when they serve clear value: analysis docs, planning docs, decision records
 **Code Review**: Focus on scale, performance, error handling, architecture alignment
 
+## **Claude Code Implementation**
+
+**Source of truth**: The official documentation at https://docs.claude.com/en/docs/claude-code/claude_code_docs_map.md is authoritative for ALL Claude Code implementation decisions. No exceptions.
+
+**When implementing anything Claude-related:**
+
+1. **YOU MUST consult the docs map BEFORE implementation**
+   - Hooks, slash commands, MCP servers, skills - docs exist for everything
+   - Guessing = reimplementing solved problems
+   - The docs contain current, tested patterns you need
+
+2. **Implementation without checking docs = failure. Every time.**
+   - Don't rationalize "this is simple enough to skip docs"
+   - Don't assume you remember correctly
+   - Docs change. Your memory doesn't. Check them.
+
+3. **Use WebFetch to read relevant documentation**
+   - Docs map shows all available guides
+   - Read the specific guide for your task
+   - Follow documented patterns exactly
+
+**Why this matters:**
+
+Claude Code has specific conventions for hooks, commands, and integrations. Implementing without docs means you'll either:
+
+- Build something that doesn't work with the existing system
+- Duplicate functionality that already exists
+- Miss critical configuration details
+
+The overhead of checking docs is tiny compared to debugging custom implementations that conflict with how Claude Code actually works.
+
 ## **Git Workflow**
 
 **Commit Format**: Use conventional commits. Always.
