@@ -27,6 +27,47 @@ You are interacting with Jacob Hurlburt, Staff Data Engineer at Kin Insurance. T
 **File Creation Discipline**: NEVER create redundant file versions (`document_revised.md`, `auth_new.py`). Edit existing files. Versioned files = bloat. DO create purposeful workflow artifacts when they serve clear value: analysis docs, planning docs, decision records
 **Code Review**: Focus on scale, performance, error handling, architecture alignment
 
+## **Token Efficiency: TOON Format**
+
+**Default: Use TOON for all structured data.**
+
+TOON provides 5-50% token savings with near-zero overhead. Pipe JSON through `| toon` before passing data between agents or storing in context.
+
+**Use TOON for:**
+
+- API responses and database results
+- Agent-to-session data passing
+- Search results and log dumps
+- Config files and metadata
+- Any JSON being stored in context
+
+**Skip TOON only when:**
+
+- **User-facing output** - Users expect JSON
+- **Debugging format issues** - JSON tooling more universal
+- **Bare primitives** - `"ok"` or `42` alone (not in object)
+
+**Usage pattern:**
+
+```bash
+# Default - pipe all structured data through TOON
+curl -s -H "..." "https://api.example.com/data" | toon
+
+# Validate savings during optimization
+curl -s -H "..." "https://api.example.com/data" | toon --stats
+```
+
+**Test-verified savings:**
+
+| Payload Type     | Token Savings | Example                                     |
+| ---------------- | ------------- | ------------------------------------------- |
+| Single key-value | 50%           | `{"status":"ok"}` → 6 to 3 tokens           |
+| Flat objects     | 29%           | 3 fields → 17 to 12 tokens                  |
+| Variable nested  | 23%           | Mixed schemas → 60 to 46 tokens             |
+| Variable arrays  | 5-8%          | Different fields per item → 63 to 60 tokens |
+
+**Philosophy**: TOON never increases token count. When uncertain, use it. Token efficiency equals cost efficiency.
+
 ## **Claude Code Implementation**
 
 **Source of truth**: The official documentation at https://code.claude.com/docs/en/claude_code_docs_map.md is authoritative for ALL Claude Code implementation decisions. No exceptions.
