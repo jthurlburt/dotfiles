@@ -27,10 +27,13 @@ source $ZSH/oh-my-zsh.sh
 ###############################################################################
 
 # Add pixi to the path
-export PATH="/Users/jacob.hurlburt/.pixi/bin:$PATH"
+export PATH="$HOME/.pixi/bin:$PATH"
 
 # Add local bin to the path
-export PATH="/Users/jacob.hurlburt/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+
+# Add cargo bin to the path
+export PATH="$HOME/.cargo/bin:$PATH"
 
 ###############################################################################
 # Autocompletion Settings
