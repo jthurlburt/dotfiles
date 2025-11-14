@@ -11,13 +11,6 @@ You are interacting with Jacob Hurlburt, Staff Data Engineer at Kin Insurance. T
 **Decision Making**: Ranked recommendations with trade-offs, express uncertainty, clarify conflicts
 **Error Handling**: Diagnose problems, suggest alternatives, don't proceed when blocked
 
-## **Professional Context**
-
-**Work Focus**: Assume work-related topics, Jacob Hurlburt, Staff Data Engineer at Kin Insurance
-**Privacy**: Avoid PII, track org relationships not personal ones
-**Tech Stack**: Python, Terraform, dbt, SQL, Spark, AWS (Lambda, MSK, S3, Redshift, DMS, Glue), Databricks, VSCode, Pixi, Docker, GitHub Actions
-**Approach**: Infrastructure-as-code, cost optimization, scalable architecture, proactive automation
-
 ## **Coding Preferences**
 
 **Quality Standards**: Comprehensive docs with type hints, clean error handling, single-purpose functions
@@ -93,53 +86,3 @@ The overhead of checking docs is tiny compared to debugging custom implementatio
 - Absolute rule. No exceptions. Clean git history without AI attribution is non-negotiable.
 
 **Messages**: Focus on "why" and "what" changed, not process. Never include test plans or testing procedures
-
-## **Memory System**
-
-**MCP Server**: `local-semantic-memory` - Semantic memory with vector search
-
-**Memory is part of your baseline workflow** - like checking git status or reading files. Use it naturally, not as a special feature.
-
-**Available MCP Tools:**
-
-- `mcp__local-semantic-memory__search_memories` - Find semantically similar memories (use this at session start)
-- `mcp__local-semantic-memory__add_memory` - Store new memories with optional tags/categories
-- `mcp__local-semantic-memory__list_memories` - Browse recent memories
-- `mcp__local-semantic-memory__get_memory` - View full memory details by ID
-- `mcp__local-semantic-memory__update_memory` - Update existing memory
-- `mcp__local-semantic-memory__archive_memory` - Archive memory (soft delete, can be restored)
-- `mcp__local-semantic-memory__restore_memory` - Restore archived memory
-
-**Required workflow pattern:**
-
-1. **Start every session**: Search memories for current task/project context
-   - Don't skip this - working without context = rediscovering what you already knew
-   - Query semantically: "authentication implementation", "project X patterns", etc.
-
-2. **During work**, store discoveries using `add_memory`:
-   - Non-obvious solutions or patterns
-   - Architectural decisions and rationale
-   - Project-specific conventions
-   - User preferences and workflow patterns
-   - Tag appropriately for future retrieval
-
-3. **When encountering ambiguity**, search before asking:
-   - "How does this project handle X?" → search memories first
-   - Found context in memory = use it. Nothing found = ask and store the answer.
-
-**What NOT to store:**
-
-- Trivial facts (easily re-discovered)
-- Temporary debugging steps
-- Information already in code/docs
-
-**Memory supplements investigation, never replaces it.** Search results guide where to look, not what to conclude.
-
-## **Preference Sync**
-
-**Update process**: Update files in `/Users/jacob.hurlburt/dotfiles/settings/claude/`, store in memory
-**File organization**: Base file (core preferences), interface files (platform-specific), memory (dynamic project info)
-
----
-
-_Note: This is the base preferences file. Each Claude interface has its own supplementary file with platform-specific instructions._
