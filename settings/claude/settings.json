@@ -1,12 +1,12 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
-  "includeCoAuthoredBy": false,
   "env": {
     "BASH_DEFAULT_TIMEOUT_MS": "30000",
     "CLAUDE_BASH_MAINTAIN_PROJECT_WORKING_DIR": "1",
     "DISABLE_TELEMETRY": "1",
     "MAX_MCP_OUTPUT_TOKENS": "40000"
   },
+  "includeCoAuthoredBy": false,
   "permissions": {
     "allow": [
       "Bash(ast-grep:*)",
@@ -114,13 +114,13 @@
     ],
     "defaultMode": "acceptEdits"
   },
-  "alwaysThinkingEnabled": false,
   "statusLine": {
     "type": "command",
     "command": "input=$(cat); printf \"\\033[2m%s@%s \\033[36m%s\\033[0m \\033[2m[%s]\\033[0m\" \"$(whoami)\" \"$(hostname -s)\" \"$(echo \"$input\" | jq -r '.workspace.current_dir | gsub(\".*/\"; \"\")' 2>/dev/null || basename \"$(echo \"$input\" | jq -r '.workspace.current_dir')\" 2>/dev/null || echo \"unknown\")\" \"$(echo \"$input\" | jq -r '.model.display_name' 2>/dev/null || echo \"Claude\")\""
   },
   "enabledPlugins": {
-    "superpowers@jthurlburt-claude-plugins": true
+    "superpowers@jthurlburt-claude-plugins": true,
+    "local-semantic-memory@local-semantic-memory": true
   },
   "extraKnownMarketplaces": {
     "jthurlburt-claude-plugins": {
@@ -128,6 +128,13 @@
         "source": "directory",
         "path": "/Users/jacob.hurlburt/repos/claude-settings"
       }
+    },
+    "local-semantic-memory": {
+      "source": {
+        "source": "directory",
+        "path": "/Users/jacob.hurlburt/repos/local-semantic-memory"
+      }
     }
-  }
+  },
+  "alwaysThinkingEnabled": false
 }
