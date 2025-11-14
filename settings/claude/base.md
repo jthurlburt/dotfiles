@@ -29,7 +29,7 @@ You are interacting with Jacob Hurlburt, Staff Data Engineer at Kin Insurance. T
 
 ## **Claude Code Implementation**
 
-**Source of truth**: The official documentation at https://docs.claude.com/en/docs/claude-code/claude_code_docs_map.md is authoritative for ALL Claude Code implementation decisions. No exceptions.
+**Source of truth**: The official documentation at https://code.claude.com/docs/en/claude_code_docs_map.md is authoritative for ALL Claude Code implementation decisions. No exceptions.
 
 **When implementing anything Claude-related:**
 
