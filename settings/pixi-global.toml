@@ -36,8 +36,8 @@ exposed = { pytest = "pytest", "py.test" = "py.test" }
 
 [envs.rust]
 channels = ["conda-forge"]
-dependencies = { rust = "1.89.*" }
-exposed = { rustc = "rustc", cargo = "cargo", rustdoc = "rustdoc", rust-gdb = "rust-gdb", rust-lldb = "rust-lldb" }
+dependencies = { rust = "1.91.*" }
+exposed = { rustc = "rustc", cargo = "cargo", rustdoc = "rustdoc", rust-gdb = "rust-gdb", rust-lldb = "rust-lldb", cargo-clippy = "cargo-clippy", cargo-fmt = "cargo-fmt", clippy-driver = "clippy-driver", rust-analyzer = "rust-analyzer", rust-gdbgui = "rust-gdbgui", rustfmt = "rustfmt" }
 
 ###############################################################################
 # Infrastructure & DevOps Tools
