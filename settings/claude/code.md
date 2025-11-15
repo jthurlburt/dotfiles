@@ -4,16 +4,6 @@
 
 - @~/dotfiles/settings/claude/base.md
 
-## Memory-First Workflow (MANDATORY)
-
-BEFORE reading files, answering questions, or starting investigation:
-
-1. Search memories using mcp**local-semantic-memory**search_memories
-2. Report results ("found X memories" or "no memories found")
-3. THEN proceed with task
-
-See using-local-semantic-memory skill (auto-injected at session start) for full protocol.
-
 ## Skills-First Workflow (MANDATORY)
 
 BEFORE starting any task:

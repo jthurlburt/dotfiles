@@ -13,15 +13,6 @@
         "/Users/jacob.hurlburt/"
       ]
     },
-    "local-semantic-memory": {
-      "command": "/Users/jacob.hurlburt/.pixi/bin/uv",
-      "args": [
-        "--directory",
-        "/Users/jacob.hurlburt/repos/local-semantic-memory",
-        "run",
-        "lsm-mcp"
-      ]
-    },
     "sequential-thinking": {
       "command": "npx",
       "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"]
