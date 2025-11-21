@@ -122,7 +122,8 @@
     "superpowers@jthurlburt-claude-plugins": true,
     "episodic-memory@superpowers-marketplace": true,
     "superpowers-lab@superpowers-marketplace": true,
-    "superpowers-developing-for-claude-code@superpowers-marketplace": true
+    "superpowers-developing-for-claude-code@superpowers-marketplace": true,
+    "atlassian-toolkit@atlassian-toolkit-dev": true
   },
   "extraKnownMarketplaces": {
     "jthurlburt-claude-plugins": {
@@ -135,6 +136,12 @@
       "source": {
         "source": "github",
         "repo": "obra/superpowers-marketplace"
+      }
+    },
+    "atlassian-toolkit-dev": {
+      "source": {
+        "source": "directory",
+        "path": "/Users/jacob.hurlburt/repos/atlassian-toolkit"
       }
     }
   },
