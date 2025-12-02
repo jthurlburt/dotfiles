@@ -150,6 +150,11 @@ channels = ["conda-forge"]
 dependencies = { sqlfluff = "3.4.*" }
 exposed = { sqlfluff = "sqlfluff" }
 
+[envs.nbqa]
+channels = ["conda-forge"]
+dependencies = { nbqa = "1.9.*" }
+exposed = { nbqa = "nbqa" }
+
 ###############################################################################
 # Frontend & JavaScript Development
 ###############################################################################
