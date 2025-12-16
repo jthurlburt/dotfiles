@@ -189,13 +189,28 @@
   ],
   "github.copilot.chat.pullRequestDescriptionGeneration.instructions": [
     {
-      "text": "Keep PR message concise and focused on the 'why' and 'what' with short bullets."
+      "text": "PR title: Use same conventional commit format as commit messages (e.g., 'feat: add user authentication system')"
     },
     {
-      "text": "For complex PRs, include example usage of new implementation in PR message as code markdown with before/after examples if useful."
+      "text": "PR body structure: Start with ## Summary section containing 1-3 bullet points explaining what changed and why"
     },
     {
-      "text": "Provide inline md links to relevant lines/files in the PR for context where useful."
+      "text": "Summary bullets: Focus on business value and impact, not implementation details"
+    },
+    {
+      "text": "After Summary, add ## Test plan section with bulleted checklist of verification steps"
+    },
+    {
+      "text": "Test plan format: Use markdown checkboxes (- [ ]) for manual testing steps"
+    },
+    {
+      "text": "For complex changes, optionally add ## Implementation notes with before/after code examples using markdown code blocks"
+    },
+    {
+      "text": "Keep total PR description concise - most PRs need only Summary and Test plan sections"
+    },
+    {
+      "text": "Example PR body: '## Summary\\n- Updated Claude Code settings to latest version\\n- Added security protections for credential files\\n- Enabled new reasoning features\\n\\n## Test plan\\n- [ ] Verify settings load without errors\\n- [ ] Confirm security rules block credential access\\n- [ ] Test extended thinking on complex tasks'"
     }
   ],
   "github.copilot.chat.agent.thinkingTool": true,
