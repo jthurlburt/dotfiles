@@ -83,7 +83,7 @@
       "source.fixAll": "explicit",
       "source.organizeImports": "explicit"
     },
-    "diffEditor.ignoreTrimWhitespace": true
+    "diffEditor.ignoreTrimWhitespace": false
   },
   "python.interpreter.infoVisibility": "always",
   "python.analysis.typeCheckingMode": "basic",
