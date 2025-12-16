@@ -168,3 +168,8 @@ exposed = { corepack = "corepack", node = "node", npm = "npm", npx = "npx" }
 channels = ["conda-forge"]
 dependencies = { prettier = "3.6.*" }
 exposed = { prettier = "prettier" }
+
+[envs.go]
+channels = ["conda-forge"]
+dependencies = { go = "1.25.*" }
+exposed = { go = "go", gofmt = "gofmt" }
