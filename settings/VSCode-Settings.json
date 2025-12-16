@@ -163,31 +163,28 @@
   // ═══════════════════════════════════════════════════════════════════════════
   "github.copilot.chat.commitMessageGeneration.instructions": [
     {
-      "text": "Use conventional commit message format."
+      "text": "Use conventional commit format: {type}: {concise subject line summarizing the overall change}"
     },
     {
-      "text": "First line: {task-type}: brief description of the big picture change"
+      "text": "Types: feat (new feature), fix (bug fix), refactor (code restructure), docs (documentation), style (formatting), test (tests), build (build system)"
     },
     {
-      "text": "Task types: feat, fix, refactor, docs, style, test, build"
+      "text": "Subject line: present tense, imperative mood, under 72 characters, no period at end"
     },
     {
-      "text": "Focus on the 'why' and 'what' rather than implementation details"
+      "text": "For commits with multiple changes, add a blank line then bulleted list using hyphens"
     },
     {
-      "text": "For complex commits, add bullet points after a blank line explaining key changes"
+      "text": "Each bullet: specific change using present tense imperative (e.g., 'Add X feature', 'Remove deprecated Y', 'Update Z configuration')"
     },
     {
-      "text": "Examples of good messages:"
+      "text": "Focus on what changed and why, not implementation details"
     },
     {
-      "text": "feat: add transformers support to image classification pipeline"
+      "text": "Example single-line commit: 'fix: resolve race condition in async task handler'"
     },
     {
-      "text": "fix: incorrect handling of empty input in model naming"
-    },
-    {
-      "text": "refactor: restructure API handlers to align with project architecture"
+      "text": "Example multi-line commit: 'feat: update Claude Code settings with latest features\\n\\n- Replace deprecated includeCoAuthoredBy with attribution config\\n- Add MAX_THINKING_TOKENS for extended reasoning\\n- Enable auto-approval for project MCP servers\\n- Add security deny rules for credential paths'"
     }
   ],
   "github.copilot.chat.pullRequestDescriptionGeneration.instructions": [
