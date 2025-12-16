@@ -4,9 +4,14 @@
     "BASH_DEFAULT_TIMEOUT_MS": "30000",
     "CLAUDE_BASH_MAINTAIN_PROJECT_WORKING_DIR": "1",
     "DISABLE_TELEMETRY": "1",
-    "MAX_MCP_OUTPUT_TOKENS": "40000"
+    "MAX_MCP_OUTPUT_TOKENS": "40000",
+    "MAX_THINKING_TOKENS": "10000"
   },
-  "includeCoAuthoredBy": false,
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
+  "enableAllProjectMcpServers": true,
   "permissions": {
     "allow": [
       "Bash(ast-grep:*)",
@@ -25,7 +30,6 @@
       "Bash(head:*)",
       "Bash(jq:*)",
       "Bash(ls:*)",
-      "Bash(mem:*)",
       "Bash(mypy:*)",
       "Bash(pixi:*)",
       "Bash(pixi run mypy:*)",
@@ -60,14 +64,12 @@
       "Skill(superpowers:documentation-management)",
       "Skill(atlassian-toolkit:using-atlassian-api)",
       "Skill(atlassian-toolkit:working-jira-tickets)",
+      "Skill(superpowers:brainstorming)",
+      "Skill(superpowers:writing-plans)",
+      "Skill(superpowers:using-git-worktrees)",
+      "Skill(superpowers:subagent-driven-development)",
+      "Skill(superpowers:systematic-debugging)",
       "mcp__ide__getDiagnostics",
-      "mcp__local-semantic-memory__add_memory",
-      "mcp__local-semantic-memory__archive_memory",
-      "mcp__local-semantic-memory__get_memory",
-      "mcp__local-semantic-memory__list_memories",
-      "mcp__local-semantic-memory__restore_memory",
-      "mcp__local-semantic-memory__search_memories",
-      "mcp__local-semantic-memory__update_memory",
       "Read(//Users/jacob.hurlburt/**)",
       "WebFetch(domain:*)"
     ],
@@ -77,17 +79,11 @@
       "Bash(SKIP=:*)",
       "Bash(pre-commit uninstall:*)",
       "Bash(prek uninstall:*)",
-      "mcp__claude-code__Bash",
-      "mcp__claude-code__Edit",
-      "mcp__claude-code__Glob",
-      "mcp__claude-code__Grep",
-      "mcp__claude-code__MultiEdit",
-      "mcp__claude-code__NotebookEdit",
-      "mcp__claude-code__Read",
-      "mcp__claude-code__TodoWrite",
-      "mcp__claude-code__WebFetch",
-      "mcp__claude-code__WebSearch",
-      "mcp__claude-code__Write"
+      "Read(~/.ssh/**)",
+      "Read(~/.aws/**)",
+      "Read(~/.config/gcloud/**)",
+      "Read(.env)",
+      "Read(.env.*)"
     ],
     "ask": [
       "Bash(brew install:*)",
@@ -119,7 +115,7 @@
     "atlassian-toolkit@atlassian-toolkit-dev": true,
     "code-review@claude-plugins-official": true,
     "commit-commands@claude-plugins-official": true,
-    "hookify@claude-plugins-official": true,
+    "hookify@claude-plugins-official": false,
     "plugin-dev@claude-plugins-official": true,
     "pr-review-toolkit@claude-plugins-official": true,
     "ralph-wiggum@claude-plugins-official": true,
