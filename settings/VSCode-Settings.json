@@ -85,6 +85,7 @@
     },
     "diffEditor.ignoreTrimWhitespace": false
   },
+  "python.languageServer": "None",
   "python.interpreter.infoVisibility": "always",
   "python.analysis.typeCheckingMode": "basic",
   "python.analysis.extraPaths": [],
