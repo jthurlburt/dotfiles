@@ -11,7 +11,6 @@
     "commit": "",
     "pr": ""
   },
-  "enableAllProjectMcpServers": true,
   "permissions": {
     "allow": [
       "Bash(ast-grep:*)",
@@ -104,6 +103,7 @@
     ],
     "defaultMode": "acceptEdits"
   },
+  "enableAllProjectMcpServers": true,
   "statusLine": {
     "type": "command",
     "command": "input=$(cat); printf \"\\033[2m%s@%s \\033[36m%s\\033[0m \\033[2m[%s]\\033[0m\" \"$(whoami)\" \"$(hostname -s)\" \"$(echo \"$input\" | jq -r '.workspace.current_dir | gsub(\".*/\"; \"\")' 2>/dev/null || basename \"$(echo \"$input\" | jq -r '.workspace.current_dir')\" 2>/dev/null || echo \"unknown\")\" \"$(echo \"$input\" | jq -r '.model.display_name' 2>/dev/null || echo \"Claude\")\""
@@ -119,7 +119,8 @@
     "plugin-dev@claude-plugins-official": true,
     "pr-review-toolkit@claude-plugins-official": true,
     "ralph-wiggum@claude-plugins-official": true,
-    "security-guidance@claude-plugins-official": true
+    "security-guidance@claude-plugins-official": true,
+    "superpowers-developing-for-claude-code@superpowers-marketplace": true
   },
   "extraKnownMarketplaces": {
     "jthurlburt-claude-plugins": {
