@@ -10,11 +10,11 @@ extensions=(
     1password.op-vscode
     amodio.find-related
     anthropic.claude-code
+    astral-sh.ty
     charliermarsh.ruff
     databricks.databricks
     davidanson.vscode-markdownlint
     dvirtz.parquet-viewer
-    eamodio.gitlens
     esbenp.prettier-vscode
     foxundermoon.shell-format
     github.copilot
@@ -25,7 +25,6 @@ extensions=(
     mechatroner.rainbow-csv
     mhutchie.git-graph
     mineiros.terramate
-    ms-azuretools.vscode-containers
     ms-python.debugpy
     ms-python.python
     ms-python.vscode-pylance
@@ -35,7 +34,6 @@ extensions=(
     ms-toolsai.jupyter-renderers
     ms-toolsai.vscode-jupyter-cell-tags
     ms-toolsai.vscode-jupyter-slideshow
-    ms-vscode-remote.remote-containers
     redhat.vscode-yaml
     samuelcolvin.jinjahtml
     tamasfe.even-better-toml
