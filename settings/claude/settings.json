@@ -55,22 +55,47 @@
       "Bash(wait:*)",
       "Bash(yq:*)",
       "mcp__plugin_atlassian-toolkit_atlassian-mcp__atlassian_api",
-      "Skill(episodic-memory:remembering-conversations)",
       "mcp__plugin_episodic-memory_episodic-memory__search",
-      "Skill(superpowers-developing-for-claude-code:working-with-claude-code)",
-      "Skill(superpowers:writing-skills)",
-      "Skill(superpowers:finishing-a-development-branch)",
-      "Skill(superpowers:documentation-management)",
-      "Skill(atlassian-toolkit:using-atlassian-api)",
-      "Skill(atlassian-toolkit:working-jira-tickets)",
-      "Skill(superpowers:brainstorming)",
-      "Skill(superpowers:writing-plans)",
-      "Skill(superpowers:using-git-worktrees)",
-      "Skill(superpowers:subagent-driven-development)",
-      "Skill(superpowers:systematic-debugging)",
       "mcp__ide__getDiagnostics",
       "Read(//Users/jacob.hurlburt/**)",
-      "WebFetch(domain:*)"
+      "WebFetch(domain:*)",
+      "Skill(superpowers:brainstorm)",
+      "Skill(superpowers:brainstorming)",
+      "Skill(superpowers:write-plan)",
+      "Skill(superpowers:execute-plan)",
+      "Skill(superpowers:dispatching-parallel-agents)",
+      "Skill(superpowers:executing-plans)",
+      "Skill(superpowers:finishing-a-development-branch)",
+      "Skill(superpowers:receiving-code-review)",
+      "Skill(superpowers:requesting-code-review)",
+      "Skill(superpowers:subagent-driven-development)",
+      "Skill(superpowers:systematic-debugging)",
+      "Skill(superpowers:test-driven-development)",
+      "Skill(superpowers:verification-before-completion)",
+      "Skill(superpowers:using-git-worktrees)",
+      "Skill(superpowers:writing-plans)",
+      "Skill(superpowers:writing-skills)",
+      "Skill(superpowers:using-superpowers)",
+      "Skill(episodic-memory:search-conversations)",
+      "Skill(episodic-memory:remembering-conversations)",
+      "Skill(code-review:code-review)",
+      "Skill(commit-commands:clean_gone)",
+      "Skill(commit-commands:commit)",
+      "Skill(commit-commands:commit-push-pr)",
+      "Skill(plugin-dev:create-plugin)",
+      "Skill(plugin-dev:agent-development)",
+      "Skill(plugin-dev:command-development)",
+      "Skill(plugin-dev:hook-development)",
+      "Skill(plugin-dev:skill-development)",
+      "Skill(plugin-dev:plugin-structure)",
+      "Skill(plugin-dev:plugin-settings)",
+      "Skill(plugin-dev:mcp-integration)",
+      "Skill(pr-review-toolkit:review-pr)",
+      "Skill(superpowers-developing-for-claude-code:developing-claude-code-plugins)",
+      "Skill(superpowers-developing-for-claude-code:working-with-claude-code)",
+      "Skill(atlassian-toolkit:creating-eng-briefs)",
+      "Skill(atlassian-toolkit:using-atlassian-api)",
+      "Skill(atlassian-toolkit:working-jira-tickets)"
     ],
     "deny": [
       "Bash(git commit --no-verify:*)",
@@ -99,7 +124,11 @@
       "Bash(git revert:*)",
       "Bash(pixi global:*)",
       "Bash(terraform:*)",
-      "Bash(terramate:*)"
+      "Bash(terramate:*)",
+      "Skill(ralph-wiggum:help)",
+      "Skill(ralph-wiggum:ralph-loop)",
+      "Skill(ralph-wiggum:cancel-ralph)",
+      "Skill(superpowers-lab:using-tmux-for-interactive-commands)"
     ],
     "defaultMode": "acceptEdits"
   },
@@ -109,7 +138,7 @@
     "command": "input=$(cat); printf \"\\033[2m%s@%s \\033[36m%s\\033[0m \\033[2m[%s]\\033[0m\" \"$(whoami)\" \"$(hostname -s)\" \"$(echo \"$input\" | jq -r '.workspace.current_dir | gsub(\".*/\"; \"\")' 2>/dev/null || basename \"$(echo \"$input\" | jq -r '.workspace.current_dir')\" 2>/dev/null || echo \"unknown\")\" \"$(echo \"$input\" | jq -r '.model.display_name' 2>/dev/null || echo \"Claude\")\""
   },
   "enabledPlugins": {
-    "superpowers@jthurlburt-claude-plugins": true,
+    "superpowers@superpowers-marketplace": true,
     "episodic-memory@superpowers-marketplace": true,
     "superpowers-lab@superpowers-marketplace": true,
     "atlassian-toolkit@atlassian-toolkit-dev": true,
@@ -123,12 +152,6 @@
     "superpowers-developing-for-claude-code@superpowers-marketplace": true
   },
   "extraKnownMarketplaces": {
-    "jthurlburt-claude-plugins": {
-      "source": {
-        "source": "directory",
-        "path": "/Users/jacob.hurlburt/repos/claude-settings"
-      }
-    },
     "superpowers-marketplace": {
       "source": {
         "source": "github",
