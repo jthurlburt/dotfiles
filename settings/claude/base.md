@@ -85,6 +85,38 @@ YOU MUST NEVER bypass pre-commit hooks. No exceptions.
 4. Commit again (hooks will re-run automatically)
 5. If hooks modify files (formatters), stage those changes and amend IMMEDIATELY
 
+## Python Tooling (Project-Aware)
+
+YOU MUST use the project's package manager for Python tools. Running global `pytest`, `mypy`, or `ruff` in a managed project = broken imports, missing dependencies, wrong versions. Every time.
+
+**Detection signals:**
+
+- `uv.lock` or `[tool.uv]` in pyproject.toml → use `uv run`
+- `pixi.toml` or `pixi.lock` → use `pixi run`
+
+**FORBIDDEN in uv/pixi projects:**
+
+- `pytest` (global)
+- `mypy` (global)
+- `ruff` (global)
+- Any Python tool invoked without the project's runner
+
+**REQUIRED:**
+
+```bash
+# uv projects
+uv run pytest tests/
+uv run mypy src/
+uv run ruff check .
+
+# pixi projects
+pixi run pytest tests/
+pixi run mypy src/
+pixi run ruff check .
+```
+
+**No exceptions.** "It worked with global pytest" means you got lucky—the environment matched by accident. Use the project's tooling.
+
 ## Git Workflow
 
 - **Conventional commits:** `type(scope): subject` format
