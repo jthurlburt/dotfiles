@@ -97,7 +97,8 @@
       "Skill(superpowers-developing-for-claude-code:working-with-claude-code)",
       "Skill(atlassian-toolkit:creating-eng-briefs)",
       "Skill(atlassian-toolkit:using-atlassian-api)",
-      "Skill(atlassian-toolkit:working-jira-tickets)"
+      "Skill(atlassian-toolkit:working-jira-tickets)",
+      "Skill(test-driven-development)"
     ],
     "deny": [
       "Bash(git commit --no-verify:*)",
@@ -166,5 +167,6 @@
         "path": "/Users/jacob.hurlburt/repos/atlassian-toolkit"
       }
     }
-  }
+  },
+  "model": "opus"
 }
