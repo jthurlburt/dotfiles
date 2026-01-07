@@ -18,7 +18,7 @@ zstyle ':omz:update' mode auto # update automatically without asking
 # Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
 COMPLETION_WAITING_DOTS="true"
 
-plugins=(aliases command-not-found copyfile copypath docker docker-compose dotenv git history)
+plugins=(aliases command-not-found copyfile copypath dotenv git history)
 
 source $ZSH/oh-my-zsh.sh
 

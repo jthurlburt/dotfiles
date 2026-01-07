@@ -71,7 +71,6 @@ apps=(
     "visual-studio-code"
     "1password"
     "displaylink"
-    "docker"
     "claude"
 )
 
