@@ -101,8 +101,12 @@
       "Skill(test-driven-development)"
     ],
     "deny": [
+      "Bash(git clean -f:*)",
       "Bash(git commit --no-verify:*)",
       "Bash(git commit -n:*)",
+      "Bash(git push --force:*)",
+      "Bash(git push -f:*)",
+      "Bash(git reset --hard:*)",
       "Bash(SKIP=:*)",
       "Bash(pre-commit uninstall:*)",
       "Bash(prek uninstall:*)",
