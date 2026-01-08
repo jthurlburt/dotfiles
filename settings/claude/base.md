@@ -117,6 +117,41 @@ pixi run ruff check .
 
 **No exceptions.** "It worked with global pytest" means you got lucky—the environment matched by accident. Use the project's tooling.
 
+### Temporary Dependencies (Ultra-Fast Ad-Hoc Usage)
+
+When you need a library for one-off scripts, quick experiments, or CLI tools (even outside any project), use ephemeral dependencies. **This is VASTLY faster and cleaner than pip install.**
+
+**Why this matters:**
+
+- No polluting any environment
+- No manual cleanup needed
+- Instant isolated execution
+- No "did I install this globally?" confusion
+
+**REQUIRED:**
+
+```bash
+# For Python packages (PyPI) - use uv (default choice)
+uv run --with requests python script.py
+uv run --with pandas --with matplotlib analysis.py
+uv run --with ruff ruff check .  # one-off tool usage
+
+# For conda packages or non-Python dependencies - use pixi
+pixi exec -s gcc python script.py  # need a C compiler
+pixi exec -s gdal python geo_script.py  # conda-only package
+pixi exec -s jupyterlab jupyter lab  # quick Jupyter session
+```
+
+**Common use cases:**
+
+- Quick data analysis with pandas/polars → `uv run --with`
+- One-off API calls with requests/httpx → `uv run --with`
+- Trying a formatter/linter → `uv run --with`
+- Need conda-only packages (GDAL, scientific libs) → `pixi exec -s`
+- Need non-Python tools (compilers, system tools) → `pixi exec -s`
+
+**Never use `pip install` for these.** Both `uv` and `pixi` are global CLI tools that handle downloading, caching, isolation, and cleanup automatically. It's literally designed for this exact scenario.
+
 ## Git Workflow
 
 - **Conventional commits:** `type(scope): subject` format
