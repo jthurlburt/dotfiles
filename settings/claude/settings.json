@@ -19,6 +19,7 @@
       "Bash(difft:*)",
       "Bash(head:*)",
       "Bash(ls:*)",
+      "Bash(printf:*)",
       "Bash(readlink:*)",
       "Bash(tail:*)",
       "Bash(test:*)",
