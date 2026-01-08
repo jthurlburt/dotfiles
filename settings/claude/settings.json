@@ -64,6 +64,7 @@
       "Bash(pixi run pytest:*)",
       "Bash(pre-commit run:*)",
       "Bash(pytest:*)",
+      "Bash(sqruff:*)",
       "Bash(uv run mypy:*)",
       "Bash(uv run pytest:*)",
       "__ MCP TOOLS __",
