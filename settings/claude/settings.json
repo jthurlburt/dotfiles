@@ -24,6 +24,7 @@
       "Bash(test:*)",
       "Bash(tree:*)",
       "Bash(wc:*)",
+      "Read(//Users/jacob.hurlburt/**)",
       "__ SEARCH __",
       "Bash(ast-grep:*)",
       "Bash(fd:*)",
@@ -171,6 +172,5 @@
         "path": "/Users/jacob.hurlburt/repos/atlassian-toolkit"
       }
     }
-  },
-  "model": "opus"
+  }
 }
