@@ -153,11 +153,12 @@
     "superpowers-lab@superpowers-marketplace": true,
     "atlassian-toolkit@atlassian-toolkit-dev": true,
     "code-review@claude-plugins-official": true,
+    "code-simplifier@claude-plugins-official": true,
     "commit-commands@claude-plugins-official": true,
     "hookify@claude-plugins-official": true,
     "plugin-dev@claude-plugins-official": true,
     "pr-review-toolkit@claude-plugins-official": true,
-    "ralph-wiggum@claude-plugins-official": true,
+    "ralph-loop@claude-plugins-official": true,
     "security-guidance@claude-plugins-official": true,
     "superpowers-developing-for-claude-code@superpowers-marketplace": true
   },
