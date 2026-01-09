@@ -34,6 +34,11 @@ channels = ["conda-forge"]
 dependencies = { pytest = "8.3.*" }
 exposed = { pytest = "pytest", "py.test" = "py.test" }
 
+[envs.ty]
+channels = ["conda-forge"]
+dependencies = { ty = "0.*" }
+exposed = { ty = "ty" }
+
 [envs.rust]
 channels = ["conda-forge"]
 dependencies = { rust = "1.91.*" }
@@ -65,7 +70,7 @@ exposed = { gh = "gh" }
 
 [envs.databricks-cli]
 channels = ["conda-forge"]
-dependencies = { databricks-cli = "0.268.*" }
+dependencies = { databricks-cli = "0.271.*" }
 exposed = { databricks = "databricks" }
 
 ###############################################################################
