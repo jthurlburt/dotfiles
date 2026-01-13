@@ -84,8 +84,7 @@
       "Bash(pre-commit uninstall:*)",
       "Bash(prek uninstall:*)",
       "__ SECRETS __",
-      "Read(.env)",
-      "Read(.env.*)",
+      "Read(**/.env*)",
       "Read(~/.aws/**)",
       "Read(~/.config/gcloud/**)",
       "Read(~/.ssh/**)"
