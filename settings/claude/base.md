@@ -81,9 +81,8 @@ YOU MUST NEVER bypass pre-commit hooks. No exceptions.
 
 1. Read the error output
 2. Fix the underlying issue
-3. Stage the fixes
+3. Stage the fixes and any changes the linters/formatters made
 4. Commit again (hooks will re-run automatically)
-5. If hooks modify files (formatters), stage those changes and amend IMMEDIATELY
 
 ## Python Tooling (Project-Aware)
 
