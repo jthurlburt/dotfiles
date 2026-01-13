@@ -50,3 +50,6 @@ alias trc="terramate run --changed"
 alias trci="terramate run --changed terraform init"
 alias trcp="terramate run --changed terraform plan --out plan.tfplan"
 alias trca="terramate run --changed terraform apply plan.tfplan "
+
+# claude-mem
+alias claude-mem='bun "/Users/jacob.hurlburt/.claude/plugins/marketplaces/thedotmack/plugin/scripts/worker-service.cjs"'
