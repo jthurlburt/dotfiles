@@ -7,6 +7,7 @@
 
 | ID  | Time    | T   | Title                                                         | Read |
 | --- | ------- | --- | ------------------------------------------------------------- | ---- |
+| #17 | 4:05 PM | ⚖️  | Deferred Skill Permission Workaround Until Bug Resolution     | ~395 |
 | #16 | 3:56 PM | 🔴  | Fixed Invalid MCP Wildcard Permission Syntax in settings.json | ~418 |
 | #15 | 3:52 PM | 🔵  | Skill(\*) Is Valid Syntax But Has Git Worktree Bug            | ~407 |
 
