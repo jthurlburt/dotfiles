@@ -67,7 +67,11 @@
       "Bash(* --version)",
       "Bash(* -V)",
       "__ MCP TOOLS __",
-      "mcp__*",
+      "mcp__plugin_atlassian-toolkit_atlassian-mcp",
+      "mcp__plugin_claude-mem_mcp-search",
+      "mcp__plugin_episodic-memory_episodic-memory",
+      "mcp__private-journal",
+      "mcp__ide",
       "__ SKILLS __",
       "Skill(*)"
     ],
