@@ -36,6 +36,7 @@ packages=(
     "aws-cdk"
     "thefuck"
     "zsh-autosuggestions"
+    "oven-sh/bun/bun"
 )
 
 # Loop over the array to install each application.
