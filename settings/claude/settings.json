@@ -115,7 +115,6 @@
     "ralph-loop@claude-plugins-official": true,
     "security-guidance@claude-plugins-official": true,
     "superpowers-developing-for-claude-code@superpowers-marketplace": true,
-    "claude-mem@thedotmack": true,
     "planning-with-files@planning-with-files": true
   },
   "extraKnownMarketplaces": {
