@@ -156,3 +156,28 @@ pixi exec -s jupyterlab jupyter lab  # quick Jupyter session
 - **Conventional commits:** `type(scope): subject` format
 - **Atomic commits:** One logical change per commit
 - **No AI co-authorship:** Never include AI attribution in commits
+
+## Atlassian/JIRA Ticket Management
+
+YOU MUST use these defaults when creating or working with JIRA tickets. These are not suggestions.
+
+**REQUIRED defaults:**
+
+- **Team:** `PAACS Data` - Set this team for ALL tickets unless explicitly told otherwise
+- **Project Key:** `CORE` - Use this project key for ALL tickets unless explicitly told otherwise
+
+**When creating tickets:**
+
+```bash
+# If user says "create a ticket for X"
+→ Team = PAACS Data (automatic)
+→ Project Key = CORE (automatic)
+
+# If user says "create a ticket for Y team" or "create a PROJ ticket"
+→ Team = Y (explicit override)
+→ Project Key = PROJ (explicit override)
+```
+
+**Implementation details** (how to set Team field, team IDs, etc.) are documented in the `atlassian-toolkit:using-atlassian-api` skill under `api/jira/create-issue.md` and `api/jira/update-issue.md`.
+
+**No exceptions.** If team or project key fields are not explicitly specified by the user, they default to "PAACS Data" and "CORE" respectively. Period.
