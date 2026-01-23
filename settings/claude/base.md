@@ -151,6 +151,78 @@ pixi exec -s jupyterlab jupyter lab  # quick Jupyter session
 
 **Never use `pip install` for these.** Both `uv` and `pixi` are global CLI tools that handle downloading, caching, isolation, and cleanup automatically. It's literally designed for this exact scenario.
 
+## Databricks Access
+
+### CLI Operations (All Workspaces, Read-Only)
+
+YOU CAN use the Databricks CLI for read-only operations on **any workspace**:
+
+```bash
+# List resources (any profile)
+databricks workspace list /Users --profile PROD
+databricks clusters list --profile DEV
+databricks jobs list --profile SANDBOX
+databricks catalogs list --profile ADHOC-ANALYSIS
+```
+
+### Databricks Connect (DEV Only, Read-Only)
+
+YOU CAN execute Spark code via databricks-connect, but **only against DEV workspace** for **read-only** operations.
+
+**RESTRICTIONS (enforced via settings.json):**
+
+- **DEV workspace only** - databricks-connect to PROD, SANDBOX, ADHOC-ANALYSIS is blocked
+- **Read-only operations only** - No INSERT, UPDATE, DELETE, CREATE, DROP, ALTER, TRUNCATE, MERGE
+
+**Running Spark code:**
+
+```bash
+cd /tmp && DATABRICKS_HOST="https://dbc-2ded3f86-d900.cloud.databricks.com" \
+DATABRICKS_TOKEN=$(databricks auth token --profile DEV | jq -r '.access_token') \
+uvx --from 'databricks-connect==17.2.*' python my_spark_script.py
+```
+
+**Important:** Do NOT add `--with pyspark`—databricks-connect bundles its own pyspark-connect and they conflict.
+
+**Basic script example (read-only):**
+
+```python
+from databricks.connect import DatabricksSession
+
+spark = DatabricksSession.builder.serverless(True).getOrCreate()
+
+# Query Unity Catalog (READ-ONLY)
+spark.sql("SELECT * FROM catalog.schema.table LIMIT 10").show()
+
+# Test transformations (READ-ONLY)
+df = spark.read.table("catalog.schema.source_table")
+result = df.filter(df.status == "active").groupBy("category").count()
+result.show()
+```
+
+**Allowed operations:**
+
+- SELECT queries against Unity Catalog
+- Reading Delta tables (`spark.read.table()`)
+- DataFrame transformations (filter, groupBy, join, etc.)
+- `.show()`, `.collect()`, `.count()` to retrieve results
+
+**Forbidden operations (do NOT execute):**
+
+- `INSERT INTO`, `UPDATE`, `DELETE`, `MERGE`
+- `CREATE TABLE`, `DROP TABLE`, `ALTER TABLE`, `TRUNCATE`
+- `spark.write.*` operations
+- Any DDL or DML that modifies data
+
+**Version note:** Use 17.2.x specifically—later versions don't support serverless yet.
+
+**Why not Databricks MCP Server?** Databricks offers managed MCP servers but they have two blockers:
+
+1. **Beta enrollment required** - Must be enabled per-workspace
+2. **OAuth incompatibility** - Claude Code doesn't support Databricks's OAuth flow
+
+Use databricks-connect instead—it works today and provides full PySpark read capability.
+
 ## Git Workflow
 
 - **Conventional commits:** `type(scope): subject` format
