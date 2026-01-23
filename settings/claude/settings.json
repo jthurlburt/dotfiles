@@ -81,6 +81,8 @@
       "Bash(databricks * export*)",
       "Bash(databricks auth *)",
       "__ MCP TOOLS __",
+      "mcp__databricks-dbsql__execute_sql_read_only",
+      "mcp__databricks-dbsql__poll_sql_result",
       "mcp__plugin_atlassian-toolkit_atlassian-mcp",
       "mcp__plugin_claude-mem_mcp-search",
       "mcp__plugin_episodic-memory_episodic-memory",
@@ -89,7 +91,10 @@
       "__ SKILLS __",
       "Skill(*)"
     ],
-    "ask": ["Bash(databricks auth token*)"],
+    "ask": [
+      "Bash(databricks auth token*)",
+      "mcp__databricks-dbsql__execute_sql"
+    ],
     "deny": [
       "__ GIT DESTRUCTIVE __",
       "Bash(git clean -f:*)",

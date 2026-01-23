@@ -169,9 +169,13 @@ databricks jobs submit --json '...' --profile DEV
 
 Upload notebooks, trigger jobs, check run status. Auth is handled automatically.
 
-### Databricks Connect (DEV Only, Read-Only)
+### Databricks MCP Server (Preferred)
 
-We can execute Spark code directly against DEV—no notebook upload/run/check cycles.
+Use the `databricks-dbsql` MCP tools for SQL queries. This is the default choice for data exploration.
+
+### Databricks Connect (When SQL Won't Cut It)
+
+Use databricks-connect **only** when you need capabilities beyond SQL—DataFrame transformations, UDFs, window functions that are awkward in SQL, or iterative analysis.
 
 **Boundaries:**
 
@@ -180,10 +184,12 @@ We can execute Spark code directly against DEV—no notebook upload/run/check cy
 
 **Invocation:**
 
+Write your script to `/tmp/spark_query.py` first, then run this command.
+
 ```bash
-cd /tmp && DATABRICKS_HOST="https://dbc-2ded3f86-d900.cloud.databricks.com" \
+DATABRICKS_HOST="https://dbc-2ded3f86-d900.cloud.databricks.com" \
 DATABRICKS_TOKEN=$(databricks auth token --profile DEV | jq -r '.access_token') \
-uvx --from 'databricks-connect==17.2.*' python my_spark_script.py
+uvx --from 'databricks-connect==17.2.*' python /tmp/spark_query.py
 ```
 
 Adding `--with pyspark` causes conflicts—databricks-connect bundles its own pyspark-connect.
@@ -195,32 +201,20 @@ from databricks.connect import DatabricksSession
 
 spark = DatabricksSession.builder.serverless(True).getOrCreate()
 
-# Schema discovery
-spark.sql("DESCRIBE processed.shared_dotcom_public.some_table").show()
-
-# Test queries before committing to notebooks
-df = spark.sql("SELECT * FROM catalog.schema.table WHERE status = 'active'")
-df.groupBy("category").count().show()
+# Complex transformations beyond SQL
+df = spark.read.table("catalog.schema.source_table")
+result = df.filter(df.status == "active") \
+    .groupBy("category") \
+    .agg({"amount": "sum", "id": "count"}) \
+    .withColumnRenamed("sum(amount)", "total_amount")
+result.show()
 ```
 
-**This enables:**
+**When to use:** Complex DataFrame transformations, UDFs, iterative analysis, prototyping pipeline logic.
 
-- Schema discovery (`DESCRIBE`, `SHOW COLUMNS`) instead of asking
-- Data profiling (distributions, nulls, row counts) instead of guessing
-- Testing joins and transformations before committing to notebooks
-- Validating queries work before delivery
-
-**Blocked operations:**
-
-- Writing data (INSERT, UPDATE, DELETE, MERGE)
-- Schema changes (CREATE, DROP, ALTER, TRUNCATE)
-- Any `spark.write.*` operation
-
-**Performance:** Exploration without `.limit()` or aggregations = slow transfers and wasted time. We're exploring, not exporting.
+**Performance:** Exploration without `.limit()` or aggregations = slow transfers. We're exploring, not exporting.
 
 **Version:** 17.2.x required—later versions don't support serverless yet.
-
-**Why not Databricks MCP Server?** Two blockers: beta enrollment required per-workspace, and Claude Code doesn't support Databricks's OAuth flow. databricks-connect works today.
 
 ## Git Workflow
 
