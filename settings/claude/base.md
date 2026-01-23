@@ -153,28 +153,32 @@ pixi exec -s jupyterlab jupyter lab  # quick Jupyter session
 
 ## Databricks Access
 
-### CLI Operations (All Workspaces, Read-Only)
+We have direct access to Databricks data. Asking Jacob for schemas when we can query them ourselves wastes both our time. Guessing at table structures when we can explore them directly leads to broken queries.
 
-YOU CAN use the Databricks CLI for read-only operations on **any workspace**:
+### CLI Operations (All Workspaces)
+
+The Databricks CLI works on any workspace via profiles:
 
 ```bash
-# List resources (any profile)
 databricks workspace list /Users --profile PROD
 databricks clusters list --profile DEV
 databricks jobs list --profile SANDBOX
 databricks catalogs list --profile ADHOC-ANALYSIS
+databricks jobs submit --json '...' --profile DEV
 ```
+
+Upload notebooks, trigger jobs, check run status. Auth is handled automatically.
 
 ### Databricks Connect (DEV Only, Read-Only)
 
-YOU CAN execute Spark code via databricks-connect, but **only against DEV workspace** for **read-only** operations.
+We can execute Spark code directly against DEV—no notebook upload/run/check cycles.
 
-**RESTRICTIONS (enforced via settings.json):**
+**Boundaries:**
 
-- **DEV workspace only** - databricks-connect to PROD, SANDBOX, ADHOC-ANALYSIS is blocked
-- **Read-only operations only** - No INSERT, UPDATE, DELETE, CREATE, DROP, ALTER, TRUNCATE, MERGE
+- **DEV workspace only** — Queries against PROD, SANDBOX, ADHOC-ANALYSIS will fail
+- **Read-only** — Write operations (INSERT, UPDATE, DELETE, CREATE, DROP, ALTER, TRUNCATE, MERGE, `spark.write.*`) are blocked
 
-**Running Spark code:**
+**Invocation:**
 
 ```bash
 cd /tmp && DATABRICKS_HOST="https://dbc-2ded3f86-d900.cloud.databricks.com" \
@@ -182,46 +186,41 @@ DATABRICKS_TOKEN=$(databricks auth token --profile DEV | jq -r '.access_token') 
 uvx --from 'databricks-connect==17.2.*' python my_spark_script.py
 ```
 
-**Important:** Do NOT add `--with pyspark`—databricks-connect bundles its own pyspark-connect and they conflict.
+Adding `--with pyspark` causes conflicts—databricks-connect bundles its own pyspark-connect.
 
-**Basic script example (read-only):**
+**Script pattern:**
 
 ```python
 from databricks.connect import DatabricksSession
 
 spark = DatabricksSession.builder.serverless(True).getOrCreate()
 
-# Query Unity Catalog (READ-ONLY)
-spark.sql("SELECT * FROM catalog.schema.table LIMIT 10").show()
+# Schema discovery
+spark.sql("DESCRIBE processed.shared_dotcom_public.some_table").show()
 
-# Test transformations (READ-ONLY)
-df = spark.read.table("catalog.schema.source_table")
-result = df.filter(df.status == "active").groupBy("category").count()
-result.show()
+# Test queries before committing to notebooks
+df = spark.sql("SELECT * FROM catalog.schema.table WHERE status = 'active'")
+df.groupBy("category").count().show()
 ```
 
-**Allowed operations:**
+**This enables:**
 
-- SELECT queries against Unity Catalog
-- Reading Delta tables (`spark.read.table()`)
-- DataFrame transformations (filter, groupBy, join, etc.)
-- `.show()`, `.collect()`, `.count()` to retrieve results
+- Schema discovery (`DESCRIBE`, `SHOW COLUMNS`) instead of asking
+- Data profiling (distributions, nulls, row counts) instead of guessing
+- Testing joins and transformations before committing to notebooks
+- Validating queries work before delivery
 
-**Forbidden operations (do NOT execute):**
+**Blocked operations:**
 
-- `INSERT INTO`, `UPDATE`, `DELETE`, `MERGE`
-- `CREATE TABLE`, `DROP TABLE`, `ALTER TABLE`, `TRUNCATE`
-- `spark.write.*` operations
-- Any DDL or DML that modifies data
+- Writing data (INSERT, UPDATE, DELETE, MERGE)
+- Schema changes (CREATE, DROP, ALTER, TRUNCATE)
+- Any `spark.write.*` operation
 
-**Version note:** Use 17.2.x specifically—later versions don't support serverless yet.
+**Performance:** Exploration without `.limit()` or aggregations = slow transfers and wasted time. We're exploring, not exporting.
 
-**Why not Databricks MCP Server?** Databricks offers managed MCP servers but they have two blockers:
+**Version:** 17.2.x required—later versions don't support serverless yet.
 
-1. **Beta enrollment required** - Must be enabled per-workspace
-2. **OAuth incompatibility** - Claude Code doesn't support Databricks's OAuth flow
-
-Use databricks-connect instead—it works today and provides full PySpark read capability.
+**Why not Databricks MCP Server?** Two blockers: beta enrollment required per-workspace, and Claude Code doesn't support Databricks's OAuth flow. databricks-connect works today.
 
 ## Git Workflow
 
