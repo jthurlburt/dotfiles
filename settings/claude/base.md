@@ -173,18 +173,25 @@ Upload notebooks, trigger jobs, check run status. Auth is handled automatically.
 
 Use the `databricks-dbsql` MCP tools for SQL queries. This is the default choice for data exploration.
 
-### Databricks Connect (When SQL Won't Cut It)
+### Databricks Connect (Rare - When SQL Truly Won't Work)
 
-Use databricks-connect **only** when you need capabilities beyond SQL—DataFrame transformations, UDFs, window functions that are awkward in SQL, or iterative analysis.
+Use databricks-connect only for operations that **cannot** be expressed in SQL:
+
+- Custom Python UDFs
+- MLlib / machine learning pipelines
+- Iterative algorithms requiring programmatic logic
+- Integration with Python libraries (pandas UDFs, numpy)
+
+**If you can write it as a SQL query, use the MCP server instead.**
 
 **Boundaries:**
 
 - **DEV workspace only** — Queries against PROD, SANDBOX, ADHOC-ANALYSIS will fail
-- **Read-only** — Write operations (INSERT, UPDATE, DELETE, CREATE, DROP, ALTER, TRUNCATE, MERGE, `spark.write.*`) are blocked
+- **Read-only** — Write operations are blocked
 
 **Invocation:**
 
-Write your script to `/tmp/spark_query.py` first, then run this command.
+Write your script to `/tmp/spark_query.py` first, then run:
 
 ```bash
 DATABRICKS_HOST="https://dbc-2ded3f86-d900.cloud.databricks.com" \
@@ -192,25 +199,7 @@ DATABRICKS_TOKEN=$(databricks auth token --profile DEV | jq -r '.access_token') 
 uvx --from 'databricks-connect==17.2.*' python /tmp/spark_query.py
 ```
 
-Adding `--with pyspark` causes conflicts—databricks-connect bundles its own pyspark-connect.
-
-**Script pattern:**
-
-```python
-from databricks.connect import DatabricksSession
-
-spark = DatabricksSession.builder.serverless(True).getOrCreate()
-
-# Complex transformations beyond SQL
-df = spark.read.table("catalog.schema.source_table")
-result = df.filter(df.status == "active") \
-    .groupBy("category") \
-    .agg({"amount": "sum", "id": "count"}) \
-    .withColumnRenamed("sum(amount)", "total_amount")
-result.show()
-```
-
-**When to use:** Complex DataFrame transformations, UDFs, iterative analysis, prototyping pipeline logic.
+Do NOT add `--with pyspark`—databricks-connect bundles its own pyspark-connect and they conflict.
 
 **Performance:** Exploration without `.limit()` or aggregations = slow transfers. We're exploring, not exporting.
 
