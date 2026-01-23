@@ -73,6 +73,10 @@ channels = ["conda-forge"]
 dependencies = { databricks-cli = "0.271.*" }
 exposed = { databricks = "databricks" }
 
+[envs.databricks-sdk]
+channels = ["conda-forge"]
+dependencies = { databricks-sdk = "0.78.*" }
+
 ###############################################################################
 # Search & Navigation Tools
 ###############################################################################
