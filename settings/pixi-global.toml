@@ -106,7 +106,6 @@ channels = ["conda-forge"]
 dependencies = { ripgrep = "14.1.*" }
 exposed = { rg = "rg" }
 
-
 ###############################################################################
 # Data Processing & Formatting
 ###############################################################################
@@ -125,6 +124,11 @@ exposed = { yq = "yq" }
 channels = ["conda-forge"]
 dependencies = { dbt-core = "1.10.*" }
 exposed = { dbt = "dbt" }
+
+[envs.pyspark]
+channels = ["conda-forge"]
+dependencies = { pyspark = "4.0.*" }
+exposed = { beeline = "beeline", "beeline.cmd" = "beeline.cmd", docker-image-tool = "docker-image-tool", find-spark-home = "find-spark-home", "find-spark-home.cmd" = "find-spark-home.cmd", find_spark_home = "find_spark_home", "load-spark-env.cmd" = "load-spark-env.cmd", load-spark-env = "load-spark-env", pyspark = "pyspark", "pyspark.cmd" = "pyspark.cmd", "pyspark2.cmd" = "pyspark2.cmd", run-example = "run-example", "run-example.cmd" = "run-example.cmd", spark-class = "spark-class", "spark-class.cmd" = "spark-class.cmd", "spark-class2.cmd" = "spark-class2.cmd", spark-connect-shell = "spark-connect-shell", spark-shell = "spark-shell", "spark-shell.cmd" = "spark-shell.cmd", "spark-shell2.cmd" = "spark-shell2.cmd", spark-sql = "spark-sql", "spark-sql.cmd" = "spark-sql.cmd", "spark-sql2.cmd" = "spark-sql2.cmd", spark-submit = "spark-submit", "spark-submit.cmd" = "spark-submit.cmd", "spark-submit2.cmd" = "spark-submit2.cmd", sparkR = "sparkR", "sparkR.cmd" = "sparkR.cmd", "sparkR2.cmd" = "sparkR2.cmd" }
 
 [envs.librdkafka]
 channels = ["conda-forge"]
