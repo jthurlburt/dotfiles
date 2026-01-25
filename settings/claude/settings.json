@@ -62,8 +62,8 @@
       "Bash(gh * checks *)",
       "__ LINTING/CHECKING __",
       "Bash(* pytest *)",
-      "Bash(* mypy *)",
       "Bash(* ruff *)",
+      "Bash(* ty *)",
       "Bash(pre-commit run:*)",
       "Bash(prek run:*)",
       "Bash(*sqruff*)",
@@ -90,10 +90,6 @@
       "__ SKILLS __",
       "Skill(*)"
     ],
-    "ask": [
-      "Bash(databricks auth token*)",
-      "mcp__databricks-dbsql__execute_sql"
-    ],
     "deny": [
       "__ GIT DESTRUCTIVE __",
       "Bash(git clean -f:*)",
@@ -111,6 +107,10 @@
       "Read(~/.aws/**)",
       "Read(~/.config/gcloud/**)",
       "Read(~/.ssh/**)"
+    ],
+    "ask": [
+      "Bash(databricks auth token*)",
+      "mcp__databricks-dbsql__execute_sql"
     ],
     "defaultMode": "acceptEdits",
     "disableBypassPermissionsMode": "disable"
@@ -136,7 +136,8 @@
     "security-guidance@claude-plugins-official": true,
     "superpowers-developing-for-claude-code@superpowers-marketplace": true,
     "planning-with-files@planning-with-files": true,
-    "kin-design-system@kin-claude-plugins": true
+    "kin-design-system@kin-claude-plugins": true,
+    "astral@astral-sh": true
   },
   "extraKnownMarketplaces": {
     "superpowers-marketplace": {
@@ -149,6 +150,12 @@
       "source": {
         "source": "directory",
         "path": "/Users/jacob.hurlburt/repos/claude-plugins"
+      }
+    },
+    "astral-sh": {
+      "source": {
+        "source": "github",
+        "repo": "astral-sh/claude-code-plugins"
       }
     }
   }
