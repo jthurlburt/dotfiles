@@ -168,6 +168,11 @@ channels = ["conda-forge"]
 dependencies = { nbqa = "1.9.*" }
 exposed = { nbqa = "nbqa" }
 
+[envs.terraform-ls]
+channels = ["conda-forge"]
+dependencies = { terraform-ls = "0.38.*" }
+exposed = { terraform-ls = "terraform-ls" }
+
 ###############################################################################
 # Frontend & JavaScript Development
 ###############################################################################
