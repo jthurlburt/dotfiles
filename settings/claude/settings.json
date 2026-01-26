@@ -141,7 +141,8 @@
     "feature-dev@claude-plugins-official": true,
     "agent-sdk-dev@claude-plugins-official": true,
     "claude-md-management@claude-plugins-official": true,
-    "claude-code-setup@claude-plugins-official": true
+    "claude-code-setup@claude-plugins-official": true,
+    "terraform-ls@kin-claude-plugins": true
   },
   "extraKnownMarketplaces": {
     "superpowers-marketplace": {
