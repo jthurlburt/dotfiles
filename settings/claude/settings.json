@@ -90,12 +90,10 @@
       "__ SKILLS __",
       "Skill(*)"
     ],
-    "ask": [
-      "Bash(databricks auth token*)",
-      "mcp__databricks-dbsql__execute_sql"
-    ],
-    "defaultMode": "acceptEdits",
+    "ask": ["Bash(databricks auth token*)"],
     "deny": [
+      "__ DATABRICKS CLI DESTRUCTIVE __",
+      "mcp__databricks-dbsql__execute_sql",
       "__ GIT DESTRUCTIVE __",
       "Bash(git clean -f:*)",
       "Bash(git commit --no-verify:*)",
@@ -112,10 +110,6 @@
       "Read(~/.aws/**)",
       "Read(~/.config/gcloud/**)",
       "Read(~/.ssh/**)"
-    ],
-    "ask": [
-      "Bash(databricks auth token*)",
-      "mcp__databricks-dbsql__execute_sql"
     ],
     "defaultMode": "acceptEdits",
     "disableBypassPermissionsMode": "disable"
