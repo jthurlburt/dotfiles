@@ -34,6 +34,8 @@ else
     echo "Git user.email is already set to '$current_email'. Skipping configuration."
 fi
 
+git config --global init.defaultBranch main
+
 # Automatically enable pre-commit on cloned repos
 $GIT_CMD config --global init.templateDir ~/.git-template
 if command -v pre-commit &>/dev/null; then
