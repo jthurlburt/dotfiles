@@ -37,6 +37,7 @@ packages=(
     "thefuck"
     "zsh-autosuggestions"
     "oven-sh/bun/bun"
+    "beads"
 )
 
 # Loop over the array to install each application.
