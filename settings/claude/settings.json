@@ -90,6 +90,11 @@
       "__ SKILLS __",
       "Skill(*)"
     ],
+    "ask": [
+      "Bash(databricks auth token*)",
+      "mcp__databricks-dbsql__execute_sql"
+    ],
+    "defaultMode": "acceptEdits",
     "deny": [
       "__ GIT DESTRUCTIVE __",
       "Bash(git clean -f:*)",
