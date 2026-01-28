@@ -38,6 +38,7 @@
       "Bash(jq:*)",
       "Bash(yq:*)",
       "__ GIT READ-ONLY __",
+      "Bash(git check-ignore:*)",
       "Bash(git blame:*)",
       "Bash(git worktree add:*)",
       "Bash(git worktree list:*)",
