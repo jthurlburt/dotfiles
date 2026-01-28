@@ -287,3 +287,26 @@ YOU MUST use these defaults for ALL JIRA operations. These are not suggestions.
 **Implementation details** (field structure, API mechanics) are documented in `atlassian-toolkit:using-atlassian-api` skill under `api/jira/create-issue.md` and `api/jira/update-issue.md`.
 
 **No exceptions.** "My team" = PAACS Data. "My sprint" = PAACS Sprint (current active). "Create a ticket" = CORE project. Period.
+
+### Starting Work on a Ticket
+
+**When user says "start working on [TICKET]" or "pick up [TICKET]":**
+
+Perform ALL of these steps automatically:
+
+1. **Assign to Jacob** — Set assignee to Jacob Hurlburt
+2. **Add to team** — Set team to PAACS Data (UUID: `cbee4e32-b2eb-4ae9-a8d7-598c015fbf75`)
+3. **Check story points** — If `customfield_10028` (Story Points) is null/unset, ask "How many points for this ticket?"
+4. **Add to current sprint** — Find active PAACS Sprint and add the ticket (see "Your Sprint" section above)
+5. **Transition to In Progress** — Move ticket to "In Progress" status
+
+**What NOT to do:**
+
+- Do NOT close/resolve the ticket unless user explicitly says "close this ticket" or "mark as done"
+- Do NOT ask permission for each step — just do them all
+
+**Common rationalizations that mean you're about to fail:**
+
+- "Let me confirm before assigning" → WRONG. "Start working on" = assign to Jacob, always
+- "Should I add this to your sprint?" → WRONG. "Start working on" = add to current sprint, always
+- "I'll just mark it in progress" → WRONG. Do ALL five steps, not just one
