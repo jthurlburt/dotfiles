@@ -31,6 +31,7 @@
       "__ SEARCH __",
       "Bash(ast-grep:*)",
       "Bash(fd:*)",
+      "Bash(find:*)",
       "Bash(fzf:*)",
       "Bash(grep:*)",
       "Bash(rg:*)",
@@ -77,6 +78,7 @@
       "Bash(* -V)",
       "__ WEB __",
       "WebFetch(domain:*)",
+      "WebSearch",
       "__ DATABRICKS CLI (READ-ONLY, ALL WORKSPACES) __",
       "Bash(databricks * list*)",
       "Bash(databricks * get*)",
@@ -95,6 +97,9 @@
       "Bash(uv python list *)",
       "Bash(uv version *)",
       "Bash(uv self version *)",
+      "Bash(pixi search:*)",
+      "__ CLAUDE CLI __",
+      "Bash(claude mcp list:*)",
       "__ MCP TOOLS __",
       "mcp__databricks-dbsql__execute_sql_read_only",
       "mcp__databricks-dbsql__poll_sql_result",
@@ -105,7 +110,13 @@
       "__ SKILLS __",
       "Skill(*)"
     ],
-    "ask": ["Bash(databricks auth token*)"],
+    "ask": [
+      "Bash(databricks auth token*)",
+      "__ GIT WRITE OPS __",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)"
+    ],
     "deny": [
       "__ DATABRICKS CLI DESTRUCTIVE __",
       "mcp__databricks-dbsql__execute_sql",
