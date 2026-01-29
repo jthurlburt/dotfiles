@@ -296,7 +296,7 @@ Perform ALL of these steps automatically:
 
 1. **Assign to Jacob** — Set assignee to Jacob Hurlburt
 2. **Add to team** — Set team to PAACS Data (UUID: `cbee4e32-b2eb-4ae9-a8d7-598c015fbf75`)
-3. **Check story points** — If `customfield_10028` (Story Points) is null/unset, ask "How many points for this ticket?"
+3. **Check story points** — If `customfield_10060` (Story Points) is null/unset, ask "How many points for this ticket?"
 4. **Add to current sprint** — Find active PAACS Sprint and add the ticket (see "Your Sprint" section above)
 5. **Transition to In Progress** — Move ticket to "In Progress" status
 
