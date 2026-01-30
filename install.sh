@@ -27,6 +27,9 @@
 # Run Claude configuration Script
 ./claude.sh
 
+# Run Beads configuration Script
+./beads.sh
+
 # dotfiles directory
 dotfiledir="${HOME}/dotfiles"
 

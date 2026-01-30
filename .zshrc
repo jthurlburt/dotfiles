@@ -70,9 +70,10 @@ export TM_DISABLE_SAFEGUARDS=git-untracked,git-uncommitted,git-out-of-sync
 export DBT_PROFILES_DIR="$HOME/.dbt"
 
 ###############################################################################
-# Beads (global issue tracker)
+# Beads (global issue tracker - no git sync needed)
 ###############################################################################
 export BD_DB="$HOME/.beads/global.db"
+export BD_NO_DAEMON=1
 
 ###############################################################################
 # Dotfiles
