@@ -211,6 +211,23 @@ Do NOT add `--with pyspark`—databricks-connect bundles its own pyspark-connect
 - **Atomic commits:** One logical change per commit
 - **No AI co-authorship:** Never include AI attribution in commits
 
+## Beads (Global Issue Tracker)
+
+Jacob uses a global beads database for lightweight issue tracking across all projects. The `bd` command is pre-configured via environment variables.
+
+**Location:** `~/.beads/global.db` (set via `BD_DB` env var)
+
+**Labeling convention:**
+
+- When working in a git repo, use the repo name as the label: `--label <repo-name>`
+- The label should match the repo directory name (e.g., `kin-analytics-dbt`, `kin-dbx-platform`)
+- Ideas captured in think-tank get `--label think-tank` (repo-independent ideas)
+
+**When to use beads vs JIRA:**
+
+- **Beads:** Personal tracking, ideas, quick tasks, work-in-progress notes
+- **JIRA:** Team-visible work, sprint planning, formal tickets
+
 ## Jacob's JIRA Defaults (MANDATORY)
 
 YOU MUST use these defaults for ALL JIRA operations. These are not suggestions.
