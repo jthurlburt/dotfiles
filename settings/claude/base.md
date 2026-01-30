@@ -234,6 +234,8 @@ Jacob uses a global beads database for lightweight issue tracking across all pro
 - **Beads:** Personal tracking, ideas, quick tasks, work-in-progress notes
 - **JIRA:** Team-visible work, sprint planning, formal tickets
 
+**Closing beads:** Only close a bead after the work is actually committed. "I wrote the code" is not done—`git status` showing a clean working tree after commit is done.
+
 ## Jacob's JIRA Defaults (MANDATORY)
 
 YOU MUST use these defaults for ALL JIRA operations. These are not suggestions.
