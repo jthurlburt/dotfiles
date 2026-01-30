@@ -217,6 +217,12 @@ Jacob uses a global beads database for lightweight issue tracking across all pro
 
 **Location:** `~/.beads/global.db` (set via `BD_DB` env var)
 
+**When user says "work on beads" or "let's do some beads":**
+
+1. **Auto-scope to current repo** — If in a git repo, always filter by `--label <repo-name>`
+2. **Find ready work** — Use `bd ready --label <repo-name>` to find unblocked issues
+3. **Present options** — Show ready issues sorted by priority
+
 **Labeling convention:**
 
 - When working in a git repo, use the repo name as the label: `--label <repo-name>`
